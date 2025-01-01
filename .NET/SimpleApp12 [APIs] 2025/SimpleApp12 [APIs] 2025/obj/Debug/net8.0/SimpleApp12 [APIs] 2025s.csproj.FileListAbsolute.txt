@@ -1,0 +1,35 @@
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\bin\Debug\net8.0\appsettings.Development.json
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\bin\Debug\net8.0\appsettings.json
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\bin\Debug\net8.0\SimpleApp12 [APIs] 2025s.exe
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\bin\Debug\net8.0\SimpleApp12 [APIs] 2025s.deps.json
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\bin\Debug\net8.0\SimpleApp12 [APIs] 2025s.runtimeconfig.json
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\bin\Debug\net8.0\SimpleApp12 [APIs] 2025s.dll
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\bin\Debug\net8.0\SimpleApp12 [APIs] 2025s.pdb
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\bin\Debug\net8.0\AutoMapper.dll
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\bin\Debug\net8.0\Regon.dll
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\bin\Debug\net8.0\Regon.pdb
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\SimpleApp12 [APIs] 2025s.csproj.AssemblyReference.cache
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\SimpleApp12 [APIs] 2025s.GeneratedMSBuildEditorConfig.editorconfig
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\SimpleApp12 [APIs] 2025s.AssemblyInfoInputs.cache
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\SimpleApp12 [APIs] 2025s.AssemblyInfo.cs
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\SimpleApp12 [APIs] 2025s.csproj.CoreCompileInputs.cache
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\SimpleApp12 [APIs] 2025s.MvcApplicationPartsAssemblyInfo.cs
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\SimpleApp12 [APIs] 2025s.MvcApplicationPartsAssemblyInfo.cache
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\staticwebassets.build.json
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\staticwebassets.development.json
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\staticwebassets\msbuild.SimpleApp12 [APIs] 2025s.Microsoft.AspNetCore.StaticWebAssets.props
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\staticwebassets\msbuild.build.SimpleApp12 [APIs] 2025s.props
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SimpleApp12 [APIs] 2025s.props
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SimpleApp12 [APIs] 2025s.props
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\staticwebassets.pack.json
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\scopedcss\bundle\SimpleApp12 [APIs] 2025s.styles.css
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\SimpleAp.BAED72EF.Up2Date
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\SimpleApp12 [APIs] 2025s.dll
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\refint\SimpleApp12 [APIs] 2025s.dll
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\SimpleApp12 [APIs] 2025s.pdb
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\SimpleApp12 [APIs] 2025s.genruntimeconfig.cache
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\SimpleApp12 [APIs] 2025\SimpleApp12 [APIs] 2025\obj\Debug\net8.0\ref\SimpleApp12 [APIs] 2025s.dll

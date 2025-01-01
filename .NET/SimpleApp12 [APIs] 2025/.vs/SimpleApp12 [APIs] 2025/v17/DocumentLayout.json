@@ -1,0 +1,96 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\1 Artem\u0060s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|c:\\1 artem\u0060s folder\\c#\\asp.net core web api\\simpleapp12 [apis] 2025\\regon\\dtos\\regonapiresponses\\raporty\\pelny\\reportfull.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|solutionrelative:regon\\dtos\\regonapiresponses\\raporty\\pelny\\reportfull.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|c:\\1 artem\u0060s folder\\c#\\asp.net core web api\\simpleapp12 [apis] 2025\\regon\\services\\mainservice\\regonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|solutionrelative:regon\\services\\mainservice\\regonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|c:\\1 artem\u0060s folder\\c#\\asp.net core web api\\simpleapp12 [apis] 2025\\regon\\dtos\\regonapiresponses\\raporty\\enums\\pelny\\adsiedmiejscowoscpocztynazwaenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|solutionrelative:regon\\dtos\\regonapiresponses\\raporty\\enums\\pelny\\adsiedmiejscowoscpocztynazwaenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegonService.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\Regon\\Services\\MainService\\RegonService.cs",
+              "RelativeDocumentMoniker": "Regon\\Services\\MainService\\RegonService.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\Regon\\Services\\MainService\\RegonService.cs",
+              "RelativeToolTip": "Regon\\Services\\MainService\\RegonService.cs",
+              "ViewState": "AQIAAKcAAAAAAAAAAAAIwLQAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T20:39:12.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdSiedMiejscowoscPocztyNazwaEnum.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\Regon\\DTOs\\RegonApiResponses\\Raporty\\Enums\\Pelny\\AdSiedMiejscowoscPocztyNazwaEnum.cs",
+              "RelativeDocumentMoniker": "Regon\\DTOs\\RegonApiResponses\\Raporty\\Enums\\Pelny\\AdSiedMiejscowoscPocztyNazwaEnum.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\Regon\\DTOs\\RegonApiResponses\\Raporty\\Enums\\Pelny\\AdSiedMiejscowoscPocztyNazwaEnum.cs",
+              "RelativeToolTip": "Regon\\DTOs\\RegonApiResponses\\Raporty\\Enums\\Pelny\\AdSiedMiejscowoscPocztyNazwaEnum.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwBAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T20:27:25.706Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "02e687e8-cc09-47a9-8839-4f8bba5c4503",
+        "Display": 0,
+        "X": 1429,
+        "Y": 190,
+        "Width": 1047,
+        "Height": 1038,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReportFull.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\Regon\\DTOs\\RegonApiResponses\\Raporty\\Pelny\\ReportFull.cs",
+              "RelativeDocumentMoniker": "Regon\\DTOs\\RegonApiResponses\\Raporty\\Pelny\\ReportFull.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\Regon\\DTOs\\RegonApiResponses\\Raporty\\Pelny\\ReportFull.cs",
+              "RelativeToolTip": "Regon\\DTOs\\RegonApiResponses\\Raporty\\Pelny\\ReportFull.cs",
+              "ViewState": "AQIAAIQAAAAAAAAAAAAEwKIAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T19:22:13.917Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

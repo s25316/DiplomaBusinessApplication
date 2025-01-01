@@ -1,0 +1,6 @@
+@SimpleApp12__APIs__2025_HostAddress = http://localhost:5191
+
+GET {{SimpleApp12__APIs__2025_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
