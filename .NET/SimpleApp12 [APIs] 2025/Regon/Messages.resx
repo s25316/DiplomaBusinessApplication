@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppProblem_Deserialization" xml:space="preserve">
+    <value>Problem z deserializacja</value>
+  </data>
+  <data name="App_NotImplemented" xml:space="preserve">
+    <value>Problem aplikacyjny, brak wystaracajacej iplementacji w ramch klasy</value>
+  </data>
+  <data name="DaneSzukajResponse_F" xml:space="preserve">
+    <value>Podmiot osoby fizycznej prowadzącej działalność gospodarczą</value>
+  </data>
+  <data name="DaneSzukajResponse_LF" xml:space="preserve">
+    <value>Jednostka lokalna podmiotu osoby fizycznej</value>
+  </data>
+  <data name="DaneSzukajResponse_LP" xml:space="preserve">
+    <value>Jednostka lokalna osoby prawnej</value>
+  </data>
+  <data name="DaneSzukajResponse_P" xml:space="preserve">
+    <value>Osoba prawna / Jednostka organizacyjna niemająca osobowości prawnej</value>
+  </data>
   <data name="GetValue_KomunikatKod_Captcha" xml:space="preserve">
     <value>Konieczne jest pobranie i sprawdzenie kodu Captcha (metody PobierzCaptcha i SprawdzCaptcha).</value>
   </data>
@@ -140,5 +158,17 @@
   </data>
   <data name="GetValue_StatusUslugi_PrzerwaTechniczna" xml:space="preserve">
     <value>Przerwa Techniczna</value>
+  </data>
+  <data name="Invalid_Krs" xml:space="preserve">
+    <value>KRS zawiera tylko 10 cyfr</value>
+  </data>
+  <data name="Invalid_Nip" xml:space="preserve">
+    <value>NIP zawiera tylko 10 cyfr</value>
+  </data>
+  <data name="Invalid_Regon" xml:space="preserve">
+    <value>REGON zawiera 9 lub 14 cyfr</value>
+  </data>
+  <data name="Invalid_UserKey" xml:space="preserve">
+    <value>Klucz nie może byc pusty</value>
   </data>
 </root>

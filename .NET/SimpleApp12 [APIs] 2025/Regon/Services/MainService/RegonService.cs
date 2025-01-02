@@ -1,9 +1,13 @@
 ﻿using Regon.DTOs.RegonApiResponses.Raporty;
 using Regon.DTOs.RegonApiResponses.Raporty.Pelny;
+using Regon.DTOs.RegonApiResponses.Raporty.PKDs;
 using Regon.DTOs.ThisAppResponses;
 using Regon.Enums;
+using Regon.Enums.DTOs.ThisAppResponses;
+using Regon.Exceptions;
 using Regon.Repositories.Requests;
 using Regon.ValueObjects;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace Regon.Services.MainService
@@ -36,37 +40,42 @@ namespace Regon.Services.MainService
         public async Task<StatusUslugiResponse> StatusUslugiAsync(CancellationToken cancellation,
             bool isProduction = true)
         {
-            var status = _repository.GetValueAsync(null, GetValueEnum.StatusUslugi,
+            var status = await _repository.GetValueAsync(null, GetValueEnum.StatusUslugi,
                 cancellation, isProduction);
-            var komunikat = _repository.GetValueAsync(null, GetValueEnum.KomunikatUslugi,
+            /*var komunikat = _repository.GetValueAsync(null, GetValueEnum.KomunikatUslugi,
                 cancellation, isProduction);
 
-            Task.WaitAll(status, komunikat);
-            switch (int.Parse(status.Result))
+            Task.WaitAll(status, komunikat);*/
+            switch (int.Parse(status))
             {
                 case (int)StatusUslugiEnum.Niedostepna:
                     return new StatusUslugiResponse
                     {
                         IsActive = false,
-                        Status = Messages.GetValue_StatusUslugi_Niedostepna,
-                        Message = komunikat.Result,
+                        Status = StatusUslugiEnum.Niedostepna,
+                        Message = Messages.GetValue_StatusUslugi_Niedostepna,
                     };
                 case (int)StatusUslugiEnum.Dostepna:
                     return new StatusUslugiResponse
                     {
                         IsActive = true,
-                        Status = Messages.GetValue_StatusUslugi_Dostepna,
-                        Message = komunikat.Result,
+                        Status = StatusUslugiEnum.Dostepna,
+                        Message = Messages.GetValue_StatusUslugi_Dostepna,
                     };
                 case (int)StatusUslugiEnum.PrzerwaTechniczna:
                     return new StatusUslugiResponse
                     {
                         IsActive = false,
-                        Status = Messages.GetValue_StatusUslugi_PrzerwaTechniczna,
-                        Message = komunikat.Result,
+                        Status = StatusUslugiEnum.PrzerwaTechniczna,
+                        Message = Messages.GetValue_StatusUslugi_PrzerwaTechniczna,
                     };
                 default:
-                    throw new NotImplementedException();
+                    throw new RegonAppNotImplementedException(
+                                string.Format("{0}: {1}, {2}",
+                                Messages.App_NotImplemented,
+                                typeof(StatusUslugiEnum).Name,
+                                $"Typ {int.Parse(status)}")
+                                );
             }
         }
 
@@ -79,218 +88,237 @@ namespace Regon.Services.MainService
         /// <param name="typeValue">Regon, Krs, Nip</param>
         /// <param name="cancellation"></param>
         /// <returns></returns>
-        public async Task<DaneSzukajResponse> DaneSzukajAsync(
+        public async Task<Response<DaneSzukajResponse>> DaneSzukajAsync(
             string key,
             string value,
             string typeValue,
             CancellationToken cancellation,
             bool isProduction = true)
         {
-            DaneSzukajEnum szukajZa;
-            AdaptParameter(out szukajZa, ref value, typeValue);
-
-            var sessionId = await _repository.ZalogujAsync(key, cancellation, isProduction);
-            if (sessionId == null)
+            try
             {
-                var activeServiceDetails = await StatusUslugiAsync(cancellation, isProduction);
-                return new DaneSzukajResponse
+                DaneSzukajEnum szukajZa = GetDaneSzukajEnum(ref value, typeValue);
+
+                var sessionId = await _repository.ZalogujAsync(key, cancellation, isProduction);
+                if (sessionId == null)
                 {
-                    IsActiveService = activeServiceDetails.IsActive,
-                    IsValidUserKey = false,
-                    IsSuccess = false,
-                    InputProblem = null,
-                    Result = null,
-                };
-            }
-
-            var dane = await _repository.DaneSzukajAsync(sessionId, szukajZa, value,
-                cancellation, isProduction);
-            if (dane == null)
-            {
-                var problem = await KomunikatKodAsync(sessionId, cancellation, isProduction);
-                return new DaneSzukajResponse
-                {
-                    IsActiveService = true,
-                    IsValidUserKey = true,
-                    IsSuccess = false,
-                    InputProblem = problem,
-                    Result = null,
-                };
-            }
-            var wyloguj = await _repository.WylogujAsync(sessionId, cancellation, isProduction);
-
-            return new DaneSzukajResponse
-            {
-                IsActiveService = true,
-                IsValidUserKey = true,
-                IsSuccess = true,
-                InputProblem = null,
-                Result = dane,
-            };
-        }
-
-        public async Task<PelnyRaportResponse> DanePobierzPelnyRaportAsync(
-            string key,
-            string value,
-            string typeValue,
-            CancellationToken cancellation,
-            bool isProduction = true)
-        {
-            DaneSzukajEnum szukajZa;
-            AdaptParameter(out szukajZa, ref value, typeValue);
-
-            var sessionId = await _repository.ZalogujAsync(key, cancellation, isProduction);
-            if (sessionId == null)
-            {
-                var activeServiceDetails = await StatusUslugiAsync(cancellation, isProduction);
-                return new PelnyRaportResponse
-                {
-                    IsActiveService = activeServiceDetails.IsActive,
-                    IsValidUserKey = false,
-                    IsSuccess = false,
-                    InputProblem = null,
-                    Result = null,
-                };
-            }
-
-            var dane = await _repository.DaneSzukajAsync(sessionId, szukajZa, value,
-                cancellation, isProduction);
-            if (dane == null)
-            {
-                var problem = await KomunikatKodAsync(sessionId, cancellation, isProduction);
-                return new PelnyRaportResponse
-                {
-                    IsActiveService = true,
-                    IsValidUserKey = true,
-                    IsSuccess = false,
-                    InputProblem = problem,
-                    Result = null,
-                };
-            }
-
-            var raportType = new PelnyRaport(dane.Typ, dane.SilosID);
-            var raportXml = await _repository.DanePobierzPelnyRaport(
-                sessionId, dane.Regon, raportType.Raport, cancellation,
-                isProduction);
-
-            var wyloguj = await _repository.WylogujAsync(sessionId, cancellation, isProduction);
-
-            Dane d = null;
-
-            if (raportXml != null)
-            {
-                XmlSerializer serializer = new XmlSerializer(typeof(Root<ReportFull>));
-                using (var reader = raportXml.CreateReader())
-                {
-                    var res = serializer.Deserialize(reader) as Root<ReportFull> ??
-                        throw new Exception();
-                    d = res.Dane.FirstOrDefault();
+                    return await ResponseIfInvalidUserKeyAsync<DaneSzukajResponse>(
+                        cancellation, isProduction);
                 }
+
+                var danePodstawowe = await _repository.DaneSzukajAsync(
+                    sessionId, szukajZa, value, cancellation, isProduction);
+                if (danePodstawowe == null)
+                {
+                    return await ResponseIfNotFoundAsync<DaneSzukajResponse>(
+                        sessionId, cancellation, isProduction);
+                }
+                await _repository.WylogujAsync(sessionId, cancellation, isProduction);
+                return ResponseCorrect<DaneSzukajResponse>((DaneSzukajResponse)danePodstawowe);
             }
-            return new PelnyRaportResponse
+            catch (System.Exception ex)
             {
-                IsActiveService = true,
-                IsValidUserKey = true,
-                IsSuccess = true,
-                InputProblem = null,
-                Result = raportXml.ToString(),
-                ResultDane = d,
-            };
+                return ExceptionResponse<DaneSzukajResponse>(ex);
+            }
         }
 
-        public async Task<PelnyRaportResponse> RaportDzialalnosciPkdAsync(
+        public async Task<Response<ReportFullResponse>> DanePobierzPelnyRaportAsync(
             string key,
             string value,
             string typeValue,
             CancellationToken cancellation,
             bool isProduction = true)
         {
-            DaneSzukajEnum szukajZa;
-            AdaptParameter(out szukajZa, ref value, typeValue);
-
-            var sessionId = await _repository.ZalogujAsync(key, cancellation, isProduction);
-            if (sessionId == null)
+            try
             {
-                var activeServiceDetails = await StatusUslugiAsync(cancellation, isProduction);
-                return new PelnyRaportResponse
+                DaneSzukajEnum szukajZa = GetDaneSzukajEnum(ref value, typeValue);
+
+                var sessionId = await _repository.ZalogujAsync(key, cancellation, isProduction);
+                if (sessionId == null)
                 {
-                    IsActiveService = activeServiceDetails.IsActive,
-                    IsValidUserKey = false,
-                    IsSuccess = false,
-                    InputProblem = null,
-                    Result = null,
-                };
+                    return await ResponseIfInvalidUserKeyAsync<ReportFullResponse>(
+                       cancellation, isProduction);
+                }
+
+                var danePodstawowe = await _repository.DaneSzukajAsync(sessionId, szukajZa, value,
+                    cancellation, isProduction);
+                if (danePodstawowe == null)
+                {
+                    return await ResponseIfNotFoundAsync<ReportFullResponse>(
+                        sessionId, cancellation, isProduction);
+                }
+
+                var raportType = new PelnyRaport(danePodstawowe.Typ, danePodstawowe.SilosID);
+                var raportXml = await _repository.DanePobierzPelnyRaport(
+                    sessionId, danePodstawowe.Regon, raportType.Raport, cancellation,
+                    isProduction);
+
+                var wyloguj = await _repository.WylogujAsync(sessionId, cancellation, isProduction);
+
+                if (raportXml == null)
+                {
+                    return await ResponseIfNotFoundAsync<ReportFullResponse>(
+                            sessionId, cancellation, isProduction);
+                }
+
+                ReportFullResponse report = Deserialize<ReportFull>(raportXml).Dane.First();
+                return ResponseCorrect<ReportFullResponse>(report);
+            }
+            catch (System.Exception ex)
+            {
+                return ExceptionResponse<ReportFullResponse>(ex);
             }
 
-            var dane = await _repository.DaneSzukajAsync(sessionId, szukajZa, value,
-                cancellation, isProduction);
-            if (dane == null)
+        }
+
+        public Response<T> ExceptionResponse<T>(Exception ex) where T : class
+        {
+            switch (ex)
             {
-                var problem = await KomunikatKodAsync(sessionId, cancellation, isProduction);
-                return new PelnyRaportResponse
-                {
-                    IsActiveService = true,
-                    IsValidUserKey = true,
-                    IsSuccess = false,
-                    InputProblem = problem,
-                    Result = null,
-                };
-            }
-
-            var raportType = new PelnyRaport(dane.Typ, dane.SilosID);
-            var raportXml = await _repository.DanePobierzPelnyRaport(
-                sessionId, dane.Regon, raportType.RaportPkd, cancellation,
-                isProduction);
-
-            var wyloguj = await _repository.WylogujAsync(sessionId, cancellation, isProduction);
-
-
-            return new PelnyRaportResponse
-            {
-                IsActiveService = true,
-                IsValidUserKey = true,
-                IsSuccess = true,
-                InputProblem = null,
-                Result = raportXml.ToString(),
+                case RegonException:
+                    return new Response<T>
+                    {
+                        Status = RequestStatus.InvalidInputValue,
+                        ExceptionMessage = ex.Message,
+                    };
+                case NipException:
+                    return new Response<T>
+                    {
+                        Status = RequestStatus.InvalidInputValue,
+                        ExceptionMessage = ex.Message,
+                    };
+                case KrsException:
+                    return new Response<T>
+                    {
+                        Status = RequestStatus.InvalidInputValue,
+                        ExceptionMessage = ex.Message,
+                    };
+                case UserKeyException:
+                    return new Response<T>
+                    {
+                        Status = RequestStatus.InvalidUSerKey,
+                        ExceptionMessage = ex.Message,
+                    };
+                default:
+                    return new Response<T>
+                    {
+                        Status = RequestStatus.ThisAppProblem,
+                        ExceptionMessage = ex.ToString(),
+                    };
             };
         }
 
+        public async Task<Response<IEnumerable<PkdResponse>>> RaportDzialalnosciPkdAsync(
+            string key,
+            string value,
+            string typeValue,
+            CancellationToken cancellation,
+            bool isProduction = true)
+        {
+            try
+            {
+                DaneSzukajEnum szukajZa = GetDaneSzukajEnum(ref value, typeValue);
+
+                var sessionId = await _repository.ZalogujAsync(key, cancellation, isProduction);
+                if (sessionId == null)
+                {
+                    return await ResponseIfInvalidUserKeyAsync<IEnumerable<PkdResponse>>(
+                       cancellation, isProduction);
+                }
+
+                var danePodstawowe = await _repository.DaneSzukajAsync(sessionId, szukajZa, value,
+                    cancellation, isProduction);
+                if (danePodstawowe == null)
+                {
+                    return await ResponseIfNotFoundAsync<IEnumerable<PkdResponse>>(
+                        sessionId, cancellation, isProduction);
+                }
+
+                var raportType = new PelnyRaport(danePodstawowe.Typ, danePodstawowe.SilosID);
+                var raportXml = await _repository.DanePobierzPelnyRaport(
+                    sessionId, danePodstawowe.Regon, raportType.RaportPkd, cancellation,
+                    isProduction);
+
+                var wyloguj = await _repository.WylogujAsync(sessionId, cancellation, isProduction);
+                if (raportXml == null)
+                {
+                    return await ResponseIfNotFoundAsync<IEnumerable<PkdResponse>>(
+                        sessionId, cancellation, isProduction);
+                }
+                var list = Deserialize<Pkd>(raportXml)
+                        .Dane
+                        .Select(x => ((PkdResponse)x))
+                        .ToList();
+                return ResponseCorrect<IEnumerable<PkdResponse>>(list);
+            }
+            catch (System.Exception ex)
+            {
+                return ExceptionResponse<IEnumerable<PkdResponse>>(ex);
+            }
+        }
+
+        public async Task<Response<ReportFullWithPkdResponse>> DanePobierzPelnyRaportZPkdAsync(
+           string key,
+           string value,
+           string typeValue,
+           CancellationToken cancellation,
+           bool isProduction = true)
+        {
+            try
+            {
+                DaneSzukajEnum szukajZa = GetDaneSzukajEnum(ref value, typeValue);
+
+                var sessionId = await _repository.ZalogujAsync(key, cancellation, isProduction);
+                if (sessionId == null)
+                {
+                    return await ResponseIfInvalidUserKeyAsync<ReportFullWithPkdResponse>(
+                       cancellation, isProduction);
+                }
+
+                var danePodstawowe = await _repository.DaneSzukajAsync(sessionId, szukajZa, value,
+                    cancellation, isProduction);
+                if (danePodstawowe == null)
+                {
+                    return await ResponseIfNotFoundAsync<ReportFullWithPkdResponse>(
+                        sessionId, cancellation, isProduction);
+                }
+
+                var raportType = new PelnyRaport(danePodstawowe.Typ, danePodstawowe.SilosID);
+
+                var raportXml = await _repository.DanePobierzPelnyRaport(
+                    sessionId, danePodstawowe.Regon, raportType.Raport, cancellation,
+                    isProduction);
+                var raportPkdXml = await _repository.DanePobierzPelnyRaport(
+                    sessionId, danePodstawowe.Regon, raportType.RaportPkd, cancellation,
+                    isProduction);
+
+                var wyloguj = await _repository.WylogujAsync(sessionId, cancellation, isProduction);
+
+                if (raportXml == null || raportPkdXml == null)
+                {
+                    return await ResponseIfNotFoundAsync<ReportFullWithPkdResponse>(
+                            sessionId, cancellation, isProduction);
+                }
+                var report = Deserialize<ReportFull>(raportXml).Dane.First();
+                var listPkd = Deserialize<Pkd>(raportPkdXml).Dane;
+
+                var response = new ReportFullWithPkdResponse
+                {
+                    Type = ((DaneSzukajResponse)danePodstawowe).TypNazwa,
+                    Report = report,
+                    Pkd = listPkd.Select(x => ((PkdResponse)x)),
+                };
+                return ResponseCorrect<ReportFullWithPkdResponse>(response);
+            }
+            catch (System.Exception ex)
+            {
+                return ExceptionResponse<ReportFullWithPkdResponse>(ex);
+            }
+        }
         //==============================================================================================
         //==============================================================================================
         //==============================================================================================
         //Private Methods
-
-        private void AdaptParameter(out DaneSzukajEnum daneSzukaj, ref string value,
-            string typeValue)
-        {
-            switch (typeValue.ToLower())
-            {
-                case "regon":
-                    daneSzukaj = 0;
-                    value = new ValueObjects.Regon
-                    {
-                        Value = value,
-                    }.Value;
-                    break;
-                case "krs":
-                    daneSzukaj = (DaneSzukajEnum)1;
-                    value = new Krs
-                    {
-                        Value = value
-                    }.Value;
-                    break;
-                case "nip":
-                    daneSzukaj = (DaneSzukajEnum)2;
-                    value = new Nip
-                    {
-                        Value = value
-                    }.Value;
-                    break;
-                default:
-                    throw new ArgumentException();
-            }
-        }
-
         /// <summary>
         /// Zwraca status sesji, true => tak, false => nie. 
         /// </summary>
@@ -353,7 +381,12 @@ namespace Regon.Services.MainService
                         Message = Messages.GetValue_KomunikatKod_UnAuthorize,
                     };
                 default:
-                    throw new NotImplementedException();
+                    throw new RegonAppNotImplementedException(
+                                string.Format("{0}: {1}, {2}",
+                                Messages.App_NotImplemented,
+                                typeof(KomunikatKodEnum).Name,
+                                $"Value {status ?? "null"}")
+                                );
             }
         }
 
@@ -384,6 +417,92 @@ namespace Regon.Services.MainService
             var dateTime = await _repository.GetValueAsync(session, GetValueEnum.StanDanych,
                 cancellation, isProduction);
             return DateTime.Parse(dateTime);
+        }
+
+
+        private DaneSzukajEnum GetDaneSzukajEnum(ref string value,
+            string typeValue)
+        {
+            switch (typeValue.ToLower())
+            {
+                case "regon":
+                    value = new ValueObjects.Regon
+                    {
+                        Value = value,
+                    }.Value;
+                    return DaneSzukajEnum.Regon;
+                case "krs":
+                    value = new Krs
+                    {
+                        Value = value
+                    }.Value;
+                    return DaneSzukajEnum.Krs;
+                case "nip":
+                    value = new Nip
+                    {
+                        Value = value
+                    }.Value;
+                    return DaneSzukajEnum.Nip;
+                default:
+                    throw new RegonAppNotImplementedException(
+                                string.Format("{0}: {1}, {2}",
+                                Messages.App_NotImplemented,
+                                typeof(DaneSzukajEnum).Name,
+                                $"Value {value}"));
+            }
+        }
+
+        private async Task<Response<T>> ResponseIfInvalidUserKeyAsync<T>(
+            CancellationToken cancellation,
+            bool isProduction = true)
+        {
+            var status = await StatusUslugiAsync(cancellation, isProduction);
+            return new Response<T>
+            {
+                Status = status.IsActive ?
+                    RequestStatus.InvalidUSerKey :
+                    (
+                    status.Status == StatusUslugiEnum.PrzerwaTechniczna ?
+                        RequestStatus.TechnicalBreak :
+                        RequestStatus.ServiceUnavailable
+                    ),
+            };
+        }
+
+        private async Task<Response<T>> ResponseIfNotFoundAsync<T>(
+            SessionId sessionId,
+            CancellationToken cancellation,
+            bool isProduction = true)
+        {
+            var problem = await KomunikatKodAsync(sessionId, cancellation, isProduction);
+            return new Response<T>
+            {
+                Status = (RequestStatus)((int)problem.KomunikatKod),
+                //RequestProblem = problem,
+            };
+        }
+
+        private Response<T> ResponseCorrect<T>(T value)
+        {
+            return new Response<T>
+            {
+                Status = RequestStatus.Success,
+                Result = value,
+            };
+        }
+
+        private Root<T> Deserialize<T>(XElement xml) where T : class
+        {
+            XmlSerializer s = new XmlSerializer(typeof(Root<T>));
+            using (var reader = xml.CreateReader())
+            {
+                var root = s.Deserialize(reader) as Root<T> ??
+                    throw new RegonAppNotImplementedException(
+                                string.Format("{0}: {1}",
+                                Messages.AppProblem_Deserialization,
+                                xml.ToString()));
+                return root;
+            }
         }
     }
 }

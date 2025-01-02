@@ -1,9 +1,9 @@
-﻿using Regon.DTOs.RegonApiResponses.Raporty.Enums.Pelny;
+﻿using Regon.Enums.DTOs.RegonApiResponses.Pelny;
 using System.Xml.Serialization;
 
 namespace Regon.DTOs.RegonApiResponses.Raporty.Pelny
 {
-    public class ReportFull : Dane
+    public class ReportFull
     {
         [XmlChoiceIdentifier("RegonEnum")]
         [XmlElement(ElementName = "fiz_regon9")]
@@ -202,43 +202,43 @@ namespace Regon.DTOs.RegonApiResponses.Raporty.Pelny
         [XmlChoiceIdentifier("NumerTelefonuEnum")]
         [XmlElement(ElementName = "fiz_numerTelefonu", IsNullable = true)]
         [XmlElement(ElementName = "praw_numerTelefonu", IsNullable = true)]
-        public string? NumerTelefonu { get; init; } = null;
-        public NumerTelefonuEnum NumerTelefonuEnum { get; init; }
+        [XmlElement(ElementName = "fizC_numerTelefonu", IsNullable = true)]
+        public string[] NumerTelefonu { get; init; } = Array.Empty<string>();
+        public NumerTelefonuEnum[] NumerTelefonuEnum { get; init; } = Array.Empty<NumerTelefonuEnum>();
 
 
         [XmlChoiceIdentifier("NumerWewnetrznyTelefonuEnum")]
         [XmlElement(ElementName = "fiz_numerWewnetrznyTelefonu", IsNullable = true)]
         [XmlElement(ElementName = "praw_numerWewnetrznyTelefonu", IsNullable = true)]
-        public string? NumerWewnetrznyTelefonu { get; init; } = null;
-        public NumerWewnetrznyTelefonuEnum NumerWewnetrznyTelefonuEnum { get; init; }
+        [XmlElement(ElementName = "fizC_numerWewnetrznyTelefonu", IsNullable = true)]
+        public string[] NumerWewnetrznyTelefonu { get; init; } = Array.Empty<string>();
+        public NumerWewnetrznyTelefonuEnum[] NumerWewnetrznyTelefonuEnum { get; init; } = Array.Empty<NumerWewnetrznyTelefonuEnum>();
 
 
         [XmlChoiceIdentifier("NumerFaksuEnum")]
         [XmlElement(ElementName = "fiz_numerFaksu", IsNullable = true)]
         [XmlElement(ElementName = "praw_numerFaksu", IsNullable = true)]
-        public string? NumerFaksu { get; init; } = null;
-        public NumerFaksuEnum NumerFaksuEnum { get; init; }
+        [XmlElement(ElementName = "fizC_numerFaksu", IsNullable = true)]
+        public string[] NumerFaksu { get; init; } = Array.Empty<string>();
+        public NumerFaksuEnum[] NumerFaksuEnum { get; init; } = Array.Empty<NumerFaksuEnum>();
 
 
         [XmlChoiceIdentifier("AdresEmailEnum")]
         [XmlElement(ElementName = "fiz_adresEmail", IsNullable = true)]
         [XmlElement(ElementName = "praw_adresEmail", IsNullable = true)]
-        public string? AdresEmail { get; init; } = null;
-        public AdresEmailEnum AdresEmailEnum { get; init; }
+        [XmlElement(ElementName = "fizC_adresEmail", IsNullable = true)]
+        [XmlElement(ElementName = "fiz_adresEmail2", IsNullable = true)]
+        [XmlElement(ElementName = "praw_adresEmail2", IsNullable = true)]
+        public string[] AdresEmail { get; init; } = Array.Empty<string>();
+        public AdresEmailEnum[] AdresEmailEnum { get; init; } = Array.Empty<AdresEmailEnum>();
 
 
         [XmlChoiceIdentifier("WWWEnum")]
         [XmlElement(ElementName = "fiz_adresStronyinternetowej", IsNullable = true)]
         [XmlElement(ElementName = "praw_adresStronyinternetowej", IsNullable = true)]
-        public string? WWW { get; init; } = null;
-        public WWWEnum WWWEnum { get; init; }
-
-
-        [XmlChoiceIdentifier("AdresEmail2Enum")]
-        [XmlElement(ElementName = "fiz_adresEmail2", IsNullable = true)]
-        [XmlElement(ElementName = "praw_adresEmail2", IsNullable = true)]
-        public string? AdresEmail2 { get; init; } = null;
-        public AdresEmail2Enum AdresEmail2Enum { get; init; }
+        [XmlElement(ElementName = "fizC_adresStronyInternetowej", IsNullable = true)]
+        public string[] WWW { get; init; } = Array.Empty<string>();
+        public WWWEnum[] WWWEnum { get; init; } = Array.Empty<WWWEnum>();
 
 
         [XmlChoiceIdentifier("DataPowstaniaEnum")]
@@ -370,23 +370,6 @@ namespace Regon.DTOs.RegonApiResponses.Raporty.Pelny
         [XmlElement(ElementName = "lokfiz_rodzajRejestru_Nazwa")]
         public string RodzajRejestruNazwa { get; init; } = null!;
         public RodzajRejestruNazwaEnum RodzajRejestruNazwaEnum { get; init; }
-
-
-        [XmlElement(ElementName = "fizC_numerTelefonu", IsNullable = true)]
-        public string? NumerTelefonu2 { get; init; } = null;
-
-        [XmlElement(ElementName = "fizC_numerWewnetrznyTelefonu", IsNullable = true)]
-        public string? NumerWewnetrznyTelefonu2 { get; init; } = null;
-
-        [XmlElement(ElementName = "fizC_numerFaksu", IsNullable = true)]
-        public string? NumerFaksu2 { get; init; } = null;
-
-        [XmlElement(ElementName = "fizC_adresEmail", IsNullable = true)]
-        public string? AdresEmail3 { get; init; } = null;
-
-        [XmlElement(ElementName = "fizC_adresStronyInternetowej", IsNullable = true)]
-        public string? WWW2 { get; init; } = null;
-
 
         [XmlChoiceIdentifier("FormaFinansowaniaSymbolEnum")]
         [XmlElement(ElementName = "praw_formaFinansowania_Symbol")]

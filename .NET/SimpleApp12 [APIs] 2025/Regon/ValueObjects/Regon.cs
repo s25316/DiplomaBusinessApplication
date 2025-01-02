@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using Regon.Exceptions;
+using System.Text.RegularExpressions;
 
 namespace Regon.ValueObjects
 {
@@ -14,7 +15,7 @@ namespace Regon.ValueObjects
             {
                 if (!IsValid(ref value))
                 {
-                    throw new InvalidOperationException();
+                    throw new RegonException();
                 }
                 _value = value;
             }

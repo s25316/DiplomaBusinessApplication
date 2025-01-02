@@ -1,9 +1,13 @@
-﻿namespace Regon.DTOs.ThisAppResponses
+﻿using Regon.Enums;
+using System.Text.Json.Serialization;
+
+namespace Regon.DTOs.ThisAppResponses
 {
     public class StatusUslugiResponse
     {
         public bool IsActive { get; init; } = false;
-        public string? Status { get; init; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public StatusUslugiEnum Status { get; init; }
         public string? Message { get; init; }
     }
 }

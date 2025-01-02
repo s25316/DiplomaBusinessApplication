@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\1 Artem\u0060s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\",
+  "WorkspaceRootPath": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|c:\\1 artem\u0060s folder\\c#\\asp.net core web api\\simpleapp12 [apis] 2025\\regon\\dtos\\regonapiresponses\\raporty\\pelny\\reportfull.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|solutionrelative:regon\\dtos\\regonapiresponses\\raporty\\pelny\\reportfull.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1D4AB12-AD24-4DC0-B0E4-D78F3DAC4091}|Api\\Api.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\api\\controllers\\regoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1D4AB12-AD24-4DC0-B0E4-D78F3DAC4091}|Api\\Api.csproj|solutionrelative:api\\controllers\\regoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|c:\\1 artem\u0060s folder\\c#\\asp.net core web api\\simpleapp12 [apis] 2025\\regon\\services\\mainservice\\regonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\regon\\services\\mainservice\\regonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|solutionrelative:regon\\services\\mainservice\\regonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|c:\\1 artem\u0060s folder\\c#\\asp.net core web api\\simpleapp12 [apis] 2025\\regon\\dtos\\regonapiresponses\\raporty\\enums\\pelny\\adsiedmiejscowoscpocztynazwaenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|solutionrelative:regon\\dtos\\regonapiresponses\\raporty\\enums\\pelny\\adsiedmiejscowoscpocztynazwaenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\regon\\exceptions\\regonappnotimplementedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|solutionrelative:regon\\exceptions\\regonappnotimplementedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\regon\\dtos\\thisappresponses\\reportfullwithpkdresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|solutionrelative:regon\\dtos\\thisappresponses\\reportfullwithpkdresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,28 +34,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RegonService.cs",
-              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\Regon\\Services\\MainService\\RegonService.cs",
-              "RelativeDocumentMoniker": "Regon\\Services\\MainService\\RegonService.cs",
-              "ToolTip": "C:\\1 Artem\u0060s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\Regon\\Services\\MainService\\RegonService.cs",
-              "RelativeToolTip": "Regon\\Services\\MainService\\RegonService.cs",
-              "ViewState": "AQIAAKcAAAAAAAAAAAAIwLQAAAANAAAA",
+              "DocumentIndex": 2,
+              "Title": "RegonAppNotImplementedException.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Regon\\Exceptions\\RegonAppNotImplementedException.cs",
+              "RelativeDocumentMoniker": "Regon\\Exceptions\\RegonAppNotImplementedException.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Regon\\Exceptions\\RegonAppNotImplementedException.cs",
+              "RelativeToolTip": "Regon\\Exceptions\\RegonAppNotImplementedException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T20:39:12.784Z",
+              "WhenOpened": "2025-01-02T17:33:26.354Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AdSiedMiejscowoscPocztyNazwaEnum.cs",
-              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\Regon\\DTOs\\RegonApiResponses\\Raporty\\Enums\\Pelny\\AdSiedMiejscowoscPocztyNazwaEnum.cs",
-              "RelativeDocumentMoniker": "Regon\\DTOs\\RegonApiResponses\\Raporty\\Enums\\Pelny\\AdSiedMiejscowoscPocztyNazwaEnum.cs",
-              "ToolTip": "C:\\1 Artem\u0060s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\Regon\\DTOs\\RegonApiResponses\\Raporty\\Enums\\Pelny\\AdSiedMiejscowoscPocztyNazwaEnum.cs",
-              "RelativeToolTip": "Regon\\DTOs\\RegonApiResponses\\Raporty\\Enums\\Pelny\\AdSiedMiejscowoscPocztyNazwaEnum.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwBAAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "RegonService.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Regon\\Services\\MainService\\RegonService.cs",
+              "RelativeDocumentMoniker": "Regon\\Services\\MainService\\RegonService.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Regon\\Services\\MainService\\RegonService.cs",
+              "RelativeToolTip": "Regon\\Services\\MainService\\RegonService.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAowCkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T20:27:25.706Z",
+              "WhenOpened": "2025-01-02T16:53:12.809Z",
               "EditorCaption": ""
             }
           ]
@@ -62,12 +66,12 @@
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "FloatingWindowState": {
-        "Id": "02e687e8-cc09-47a9-8839-4f8bba5c4503",
+        "Id": "44c4ea35-0cbb-4e19-8402-0a6865416c8e",
         "Display": 0,
-        "X": 1429,
-        "Y": 190,
-        "Width": 1047,
-        "Height": 1038,
+        "X": 1957,
+        "Y": 276,
+        "Width": 1037,
+        "Height": 990,
         "WindowState": 0
       },
       "DocumentGroups": [
@@ -78,14 +82,48 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ReportFull.cs",
-              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\Regon\\DTOs\\RegonApiResponses\\Raporty\\Pelny\\ReportFull.cs",
-              "RelativeDocumentMoniker": "Regon\\DTOs\\RegonApiResponses\\Raporty\\Pelny\\ReportFull.cs",
-              "ToolTip": "C:\\1 Artem\u0060s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\Regon\\DTOs\\RegonApiResponses\\Raporty\\Pelny\\ReportFull.cs",
-              "RelativeToolTip": "Regon\\DTOs\\RegonApiResponses\\Raporty\\Pelny\\ReportFull.cs",
-              "ViewState": "AQIAAIQAAAAAAAAAAAAEwKIAAABJAAAA",
+              "Title": "RegonController.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Api\\Controllers\\RegonController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\RegonController.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Api\\Controllers\\RegonController.cs",
+              "RelativeToolTip": "Api\\Controllers\\RegonController.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAwwAoAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T19:22:13.917Z",
+              "WhenOpened": "2025-01-02T17:05:31.785Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "387e10aa-b878-40aa-a220-0410f85c26e1",
+        "Display": 0,
+        "X": 1751,
+        "Y": 492,
+        "Width": 1037,
+        "Height": 990,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReportFullWithPkdResponse.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Regon\\DTOs\\ThisAppResponses\\ReportFullWithPkdResponse.cs",
+              "RelativeDocumentMoniker": "Regon\\DTOs\\ThisAppResponses\\ReportFullWithPkdResponse.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Regon\\DTOs\\ThisAppResponses\\ReportFullWithPkdResponse.cs",
+              "RelativeToolTip": "Regon\\DTOs\\ThisAppResponses\\ReportFullWithPkdResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T17:07:49.153Z",
               "EditorCaption": ""
             }
           ]

@@ -1,9 +1,23 @@
-﻿namespace Regon.ValueObjects
+﻿using Regon.Exceptions;
+
+namespace Regon.ValueObjects
 {
     public record UserKey
     {
         //Properties
-        public string Value { get; init; } = null!;
+        private string _value = null!;
+        public string Value
+        {
+            get { return _value; }
+            init
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new UserKeyException();
+                }
+                _value = value;
+            }
+        }
 
 
         //================================================================================================

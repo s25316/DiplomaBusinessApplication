@@ -58,5 +58,17 @@ namespace Api.Controllers
                 true);
             return Ok(result);
         }
+
+        [HttpGet("RaportwithPkd")]
+        public async Task<IActionResult> DanePobierzPelnyRaportZPkdAsync(
+            CancellationToken cancellation,
+            string value = "5262160983",
+            string typeValue = "nip",
+            bool isProduction = true)
+        {
+            var result = await _svc.DanePobierzPelnyRaportZPkdAsync(_key, value, typeValue, cancellation,
+                true);
+            return Ok(result);
+        }
     }
 }

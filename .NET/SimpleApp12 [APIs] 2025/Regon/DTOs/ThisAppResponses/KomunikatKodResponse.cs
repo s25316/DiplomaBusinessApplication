@@ -8,6 +8,5 @@ namespace Regon.DTOs.ThisAppResponses
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public KomunikatKodEnum KomunikatKod { get; init; }
         public string Message { get; init; } = null!;
-
     }
 }

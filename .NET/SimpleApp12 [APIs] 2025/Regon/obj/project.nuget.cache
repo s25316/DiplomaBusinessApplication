@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+J1mJ6tRMjk=",
+  "dgSpecHash": "z0vpOelR/88=",
   "success": true,
-  "projectFilePath": "C:\\1 Artem`s Folder\\C#\\ASP.NET Core Web API\\SimpleApp12 [APIs] 2025\\Regon\\Regon.csproj",
+  "projectFilePath": "C:\\1 Artem`s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Regon\\Regon.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\artem\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\artem\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",

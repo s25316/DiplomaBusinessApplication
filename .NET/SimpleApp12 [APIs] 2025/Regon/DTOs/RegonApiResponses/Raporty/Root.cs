@@ -6,6 +6,6 @@ namespace Regon.DTOs.RegonApiResponses.Raporty
     public class Root<T>
     {
         [XmlElement(ElementName = "dane")]
-        public List<T> Dane { get; init; } = new List<T>();
+        public List<T> Dane { get; set; } = new List<T>();
     }
 }

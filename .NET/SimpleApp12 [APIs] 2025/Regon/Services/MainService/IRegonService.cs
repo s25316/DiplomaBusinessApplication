@@ -7,24 +7,31 @@ namespace Regon.Services.MainService
         Task<StatusUslugiResponse> StatusUslugiAsync(CancellationToken cancellation,
             bool isProduction = true);
 
-        Task<DaneSzukajResponse> DaneSzukajAsync(
+        Task<Response<DaneSzukajResponse>> DaneSzukajAsync(
             string key,
             string value,
             string typeValue,
             CancellationToken cancellation,
             bool isProduction = true);
-        Task<PelnyRaportResponse> DanePobierzPelnyRaportAsync(
+        Task<Response<ReportFullResponse>> DanePobierzPelnyRaportAsync(
             string key,
             string value,
             string typeValue,
             CancellationToken cancellation,
             bool isProduction = true);
 
-        Task<PelnyRaportResponse> RaportDzialalnosciPkdAsync(
+        Task<Response<IEnumerable<PkdResponse>>> RaportDzialalnosciPkdAsync(
             string key,
             string value,
             string typeValue,
             CancellationToken cancellation,
             bool isProduction = true);
+
+        Task<Response<ReportFullWithPkdResponse>> DanePobierzPelnyRaportZPkdAsync(
+           string key,
+           string value,
+           string typeValue,
+           CancellationToken cancellation,
+           bool isProduction = true);
     }
 }

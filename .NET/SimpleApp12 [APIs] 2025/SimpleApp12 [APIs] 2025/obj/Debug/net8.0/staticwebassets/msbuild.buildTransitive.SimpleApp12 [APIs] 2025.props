@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\SimpleApp12 [APIs] 2025.props" />
-</Project>

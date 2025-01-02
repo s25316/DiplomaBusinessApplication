@@ -61,6 +61,60 @@ namespace Regon {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Problem aplikacyjny, brak wystaracajacej iplementacji w ramch klasy.
+        /// </summary>
+        internal static string App_NotImplemented {
+            get {
+                return ResourceManager.GetString("App_NotImplemented", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Problem z deserializacja.
+        /// </summary>
+        internal static string AppProblem_Deserialization {
+            get {
+                return ResourceManager.GetString("AppProblem_Deserialization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podmiot osoby fizycznej prowadzącej działalność gospodarczą.
+        /// </summary>
+        internal static string DaneSzukajResponse_F {
+            get {
+                return ResourceManager.GetString("DaneSzukajResponse_F", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jednostka lokalna podmiotu osoby fizycznej.
+        /// </summary>
+        internal static string DaneSzukajResponse_LF {
+            get {
+                return ResourceManager.GetString("DaneSzukajResponse_LF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jednostka lokalna osoby prawnej.
+        /// </summary>
+        internal static string DaneSzukajResponse_LP {
+            get {
+                return ResourceManager.GetString("DaneSzukajResponse_LP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Osoba prawna / Jednostka organizacyjna niemająca osobowości prawnej.
+        /// </summary>
+        internal static string DaneSzukajResponse_P {
+            get {
+                return ResourceManager.GetString("DaneSzukajResponse_P", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Konieczne jest pobranie i sprawdzenie kodu Captcha (metody PobierzCaptcha i SprawdzCaptcha)..
         /// </summary>
         internal static string GetValue_KomunikatKod_Captcha {
@@ -129,6 +183,42 @@ namespace Regon {
         internal static string GetValue_StatusUslugi_PrzerwaTechniczna {
             get {
                 return ResourceManager.GetString("GetValue_StatusUslugi_PrzerwaTechniczna", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KRS zawiera tylko 10 cyfr.
+        /// </summary>
+        internal static string Invalid_Krs {
+            get {
+                return ResourceManager.GetString("Invalid_Krs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NIP zawiera tylko 10 cyfr.
+        /// </summary>
+        internal static string Invalid_Nip {
+            get {
+                return ResourceManager.GetString("Invalid_Nip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to REGON zawiera 9 lub 14 cyfr.
+        /// </summary>
+        internal static string Invalid_Regon {
+            get {
+                return ResourceManager.GetString("Invalid_Regon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Klucz nie może byc pusty.
+        /// </summary>
+        internal static string Invalid_UserKey {
+            get {
+                return ResourceManager.GetString("Invalid_UserKey", resourceCulture);
             }
         }
     }
