@@ -12,25 +12,20 @@ namespace Radon.Services
         Task<Institution?> GetInstytucjeAsync(
             string value,
             InstytucjeSearchByEnum search,
-            int maxItems = 100,
             CancellationToken cancellation = default);
         Task<IEnumerable<BranchDto>> GetBranchesAsync(
             string value,
             BranchesSearchByEnum search,
-            int maxItems = 100,
             CancellationToken cancellation = default);
         Task<IEnumerable<CourseDto>> GetCoursesAsync(
             string value,
             CoursesSearchByEnum search,
-            int maxItems = 100,
             CancellationToken cancellation = default);
-        Task<IEnumerable<DoctoralSchoolDto>> GetDoctoralSchoolsAsync(
+        Task<DoctoralSchoolDto?> GetDoctoralSchoolsAsync(
             Guid doctoralSchoolGuid,
-            int maxItems = 100,
             CancellationToken cancellation = default);
         Task<IEnumerable<SpecializedEducationDto>> GetSpecializedEducationsAsync(
             Guid institutionUuid,
-            int maxItems = 100,
             CancellationToken cancellation = default);
     }
 }

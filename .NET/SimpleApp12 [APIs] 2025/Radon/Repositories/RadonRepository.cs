@@ -5,19 +5,19 @@ namespace Radon.Repositories
     public class RadonRepository : IRadonRepository
     {
         //Properties
-        public static readonly string _url = "https://radon.nauka.gov.pl/opendata/polon/";
+        private static readonly string _url = "https://radon.nauka.gov.pl/opendata/polon/";
 
-        public static readonly string _institutionUuidQueryParameter = "institutionUuid=";
-        public static readonly string _branchUuidQueryParameter = "branchUuid=";
-        public static readonly string _mainInstitutionNameQueryParameter = "mainInstitutionName=";
-        public static readonly string _mainInstitutionUuidQueryParameter = "mainInstitutionUuid=";
+        private static readonly string _institutionUuidQueryParameter = "institutionUuid=";
+        private static readonly string _branchUuidQueryParameter = "branchUuid=";
+        private static readonly string _mainInstitutionNameQueryParameter = "mainInstitutionName=";
+        private static readonly string _mainInstitutionUuidQueryParameter = "mainInstitutionUuid=";
 
-        public static readonly string _resultNumbersQueryParameter = "resultNumbers=";
-        public static readonly string _tokenQueryParameter = "token=";
-        public static readonly string _nameQueryParameter = "name=";
-        public static readonly string _nipQueryParameter = "nip=";
-        public static readonly string _krsQueryParameter = "krs=";
-        public static readonly string _regonQueryParameter = "regon=";
+        private static readonly string _resultNumbersQueryParameter = "resultNumbers=";
+        private static readonly string _tokenQueryParameter = "token=";
+        private static readonly string _nameQueryParameter = "name=";
+        private static readonly string _nipQueryParameter = "nip=";
+        private static readonly string _krsQueryParameter = "krs=";
+        private static readonly string _regonQueryParameter = "regon=";
 
 
 

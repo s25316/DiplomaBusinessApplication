@@ -14,6 +14,7 @@ namespace Radon.Services
     {
         //Properties
         private readonly IRadonRepository _repository;
+        private readonly int _maxItems = 100;
 
 
         //Constructor
@@ -30,10 +31,9 @@ namespace Radon.Services
         public async Task<Institution?> GetInstytucjeAsync(
             string value,
             InstytucjeSearchByEnum search,
-            int maxItems = 100,
             CancellationToken cancellation = default)
         {
-            var json = await _repository.GetInstytucjeAsync(value, search, maxItems, null, cancellation);
+            var json = await _repository.GetInstytucjeAsync(value, search, _maxItems, null, cancellation);
             var x = Deserialize<Institution>(json);
             return x.Items.FirstOrDefault();
         }
@@ -41,45 +41,83 @@ namespace Radon.Services
         public async Task<IEnumerable<BranchDto>> GetBranchesAsync(
             string value,
             BranchesSearchByEnum search,
-            int maxItems = 100,
             CancellationToken cancellation = default)
         {
-            var json = await _repository.GetBranchesAsync(value, search, maxItems, null, cancellation);
-            var x = Deserialize<BranchDto>(json);
-            return x.Items;
+            var items = new List<BranchDto>();
+            var totalCount = -1;
+            string? token = null;
+            do
+            {
+                var json = await _repository.GetBranchesAsync(value, search, _maxItems, token, cancellation);
+                var x = Deserialize<BranchDto>(json);
+
+                token = x.Token;
+                items.AddRange(x.Items);
+                if (totalCount < 0)
+                {
+                    totalCount = x.Count;
+                }
+            }
+            while (totalCount != items.Count);
+            return items;
         }
 
         public async Task<IEnumerable<CourseDto>> GetCoursesAsync(
             string value,
             CoursesSearchByEnum search,
-            int maxItems = 100,
             CancellationToken cancellation = default)
         {
-            var json = await _repository.GetCoursesAsync(value, search, maxItems, null, cancellation);
-            var x = Deserialize<CourseDto>(json);
-            return x.Items;
+            var items = new List<CourseDto>();
+            var totalCount = -1;
+            string? token = null;
+            do
+            {
+                var json = await _repository.GetCoursesAsync(value, search, _maxItems, token, cancellation);
+                var x = Deserialize<CourseDto>(json);
+
+                token = x.Token;
+                items.AddRange(x.Items);
+                if (totalCount < 0)
+                {
+                    totalCount = x.Count;
+                }
+            }
+            while (totalCount != items.Count);
+            return items;
         }
 
-        public async Task<IEnumerable<DoctoralSchoolDto>> GetDoctoralSchoolsAsync(
+        public async Task<DoctoralSchoolDto?> GetDoctoralSchoolsAsync(
             Guid doctoralSchoolGuid,
-            int maxItems = 100,
             CancellationToken cancellation = default)
         {
             var json = await _repository.GetDoctoralSchoolsAsync(
-                doctoralSchoolGuid, maxItems, null, cancellation);
+                doctoralSchoolGuid, _maxItems, null, cancellation);
             var x = Deserialize<DoctoralSchoolDto>(json);
-            return x.Items;
+            return x.Items.FirstOrDefault();
         }
 
         public async Task<IEnumerable<SpecializedEducationDto>> GetSpecializedEducationsAsync(
             Guid institutionUuid,
-            int maxItems = 100,
             CancellationToken cancellation = default)
         {
-            var json = await _repository.GetSpecializedEducationsAsync(
-                institutionUuid, maxItems, null, cancellation);
-            var x = Deserialize<SpecializedEducationDto>(json);
-            return x.Items;
+            var items = new List<SpecializedEducationDto>();
+            var totalCount = -1;
+            string? token = null;
+            do
+            {
+                var json = await _repository.GetSpecializedEducationsAsync(
+                    institutionUuid, _maxItems, token, cancellation);
+                var x = Deserialize<SpecializedEducationDto>(json);
+
+                token = x.Token;
+                items.AddRange(x.Items);
+                if (totalCount < 0)
+                {
+                    totalCount = x.Count;
+                }
+            }
+            while (totalCount != items.Count);
+            return items;
         }
         //===============================================================================================
         //===============================================================================================

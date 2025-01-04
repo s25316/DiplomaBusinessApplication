@@ -28,11 +28,10 @@ namespace Api.Controllers
         public async Task<IActionResult> GetInstitutionAsync(
             CancellationToken cancellation,
             string value = "5262160983",
-            InstytucjeSearchByEnum search = InstytucjeSearchByEnum.Nip,
-            int maxItems = 100)
+            InstytucjeSearchByEnum search = InstytucjeSearchByEnum.Nip)
         {
             var result = await _service.GetInstytucjeAsync(
-                value, search, maxItems, cancellation);
+                value, search, cancellation);
 
             return Ok(result);
         }
@@ -40,12 +39,11 @@ namespace Api.Controllers
         [HttpGet("Branches")]
         public async Task<IActionResult> GetBranchesAsync(
             CancellationToken cancellation,
-            string value,
-            BranchesSearchByEnum search,
-            int maxItems = 100)
+            string value = "9d1eca9c-696f-4908-b65b-8c54eadeb76e",
+            BranchesSearchByEnum search = (BranchesSearchByEnum)2)
         {
             var result = await _service.GetBranchesAsync(
-                value, search, maxItems, cancellation);
+                value, search, cancellation);
 
             return Ok(result);
         }
@@ -53,36 +51,37 @@ namespace Api.Controllers
         [HttpGet("Courses")]
         public async Task<IActionResult> GetBranchesAsync(
             CancellationToken cancellation,
-            string value,
-            CoursesSearchByEnum search,
-            int maxItems = 100)
+            string value = "9d1eca9c-696f-4908-b65b-8c54eadeb76e",
+            CoursesSearchByEnum search = CoursesSearchByEnum.InstitutionUuid)
         {
             var result = await _service.GetCoursesAsync(
-                value, search, maxItems, cancellation);
+                value, search, cancellation);
 
             return Ok(result);
         }
 
+        //https://radon.nauka.gov.pl/api/katalog-udostepniania-danych/dane-polon/polon/reports_doctoral_school
+        //6330acf8-576f-460a-ad48-d40709db6c8d
         [HttpGet("DoctoralSchools")]
         public async Task<IActionResult> GetDoctoralSchoolsAsync(
             CancellationToken cancellation,
-            Guid doctoralSchoolGuid,
-            int maxItems = 100)
+            Guid doctoralSchoolGuid)
         {
             var result = await _service.GetDoctoralSchoolsAsync(
-                doctoralSchoolGuid, maxItems, cancellation);
+                doctoralSchoolGuid, cancellation);
 
             return Ok(result);
         }
 
+        //https://radon.nauka.gov.pl/api/katalog-udostepniania-danych/dane-polon/polon/reports_specialized_education
+        //830f0560-3a72-4201-8db5-201dfd9bbfa4
         [HttpGet("SpecializedEducations")]
         public async Task<IActionResult> GetSpecializedEducationsAsync(
             CancellationToken cancellation,
-            Guid institutionUuid,
-            int maxItems = 100)
+            Guid institutionUuid)
         {
             var result = await _service.GetSpecializedEducationsAsync(
-                institutionUuid, maxItems, cancellation);
+                institutionUuid, cancellation);
 
             return Ok(result);
         }
