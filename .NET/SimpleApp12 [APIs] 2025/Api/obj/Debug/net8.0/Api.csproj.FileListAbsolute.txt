@@ -52,7 +52,6 @@ C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\
 C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\Api\obj\Debug\net8.0\Api.AssemblyInfoInputs.cache
 C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\Api\obj\Debug\net8.0\Api.AssemblyInfo.cs
 C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\Api\obj\Debug\net8.0\Api.csproj.CoreCompileInputs.cache
-C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\Api\obj\Debug\net8.0\Api.MvcApplicationPartsAssemblyInfo.cs
 C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\Api\obj\Debug\net8.0\Api.MvcApplicationPartsAssemblyInfo.cache
 C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\Api\obj\Debug\net8.0\Api.sourcelink.json
 C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\Api\obj\Debug\net8.0\staticwebassets.build.json
@@ -69,3 +68,5 @@ C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\
 C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\Api\obj\Debug\net8.0\Api.pdb
 C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\Api\obj\Debug\net8.0\Api.genruntimeconfig.cache
 C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\Api\obj\Debug\net8.0\ref\Api.dll
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\Api\bin\Debug\net8.0\Radon.dll
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\Api\bin\Debug\net8.0\Radon.pdb

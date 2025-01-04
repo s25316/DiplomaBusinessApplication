@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Pslxn5duTs0=",
+  "dgSpecHash": "GagPnSCDRIA=",
   "success": true,
   "projectFilePath": "C:\\1 Artem`s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\Radon.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\artem\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

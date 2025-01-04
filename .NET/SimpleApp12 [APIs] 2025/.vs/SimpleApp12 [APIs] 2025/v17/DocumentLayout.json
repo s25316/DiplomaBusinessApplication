@@ -7,16 +7,44 @@
       "RelativeMoniker": "D:0:0:{A1D4AB12-AD24-4DC0-B0E4-D78F3DAC4091}|Api\\Api.csproj|solutionrelative:api\\controllers\\regoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\regon\\services\\mainservice\\regonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|solutionrelative:regon\\services\\mainservice\\regonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\radon\\dtos\\apiresponses\\specializededucations\\specializededucationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|solutionrelative:radon\\dtos\\apiresponses\\specializededucations\\specializededucationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\regon\\exceptions\\regonappnotimplementedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|solutionrelative:regon\\exceptions\\regonappnotimplementedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1D4AB12-AD24-4DC0-B0E4-D78F3DAC4091}|Api\\Api.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\api\\controllers\\radoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1D4AB12-AD24-4DC0-B0E4-D78F3DAC4091}|Api\\Api.csproj|solutionrelative:api\\controllers\\radoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\regon\\dtos\\thisappresponses\\reportfullwithpkdresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{91835B0E-E29C-4664-9FB8-6C436188A24B}|Regon\\Regon.csproj|solutionrelative:regon\\dtos\\thisappresponses\\reportfullwithpkdresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\radon\\services\\iradonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|solutionrelative:radon\\services\\iradonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\radon\\services\\radonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|solutionrelative:radon\\services\\radonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\radon\\dtos\\apiresponses\\doctoralschools\\doctoralschooldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|solutionrelative:radon\\dtos\\apiresponses\\doctoralschools\\doctoralschooldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\radon\\dtos\\apiresponses\\doctoralschools\\level1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|solutionrelative:radon\\dtos\\apiresponses\\doctoralschools\\level1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\radon\\dtos\\apiresponses\\doctoralschools\\level2\\cooperatinginstitution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|solutionrelative:radon\\dtos\\apiresponses\\doctoralschools\\level2\\cooperatinginstitution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\radon\\dtos\\apiresponses\\doctoralschools\\level1\\discipline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|solutionrelative:radon\\dtos\\apiresponses\\doctoralschools\\level1\\discipline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\radon\\dtos\\apiresponses\\doctoralschools\\level1\\coleadinginstitution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|solutionrelative:radon\\dtos\\apiresponses\\doctoralschools\\level1\\coleadinginstitution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\radon\\repositories\\iradonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1378F15-6AB7-49DB-A6D7-F7C70A69E100}|Radon\\Radon.csproj|solutionrelative:radon\\repositories\\iradonrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,59 +54,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RegonAppNotImplementedException.cs",
-              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Regon\\Exceptions\\RegonAppNotImplementedException.cs",
-              "RelativeDocumentMoniker": "Regon\\Exceptions\\RegonAppNotImplementedException.cs",
-              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Regon\\Exceptions\\RegonAppNotImplementedException.cs",
-              "RelativeToolTip": "Regon\\Exceptions\\RegonAppNotImplementedException.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T17:33:26.354Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RegonService.cs",
-              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Regon\\Services\\MainService\\RegonService.cs",
-              "RelativeDocumentMoniker": "Regon\\Services\\MainService\\RegonService.cs",
-              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Regon\\Services\\MainService\\RegonService.cs",
-              "RelativeToolTip": "Regon\\Services\\MainService\\RegonService.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAowCkAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T16:53:12.809Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "44c4ea35-0cbb-4e19-8402-0a6865416c8e",
-        "Display": 0,
-        "X": 1957,
-        "Y": 276,
-        "Width": 1037,
-        "Height": 990,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -87,43 +68,139 @@
               "RelativeDocumentMoniker": "Api\\Controllers\\RegonController.cs",
               "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Api\\Controllers\\RegonController.cs",
               "RelativeToolTip": "Api\\Controllers\\RegonController.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAwwAoAAAAoAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T17:05:31.785Z",
+              "WhenOpened": "2025-01-04T05:05:14.753Z",
               "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "387e10aa-b878-40aa-a220-0410f85c26e1",
-        "Display": 0,
-        "X": 1751,
-        "Y": 492,
-        "Width": 1037,
-        "Height": 990,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SpecializedEducationDto.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\DTOs\\ApiResponses\\SpecializedEducations\\SpecializedEducationDto.cs",
+              "RelativeDocumentMoniker": "Radon\\DTOs\\ApiResponses\\SpecializedEducations\\SpecializedEducationDto.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\DTOs\\ApiResponses\\SpecializedEducations\\SpecializedEducationDto.cs",
+              "RelativeToolTip": "Radon\\DTOs\\ApiResponses\\SpecializedEducations\\SpecializedEducationDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T05:02:58.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DoctoralSchoolDto.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\DTOs\\ApiResponses\\DoctoralSchools\\DoctoralSchoolDto.cs",
+              "RelativeDocumentMoniker": "Radon\\DTOs\\ApiResponses\\DoctoralSchools\\DoctoralSchoolDto.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\DTOs\\ApiResponses\\DoctoralSchools\\DoctoralSchoolDto.cs",
+              "RelativeToolTip": "Radon\\DTOs\\ApiResponses\\DoctoralSchools\\DoctoralSchoolDto.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAjwCMAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T04:52:59.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RadonController.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Api\\Controllers\\RadonController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\RadonController.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Api\\Controllers\\RadonController.cs",
+              "RelativeToolTip": "Api\\Controllers\\RadonController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T04:49:02.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RadonService.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\Services\\RadonService.cs",
+              "RelativeDocumentMoniker": "Radon\\Services\\RadonService.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\Services\\RadonService.cs",
+              "RelativeToolTip": "Radon\\Services\\RadonService.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAwwEwAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T04:46:30.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CoLeadingInstitution.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level1\\CoLeadingInstitution.cs",
+              "RelativeDocumentMoniker": "Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level1\\CoLeadingInstitution.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level1\\CoLeadingInstitution.cs",
+              "RelativeToolTip": "Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level1\\CoLeadingInstitution.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T04:53:14.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Discipline.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level1\\Discipline.cs",
+              "RelativeDocumentMoniker": "Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level1\\Discipline.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level1\\Discipline.cs",
+              "RelativeToolTip": "Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level1\\Discipline.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T04:53:15.978Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ReportFullWithPkdResponse.cs",
-              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Regon\\DTOs\\ThisAppResponses\\ReportFullWithPkdResponse.cs",
-              "RelativeDocumentMoniker": "Regon\\DTOs\\ThisAppResponses\\ReportFullWithPkdResponse.cs",
-              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Regon\\DTOs\\ThisAppResponses\\ReportFullWithPkdResponse.cs",
-              "RelativeToolTip": "Regon\\DTOs\\ThisAppResponses\\ReportFullWithPkdResponse.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAmAAAA",
+              "Title": "IRadonService.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\Services\\IRadonService.cs",
+              "RelativeDocumentMoniker": "Radon\\Services\\IRadonService.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\Services\\IRadonService.cs",
+              "RelativeToolTip": "Radon\\Services\\IRadonService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T17:07:49.153Z",
+              "WhenOpened": "2025-01-04T04:48:21.848Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CooperatingInstitution.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level2\\CooperatingInstitution.cs",
+              "RelativeDocumentMoniker": "Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level2\\CooperatingInstitution.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level2\\CooperatingInstitution.cs",
+              "RelativeToolTip": "Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level2\\CooperatingInstitution.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T04:52:57.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level1\\Program.cs",
+              "RelativeDocumentMoniker": "Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level1\\Program.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level1\\Program.cs",
+              "RelativeToolTip": "Radon\\DTOs\\ApiResponses\\DoctoralSchools\\Level1\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T04:53:17.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IRadonRepository.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\Repositories\\IRadonRepository.cs",
+              "RelativeDocumentMoniker": "Radon\\Repositories\\IRadonRepository.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Radon\\Repositories\\IRadonRepository.cs",
+              "RelativeToolTip": "Radon\\Repositories\\IRadonRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T04:46:37.01Z",
               "EditorCaption": ""
             }
           ]
