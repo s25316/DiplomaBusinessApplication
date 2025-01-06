@@ -1,0 +1,6 @@
+@BackendDiploma_HostAddress = http://localhost:5289
+
+GET {{BackendDiploma_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
