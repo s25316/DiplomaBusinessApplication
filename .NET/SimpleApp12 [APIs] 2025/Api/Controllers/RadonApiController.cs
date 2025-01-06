@@ -6,14 +6,14 @@ namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RadonController : ControllerBase
+    public class RadonApiController : ControllerBase
     {
         //Properties
         private readonly IRadonService _service;
 
 
         //Constructor
-        public RadonController(
+        public RadonApiController(
             IRadonService service)
         {
             _service = service;

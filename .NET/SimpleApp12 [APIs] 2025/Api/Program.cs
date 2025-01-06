@@ -1,5 +1,6 @@
 
 using Radon;
+using RadonFlatFileDB;
 using Regon;
 
 namespace Api
@@ -13,6 +14,7 @@ namespace Api
             // Add services to the container.
             builder.Services.RegonConfiguration();
             builder.Services.RadonConfiguration();
+            builder.Services.RadonFilesConfiguration();
 
 
             builder.Services.AddControllers();

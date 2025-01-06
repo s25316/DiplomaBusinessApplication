@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RadonFlatFileDB\RadonFlatFileDB.csproj" />
     <ProjectReference Include="..\Radon\Radon.csproj" />
     <ProjectReference Include="..\Regon\Regon.csproj" />
   </ItemGroup>

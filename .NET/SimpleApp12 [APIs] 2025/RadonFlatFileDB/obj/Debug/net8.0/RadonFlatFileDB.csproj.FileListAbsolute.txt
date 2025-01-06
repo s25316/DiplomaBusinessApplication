@@ -1,0 +1,26 @@
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp2 [Radon]\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.csproj.AssemblyReference.cache
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp2 [Radon]\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.GeneratedMSBuildEditorConfig.editorconfig
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp2 [Radon]\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.AssemblyInfoInputs.cache
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp2 [Radon]\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.AssemblyInfo.cs
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp2 [Radon]\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.csproj.CoreCompileInputs.cache
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp2 [Radon]\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.sourcelink.json
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp2 [Radon]\RadonFlatFileDB\bin\Debug\net8.0\RadonFlatFileDB.deps.json
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp2 [Radon]\RadonFlatFileDB\bin\Debug\net8.0\RadonFlatFileDB.dll
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp2 [Radon]\RadonFlatFileDB\bin\Debug\net8.0\RadonFlatFileDB.pdb
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp2 [Radon]\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.dll
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp2 [Radon]\RadonFlatFileDB\obj\Debug\net8.0\refint\RadonFlatFileDB.dll
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp2 [Radon]\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.pdb
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp2 [Radon]\RadonFlatFileDB\obj\Debug\net8.0\ref\RadonFlatFileDB.dll
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\RadonFlatFileDB\bin\Debug\net8.0\RadonFlatFileDB.deps.json
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\RadonFlatFileDB\bin\Debug\net8.0\RadonFlatFileDB.dll
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\RadonFlatFileDB\bin\Debug\net8.0\RadonFlatFileDB.pdb
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.csproj.AssemblyReference.cache
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.GeneratedMSBuildEditorConfig.editorconfig
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.AssemblyInfoInputs.cache
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.AssemblyInfo.cs
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.csproj.CoreCompileInputs.cache
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.sourcelink.json
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.dll
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\RadonFlatFileDB\obj\Debug\net8.0\refint\RadonFlatFileDB.dll
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\RadonFlatFileDB\obj\Debug\net8.0\RadonFlatFileDB.pdb
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\SimpleApp12 [APIs] 2025\RadonFlatFileDB\obj\Debug\net8.0\ref\RadonFlatFileDB.dll
