@@ -151,6 +151,1910 @@ namespace Infrastructure.Migrations
                     b.ToTable("Street", (string)null);
                 });
 
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.AIOrganizationalUnit", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(800)
+                        .HasColumnType("nvarchar(800)");
+
+                    b.HasKey("Id")
+                        .HasName("AIOrganizationalUnit_pk");
+
+                    b.ToTable("AIOrganizationalUnit", (string)null);
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Course", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("FormCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IscedCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LanguageCode")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int?>("LevelCode")
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly?>("LiquidationDate")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("NumberOfSemesters")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProfileCode")
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly>("StartDate")
+                        .HasColumnType("date");
+
+                    b.Property<int?>("TitleCode")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id")
+                        .HasName("Course_pk");
+
+                    b.HasIndex("FormCode");
+
+                    b.HasIndex("IscedCode");
+
+                    b.HasIndex("LanguageCode");
+
+                    b.HasIndex("LevelCode");
+
+                    b.HasIndex("ProfileCode");
+
+                    b.HasIndex("TitleCode");
+
+                    b.ToTable("Course", (string)null);
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseDiscipline", b =>
+                {
+                    b.Property<string>("DisciplineCode")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<Guid>("CourseId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool?>("DisciplineLeading")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("PercentageShare")
+                        .HasColumnType("int");
+
+                    b.HasKey("DisciplineCode", "CourseId")
+                        .HasName("CourseDiscipline_pk");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("CourseDiscipline", (string)null);
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseForm", b =>
+                {
+                    b.Property<int>("Code")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Code")
+                        .HasName("CourseForm_pk");
+
+                    b.ToTable("CourseForm", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Code = 1,
+                            Name = "stacjonarne"
+                        },
+                        new
+                        {
+                            Code = 2,
+                            Name = "niestacjonarne"
+                        });
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseLevel", b =>
+                {
+                    b.Property<int>("Code")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Code")
+                        .HasName("CourseLevel_pk");
+
+                    b.ToTable("CourseLevel", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Code = 1,
+                            Name = "jednolite magisterskie"
+                        },
+                        new
+                        {
+                            Code = 2,
+                            Name = "pierwszego stopnia"
+                        },
+                        new
+                        {
+                            Code = 3,
+                            Name = "drugiego stopnia"
+                        });
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseProfile", b =>
+                {
+                    b.Property<int>("Code")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Code")
+                        .HasName("CourseProfile_pk");
+
+                    b.ToTable("CourseProfile", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Code = 1,
+                            Name = "praktyczny"
+                        },
+                        new
+                        {
+                            Code = 2,
+                            Name = "ogólnoakademicki"
+                        });
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseTitle", b =>
+                {
+                    b.Property<int>("Code")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Code")
+                        .HasName("CourseTitle_pk");
+
+                    b.ToTable("CourseTitle", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Code = 1,
+                            Name = "magister"
+                        },
+                        new
+                        {
+                            Code = 2,
+                            Name = "licencjat"
+                        },
+                        new
+                        {
+                            Code = 3,
+                            Name = "inżynier"
+                        },
+                        new
+                        {
+                            Code = 4,
+                            Name = "magister inżynier"
+                        });
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Isced", b =>
+                {
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("Code")
+                        .HasName("Isced_pk");
+
+                    b.ToTable("Isced", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Code = "00",
+                            Name = "Grupa Programy ogólne"
+                        },
+                        new
+                        {
+                            Code = "000",
+                            Name = "Podgrupa programów i kwalifikacji ogólnych nieokreślonych dalej"
+                        },
+                        new
+                        {
+                            Code = "0000",
+                            Name = "Programy i kwalifikacje ogólne nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "001",
+                            Name = "Podgrupa programów i kwalifikacji podstawowych"
+                        },
+                        new
+                        {
+                            Code = "0011",
+                            Name = "Podstawowe programy i kwalifikacje"
+                        },
+                        new
+                        {
+                            Code = "002",
+                            Name = "Podgrupa umiejętności czytania, pisania i liczenia"
+                        },
+                        new
+                        {
+                            Code = "0021",
+                            Name = "Umiejętność czytania, pisania i liczenia"
+                        },
+                        new
+                        {
+                            Code = "003",
+                            Name = "Podgrupa rozwoju umiejętności osobowościowych"
+                        },
+                        new
+                        {
+                            Code = "0031",
+                            Name = "Rozwój umiejętności osobowościowych"
+                        },
+                        new
+                        {
+                            Code = "009",
+                            Name = "Podgrupa programów i kwalifikacji ogólnych gdzie indziej niesklasyfikowanych"
+                        },
+                        new
+                        {
+                            Code = "0099",
+                            Name = "Programy i kwalifikacje ogólne, gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "01",
+                            Name = "Grupa Kształcenie"
+                        },
+                        new
+                        {
+                            Code = "011",
+                            Name = "Podgrupa pedagogiczna"
+                        },
+                        new
+                        {
+                            Code = "0110",
+                            Name = "Kształcenie nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0111",
+                            Name = "Kształcenie"
+                        },
+                        new
+                        {
+                            Code = "0112",
+                            Name = "Kształcenie nauczycieli nauczania przedszkolnego"
+                        },
+                        new
+                        {
+                            Code = "0113",
+                            Name = "Kształcenie nauczycieli bez specjalizacji tematycznej"
+                        },
+                        new
+                        {
+                            Code = "0114",
+                            Name = "Kształcenie nauczycieli ze specjalizacją tematyczną"
+                        },
+                        new
+                        {
+                            Code = "0119",
+                            Name = "Kształcenie gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "018",
+                            Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji związanych z edukacją"
+                        },
+                        new
+                        {
+                            Code = "0188",
+                            Name = "Interdyscyplinarne programy i kwalifikacje związane z edukacją"
+                        },
+                        new
+                        {
+                            Code = "02",
+                            Name = "Grupa Nauki humanistyczne i sztuka"
+                        },
+                        new
+                        {
+                            Code = "020",
+                            Name = "Podgrupa programów i kwalifikacji związanych ze sztuką i przedmiotami humanistycznymi nieokreślonymi dalej"
+                        },
+                        new
+                        {
+                            Code = "0200",
+                            Name = "Programy i kwalifikacje związane ze sztuką i przedmiotami humanistycznymi nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "021",
+                            Name = "Podgrupa artystyczna"
+                        },
+                        new
+                        {
+                            Code = "0210",
+                            Name = "Programy i kwalifikacje związane ze sztuką nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0211",
+                            Name = "Techniki audiowizualne i produkcja mediów"
+                        },
+                        new
+                        {
+                            Code = "0212",
+                            Name = "Moda, wystrój wnętrz i projektowanie przemysłowe"
+                        },
+                        new
+                        {
+                            Code = "0213",
+                            Name = "Sztuki plastyczne"
+                        },
+                        new
+                        {
+                            Code = "0214",
+                            Name = "Rękodzieło"
+                        },
+                        new
+                        {
+                            Code = "0215",
+                            Name = "Muzyka i sztuki sceniczne"
+                        },
+                        new
+                        {
+                            Code = "0219",
+                            Name = "Programy i kwalifikacje związane ze sztuką gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "022",
+                            Name = "Podgrupa humanistyczna (z wyłączeniem języków)"
+                        },
+                        new
+                        {
+                            Code = "0220",
+                            Name = "Przedmioty humanistyczne (z wyłączeniem języków) nie określone dalej"
+                        },
+                        new
+                        {
+                            Code = "0221",
+                            Name = "Religia i teologia"
+                        },
+                        new
+                        {
+                            Code = "0222",
+                            Name = "Historia i archeologia"
+                        },
+                        new
+                        {
+                            Code = "0223",
+                            Name = "Filozofia i etyka"
+                        },
+                        new
+                        {
+                            Code = "0229",
+                            Name = "Przedmioty humanistyczne (z wyłączeniem języków) gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "023",
+                            Name = "Podgrupa językowa"
+                        },
+                        new
+                        {
+                            Code = "0230",
+                            Name = "Języki nie określone dalej"
+                        },
+                        new
+                        {
+                            Code = "0231",
+                            Name = "Nauka języków"
+                        },
+                        new
+                        {
+                            Code = "0232",
+                            Name = "Literatura i językoznawstwo (lingwistyka)"
+                        },
+                        new
+                        {
+                            Code = "0239",
+                            Name = "Programy i kwalifikacje związane z językami gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "028",
+                            Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji związanych ze sztuką i przedmiotami humanistycznymi"
+                        },
+                        new
+                        {
+                            Code = "0288",
+                            Name = "Interdyscyplinarne programy i kwalifikacje obejmujące sztuki i przedmioty humanistyczne"
+                        },
+                        new
+                        {
+                            Code = "029",
+                            Name = "Podgrupa programów i kwalifikacji związanych ze sztuką i przedmiotami humanistycznymi gdzie indziej niesklasyfikowanymi"
+                        },
+                        new
+                        {
+                            Code = "0299",
+                            Name = "Programy i kwalifikacje związane ze sztuką i przedmiotami humanistycznymi gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "03",
+                            Name = "Grupa Nauki społeczne, dziennikarstwo i informacja"
+                        },
+                        new
+                        {
+                            Code = "030",
+                            Name = "Podgrupa nauk społecznych, dziennikarstwa i informacji nieokreślonych dalej"
+                        },
+                        new
+                        {
+                            Code = "0300",
+                            Name = "Nauki społeczne, dziennikarstwo i informacja nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "031",
+                            Name = "Podgrupa społeczna"
+                        },
+                        new
+                        {
+                            Code = "0310",
+                            Name = "Nauki społeczne nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0311",
+                            Name = "Ekonomia"
+                        },
+                        new
+                        {
+                            Code = "0312",
+                            Name = "Politologia i wiedza o społeczeństwie"
+                        },
+                        new
+                        {
+                            Code = "0313",
+                            Name = "Psychologia"
+                        },
+                        new
+                        {
+                            Code = "0314",
+                            Name = "Socjologia i kulturoznawstwo"
+                        },
+                        new
+                        {
+                            Code = "0319",
+                            Name = "Programy i kwalifikacje związane z naukami społecznymi, gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "032",
+                            Name = "Podgrupa dziennikarstwa i informacji"
+                        },
+                        new
+                        {
+                            Code = "0320",
+                            Name = "Dziennikarstwo i informacja naukowa nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0321",
+                            Name = "Dziennikarstwo"
+                        },
+                        new
+                        {
+                            Code = "0322",
+                            Name = "Bibliotekoznawstwo, informacja naukowa i archiwistyka"
+                        },
+                        new
+                        {
+                            Code = "0329",
+                            Name = "Dziennikarstwo i informacja naukowa gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "038",
+                            Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji związanych z naukami społecznymi, dziennikarstwem i informacją"
+                        },
+                        new
+                        {
+                            Code = "0388",
+                            Name = "Interdyscyplinarne programy i kwalifikacje związane z naukami społecznymi, dziennikarstwem i informacją"
+                        },
+                        new
+                        {
+                            Code = "039",
+                            Name = "Podgrupa nauk społecznych, dziennikarstwa i informacji gdzie indziej niesklasyfikowanych"
+                        },
+                        new
+                        {
+                            Code = "0399",
+                            Name = "Nauki społeczne, dziennikarstwo i informacja gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "04",
+                            Name = "Grupa Biznes, administracja i prawo"
+                        },
+                        new
+                        {
+                            Code = "040",
+                            Name = "Podgrupa biznesu, administracji i prawa nieokreślonych dalej"
+                        },
+                        new
+                        {
+                            Code = "0400",
+                            Name = "Biznes, administracja i prawo nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "041",
+                            Name = "Podgrupa biznesu i administracji"
+                        },
+                        new
+                        {
+                            Code = "0410",
+                            Name = "Biznes i administracja nie określone dalej"
+                        },
+                        new
+                        {
+                            Code = "0411",
+                            Name = "Rachunkowość i podatki"
+                        },
+                        new
+                        {
+                            Code = "0412",
+                            Name = "Finanse, bankowość i ubezpieczenia"
+                        },
+                        new
+                        {
+                            Code = "0413",
+                            Name = "Zarządzanie i administracja"
+                        },
+                        new
+                        {
+                            Code = "0414",
+                            Name = "Marketing i reklama"
+                        },
+                        new
+                        {
+                            Code = "0415",
+                            Name = "Prace sekretarskie i biurowe"
+                        },
+                        new
+                        {
+                            Code = "0416",
+                            Name = "Sprzedaż hurtowa i detaliczna"
+                        },
+                        new
+                        {
+                            Code = "0417",
+                            Name = "Umiejętności związane z miejscem pracy"
+                        },
+                        new
+                        {
+                            Code = "0419",
+                            Name = "Programy i kwalifikacje związane z prowadzeniem działalności gospodarczej i administracją gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "042",
+                            Name = "Podgrupa prawna"
+                        },
+                        new
+                        {
+                            Code = "0421",
+                            Name = "Prawo"
+                        },
+                        new
+                        {
+                            Code = "048",
+                            Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji związanych z prowadzeniem działalności gospodarczej, administracją i prawem"
+                        },
+                        new
+                        {
+                            Code = "0488",
+                            Name = "Interdyscyplinarne programy i kwalifikacje związane z prowadzeniem działalności gospodarczej, administracją i prawem"
+                        },
+                        new
+                        {
+                            Code = "049",
+                            Name = "Podgrupa programów i kwalifikacji związanych z prowadzeniem działalności gospodarczej, administracją i prawem gdzie indziej niesklasyfikowanych"
+                        },
+                        new
+                        {
+                            Code = "0499",
+                            Name = "Programy i kwalifikacje obejmujące prowadzenie działalności gospodarczej, administrację i prawo gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "05",
+                            Name = "Grupa Nauki przyrodnicze, matematyka i statystyka"
+                        },
+                        new
+                        {
+                            Code = "050",
+                            Name = "Podgrupa nauk przyrodniczych, matematyki i statystyki nieokreślonych dalej"
+                        },
+                        new
+                        {
+                            Code = "0500",
+                            Name = "Nauki przyrodnicze, matematyka i statystyka nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "051",
+                            Name = "Podgrupa biologiczna"
+                        },
+                        new
+                        {
+                            Code = "0510",
+                            Name = "Nauki biologiczne i powiązane nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0511",
+                            Name = "Biologia"
+                        },
+                        new
+                        {
+                            Code = "0512",
+                            Name = "Biochemia"
+                        },
+                        new
+                        {
+                            Code = "0519",
+                            Name = "Programy i kwalifikacje związane z biologią i naukami pokrewnymi gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "052",
+                            Name = "Podgrupa nauk o środowisku"
+                        },
+                        new
+                        {
+                            Code = "0520",
+                            Name = "Nauki o środowisku nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0521",
+                            Name = "Ekologia i ochrona środowiska"
+                        },
+                        new
+                        {
+                            Code = "0522",
+                            Name = "Środowisko naturalne i przyroda"
+                        },
+                        new
+                        {
+                            Code = "0529",
+                            Name = "Programy i kwalifikacje związane ze środowiskiem gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "053",
+                            Name = "Podgrupa fizyczna"
+                        },
+                        new
+                        {
+                            Code = "0530",
+                            Name = "Nauki fizyczne nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0531",
+                            Name = "Chemia"
+                        },
+                        new
+                        {
+                            Code = "0532",
+                            Name = "Nauki o Ziemi"
+                        },
+                        new
+                        {
+                            Code = "0533",
+                            Name = "Fizyka"
+                        },
+                        new
+                        {
+                            Code = "0539",
+                            Name = "Programy i kwalifikacje związane z naukami fizycznymi gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "054",
+                            Name = "Podgrupa matematyczna i statystyczna"
+                        },
+                        new
+                        {
+                            Code = "0540",
+                            Name = "Matematyka i statystyka nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0541",
+                            Name = "Matematyka"
+                        },
+                        new
+                        {
+                            Code = "0542",
+                            Name = "Statystyka"
+                        },
+                        new
+                        {
+                            Code = "058",
+                            Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji obejmujących nauki przyrodnicze, matematykę i statystykę"
+                        },
+                        new
+                        {
+                            Code = "0588",
+                            Name = "Interdyscyplinarne programy i kwalifikacje obejmujące nauki przyrodnicze, matematykę i statystykę"
+                        },
+                        new
+                        {
+                            Code = "059",
+                            Name = "Podgrupa nauk przyrodniczych, matematyki i statystyki gdzie indziej niesklasyfikowanych"
+                        },
+                        new
+                        {
+                            Code = "0599",
+                            Name = "Nauki przyrodnicze, matematyka i statystyka gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "06",
+                            Name = "Grupa Technologie teleinformacyjne"
+                        },
+                        new
+                        {
+                            Code = "061",
+                            Name = "Podgrupa technologii teleinformacyjnych"
+                        },
+                        new
+                        {
+                            Code = "0610",
+                            Name = "Technologie teleinformacyjne nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0611",
+                            Name = "Obsługa i użytkowanie komputerów"
+                        },
+                        new
+                        {
+                            Code = "0612",
+                            Name = "Projektowanie i administrowanie baz danych i sieci"
+                        },
+                        new
+                        {
+                            Code = "0613",
+                            Name = "Tworzenie i analiza oprogramowania i aplikacji"
+                        },
+                        new
+                        {
+                            Code = "0619",
+                            Name = "Technologie teleinformacyjne gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "068",
+                            Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji obejmujących technologie informacyjno-komunikacyjne"
+                        },
+                        new
+                        {
+                            Code = "0688",
+                            Name = "Interdyscyplinarne programy i kwalifikacje obejmujące technologie informacyjno-komunikacyjne"
+                        },
+                        new
+                        {
+                            Code = "07",
+                            Name = "Grupa Technika, przemysł, budownictwo"
+                        },
+                        new
+                        {
+                            Code = "070",
+                            Name = "Podgrupa techniki, przemysłu i budownictwa nieokreślonych dalej"
+                        },
+                        new
+                        {
+                            Code = "0700",
+                            Name = "Technika, przemysł i budownictwo nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "071",
+                            Name = "Podgrupa inżynieryjno-techniczna"
+                        },
+                        new
+                        {
+                            Code = "0710",
+                            Name = "Inżynieria i zawody inżynieryjne nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0711",
+                            Name = "Inżynieria chemiczna i procesowa"
+                        },
+                        new
+                        {
+                            Code = "0712",
+                            Name = "Technologie związane z ochroną środowiska"
+                        },
+                        new
+                        {
+                            Code = "0713",
+                            Name = "Elektryczność i energia"
+                        },
+                        new
+                        {
+                            Code = "0714",
+                            Name = "Elektronika i automatyka"
+                        },
+                        new
+                        {
+                            Code = "0715",
+                            Name = "Mechanika i metalurgia"
+                        },
+                        new
+                        {
+                            Code = "0716",
+                            Name = "Pojazdy samochodowe, statki i samoloty"
+                        },
+                        new
+                        {
+                            Code = "0719",
+                            Name = "Inżynieria i zawody inżynierskie gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "072",
+                            Name = "Podgrupa produkcji i przetwórstwa"
+                        },
+                        new
+                        {
+                            Code = "0720",
+                            Name = "Produkcja i przetwórstwo nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0721",
+                            Name = "Przetwórstwo żywności"
+                        },
+                        new
+                        {
+                            Code = "0722",
+                            Name = "Surowce (szkło, papier, tworzywo sztuczne i drewno)"
+                        },
+                        new
+                        {
+                            Code = "0723",
+                            Name = "Tekstylia (odzież, obuwie i wyroby skórzane)"
+                        },
+                        new
+                        {
+                            Code = "0724",
+                            Name = "Górnictwo i wydobycie"
+                        },
+                        new
+                        {
+                            Code = "0729",
+                            Name = "Programy i kwalifikacje związane z przetwórstwem przemysłowym gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "073",
+                            Name = "Podgrupa architektury i budownictwa"
+                        },
+                        new
+                        {
+                            Code = "0730",
+                            Name = "Architektura i budownictwo nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0731",
+                            Name = "Architektura i planowanie przestrzenne"
+                        },
+                        new
+                        {
+                            Code = "0732",
+                            Name = "Budownictwo i inżynieria lądowa i wodna"
+                        },
+                        new
+                        {
+                            Code = "078",
+                            Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji obejmujących technikę, przemysł i budownictwo"
+                        },
+                        new
+                        {
+                            Code = "0788",
+                            Name = "Interdyscyplinarne programy i kwalifikacje obejmujące technikę, przemysł i budownictwo"
+                        },
+                        new
+                        {
+                            Code = "079",
+                            Name = "Podgrupa techniki, przemysłu i budownictwa gdzie indziej niesklasyfikowanych"
+                        },
+                        new
+                        {
+                            Code = "0799",
+                            Name = "Technika, przemysł i budownictwo gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "08",
+                            Name = "Grupa Rolnictwo"
+                        },
+                        new
+                        {
+                            Code = "080",
+                            Name = "Rolnictwo, leśnictwo, rybołówstwo i weterynaria nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0800",
+                            Name = "Rolnictwo, leśnictwo, rybołówstwo i weterynaria nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "081",
+                            Name = "Podgrupa rolnicza"
+                        },
+                        new
+                        {
+                            Code = "0810",
+                            Name = "Rolnictwo nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0811",
+                            Name = "Produkcja roślinna i zwierzęca"
+                        },
+                        new
+                        {
+                            Code = "0812",
+                            Name = "Ogrodnictwo"
+                        },
+                        new
+                        {
+                            Code = "0819",
+                            Name = "Programy i kwalifikacje związane z rolnictwem gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "082",
+                            Name = "Podgrupa leśna"
+                        },
+                        new
+                        {
+                            Code = "0821",
+                            Name = "Leśnictwo"
+                        },
+                        new
+                        {
+                            Code = "083",
+                            Name = "Podgrupa rybactwa"
+                        },
+                        new
+                        {
+                            Code = "0831",
+                            Name = "Rybactwo"
+                        },
+                        new
+                        {
+                            Code = "084",
+                            Name = "Podgrupa weterynaryjna"
+                        },
+                        new
+                        {
+                            Code = "0841",
+                            Name = "Weterynaria"
+                        },
+                        new
+                        {
+                            Code = "088",
+                            Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji obejmujących rolnictwo, leśnictwo, rybactwo i weterynarię"
+                        },
+                        new
+                        {
+                            Code = "0888",
+                            Name = "Interdyscyplinarne programy i kwalifikacje obejmujące rolnictwo, leśnictwo, rybactwo i weterynarię"
+                        },
+                        new
+                        {
+                            Code = "089",
+                            Name = "Podgrupa rolnictwa, leśnictwa, rybactwa i weterynaria gdzie indziej niesklasyfikowanych"
+                        },
+                        new
+                        {
+                            Code = "0899",
+                            Name = "Rolnictwo, leśnictwo, rybactwo i weterynaria gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "09",
+                            Name = "Grupa Zdrowie i opieka społeczna"
+                        },
+                        new
+                        {
+                            Code = "090",
+                            Name = "Podgrupa zdrowia i opieki społecznej nieokreślonych dalej"
+                        },
+                        new
+                        {
+                            Code = "0900",
+                            Name = "Zdrowie i opieka społeczna nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "091",
+                            Name = "Podgrupa medyczna"
+                        },
+                        new
+                        {
+                            Code = "0910",
+                            Name = "Zdrowie nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "0911",
+                            Name = "Stomatologia"
+                        },
+                        new
+                        {
+                            Code = "0912",
+                            Name = "Medycyna"
+                        },
+                        new
+                        {
+                            Code = "0913",
+                            Name = "Pielęgniarstwo i położnictwo"
+                        },
+                        new
+                        {
+                            Code = "0914",
+                            Name = "Technologie związane z diagnostyką i leczeniem"
+                        },
+                        new
+                        {
+                            Code = "0915",
+                            Name = "Terapia i rehabilitacja"
+                        },
+                        new
+                        {
+                            Code = "0916",
+                            Name = "Farmacja"
+                        },
+                        new
+                        {
+                            Code = "0917",
+                            Name = "Medycyna i terapia tradycyjna oraz komplementarna"
+                        },
+                        new
+                        {
+                            Code = "0919",
+                            Name = "Zdrowie gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "092",
+                            Name = "Podgrupa opieki społecznej"
+                        },
+                        new
+                        {
+                            Code = "0920",
+                            Name = "Opieka społeczna nieokreślona dalej"
+                        },
+                        new
+                        {
+                            Code = "0921",
+                            Name = "Opieka nad osobami starszymi i dorosłymi niepełnosprawnymi"
+                        },
+                        new
+                        {
+                            Code = "0922",
+                            Name = "Usługi związane z opieką nad dziećmi i młodzieżą"
+                        },
+                        new
+                        {
+                            Code = "0923",
+                            Name = "Praca socjalna i doradztwo"
+                        },
+                        new
+                        {
+                            Code = "0929",
+                            Name = "Opieka społeczna gdzie indziej niesklasyfikowana"
+                        },
+                        new
+                        {
+                            Code = "098",
+                            Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji obejmujących zdrowie i opiekę społeczną"
+                        },
+                        new
+                        {
+                            Code = "0988",
+                            Name = "Interdyscyplinarne programy i kwalifikacje obejmujące zdrowie i opiekę społeczną"
+                        },
+                        new
+                        {
+                            Code = "099",
+                            Name = "Podgrupa zdrowie i opieka społeczna gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "0999",
+                            Name = "Zdrowie i opieka społeczna gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "10",
+                            Name = "Grupa Usługi"
+                        },
+                        new
+                        {
+                            Code = "100",
+                            Name = "Podgrupa usług nieokreślonych dalej"
+                        },
+                        new
+                        {
+                            Code = "1000",
+                            Name = "Usługi nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "101",
+                            Name = "Podgrupa usług dla ludności"
+                        },
+                        new
+                        {
+                            Code = "1010",
+                            Name = "Usługi dla ludności nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "1011",
+                            Name = "Usługi domowe"
+                        },
+                        new
+                        {
+                            Code = "1012",
+                            Name = "Pielęgnacja włosów i urody"
+                        },
+                        new
+                        {
+                            Code = "1013",
+                            Name = "Hotele, restauracje i katering"
+                        },
+                        new
+                        {
+                            Code = "1014",
+                            Name = "Sport"
+                        },
+                        new
+                        {
+                            Code = "1015",
+                            Name = "Turystyka i wypoczynek"
+                        },
+                        new
+                        {
+                            Code = "1019",
+                            Name = "Programy i kwalifikacje związane z usługi dla ludności gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "102",
+                            Name = "Podgrupa higieny i bezpieczeństwa pracy"
+                        },
+                        new
+                        {
+                            Code = "1020",
+                            Name = "Usługi higieny i bezpieczeństwa pracy nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "1021",
+                            Name = "Higiena publiczna"
+                        },
+                        new
+                        {
+                            Code = "1022",
+                            Name = "Bezpieczeństwo i higiena pracy"
+                        },
+                        new
+                        {
+                            Code = "1029",
+                            Name = "Programy i kwalifikacje związane z usługami w zakresie higieny i bezpieczeństwa pracy"
+                        },
+                        new
+                        {
+                            Code = "103",
+                            Name = "Podgrupa ochrony i bezpieczeństwa"
+                        },
+                        new
+                        {
+                            Code = "1030",
+                            Name = "Ochrona i bezpieczeństwo nieokreślone dalej"
+                        },
+                        new
+                        {
+                            Code = "1031",
+                            Name = "Wojsko i obronność"
+                        },
+                        new
+                        {
+                            Code = "1032",
+                            Name = "Ochrona osób i mienia"
+                        },
+                        new
+                        {
+                            Code = "1039",
+                            Name = "Programy i kwalifikacje związane z ochroną i bezpieczeństwem gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "104",
+                            Name = "Podgrupa usług transportowych"
+                        },
+                        new
+                        {
+                            Code = "1041",
+                            Name = "Transport"
+                        },
+                        new
+                        {
+                            Code = "108",
+                            Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji obejmujących usługi"
+                        },
+                        new
+                        {
+                            Code = "1088",
+                            Name = "Interdyscyplinarne programy i kwalifikacje obejmujące usługi"
+                        },
+                        new
+                        {
+                            Code = "109",
+                            Name = "Podgrupa usług gdzie indziej niesklasyfikowanych"
+                        },
+                        new
+                        {
+                            Code = "1099",
+                            Name = "Usługi gdzie indziej niesklasyfikowane"
+                        },
+                        new
+                        {
+                            Code = "99",
+                            Name = "Grupa Obszar nieznany"
+                        },
+                        new
+                        {
+                            Code = "999",
+                            Name = "Podgrupa obszar nieznany"
+                        },
+                        new
+                        {
+                            Code = "9999",
+                            Name = "Obszar nieznany"
+                        });
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Language", b =>
+                {
+                    b.Property<string>("Code")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Code")
+                        .HasName("Language_pk");
+
+                    b.ToTable("Language", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Code = "alb-sqi",
+                            Name = "albański"
+                        },
+                        new
+                        {
+                            Code = "eng",
+                            Name = "angielski"
+                        },
+                        new
+                        {
+                            Code = "ara",
+                            Name = "arabski"
+                        },
+                        new
+                        {
+                            Code = "bel",
+                            Name = "białoruski"
+                        },
+                        new
+                        {
+                            Code = "bul",
+                            Name = "bułgarski"
+                        },
+                        new
+                        {
+                            Code = "cel",
+                            Name = "celtyckie"
+                        },
+                        new
+                        {
+                            Code = "chi-zho",
+                            Name = "chiński"
+                        },
+                        new
+                        {
+                            Code = "scr-hrv",
+                            Name = "chorwacki"
+                        },
+                        new
+                        {
+                            Code = "cze-ces",
+                            Name = "czeski"
+                        },
+                        new
+                        {
+                            Code = "dan",
+                            Name = "duński"
+                        },
+                        new
+                        {
+                            Code = "fin",
+                            Name = "fiński"
+                        },
+                        new
+                        {
+                            Code = "fre-fra",
+                            Name = "francuski"
+                        },
+                        new
+                        {
+                            Code = "gem",
+                            Name = "germańskie"
+                        },
+                        new
+                        {
+                            Code = "gre-ell",
+                            Name = "grecki"
+                        },
+                        new
+                        {
+                            Code = "heb",
+                            Name = "hebrajski"
+                        },
+                        new
+                        {
+                            Code = "hin",
+                            Name = "hindi"
+                        },
+                        new
+                        {
+                            Code = "spa",
+                            Name = "hiszpański"
+                        },
+                        new
+                        {
+                            Code = "dut-nld",
+                            Name = "holenderski"
+                        },
+                        new
+                        {
+                            Code = "ind",
+                            Name = "indonezyjski"
+                        },
+                        new
+                        {
+                            Code = "opi-ij",
+                            Name = "inny język"
+                        },
+                        new
+                        {
+                            Code = "ice-isl",
+                            Name = "islandzki"
+                        },
+                        new
+                        {
+                            Code = "jpn",
+                            Name = "japoński"
+                        },
+                        new
+                        {
+                            Code = "yid",
+                            Name = "jidysz"
+                        },
+                        new
+                        {
+                            Code = "cat",
+                            Name = "kataloński"
+                        },
+                        new
+                        {
+                            Code = "kor",
+                            Name = "koreański"
+                        },
+                        new
+                        {
+                            Code = "lit",
+                            Name = "litewski"
+                        },
+                        new
+                        {
+                            Code = "lat",
+                            Name = "łacina"
+                        },
+                        new
+                        {
+                            Code = "lav",
+                            Name = "łotewski"
+                        },
+                        new
+                        {
+                            Code = "mac-mkd",
+                            Name = "macedoński"
+                        },
+                        new
+                        {
+                            Code = "may-msa",
+                            Name = "malajski"
+                        },
+                        new
+                        {
+                            Code = "nno",
+                            Name = "neonorweski (nynorsk)"
+                        },
+                        new
+                        {
+                            Code = "ger-deu",
+                            Name = "niemiecki"
+                        },
+                        new
+                        {
+                            Code = "nor",
+                            Name = "norweski"
+                        },
+                        new
+                        {
+                            Code = "nob",
+                            Name = "norweski tradycyjny (bokmal)"
+                        },
+                        new
+                        {
+                            Code = "per-fas",
+                            Name = "perski (farsi)"
+                        },
+                        new
+                        {
+                            Code = "pol",
+                            Name = "polski"
+                        },
+                        new
+                        {
+                            Code = "pso",
+                            Name = "polski język migowy"
+                        },
+                        new
+                        {
+                            Code = "por",
+                            Name = "portugalski"
+                        },
+                        new
+                        {
+                            Code = "rus",
+                            Name = "rosyjski"
+                        },
+                        new
+                        {
+                            Code = "rum-ron",
+                            Name = "rumuński"
+                        },
+                        new
+                        {
+                            Code = "scc-srp",
+                            Name = "serbski"
+                        },
+                        new
+                        {
+                            Code = "slo-slk",
+                            Name = "słowacki"
+                        },
+                        new
+                        {
+                            Code = "slv",
+                            Name = "słoweński"
+                        },
+                        new
+                        {
+                            Code = "swe",
+                            Name = "szwedzki"
+                        },
+                        new
+                        {
+                            Code = "tur",
+                            Name = "turecki"
+                        },
+                        new
+                        {
+                            Code = "ukr",
+                            Name = "ukraiński"
+                        },
+                        new
+                        {
+                            Code = "urd",
+                            Name = "urdu"
+                        },
+                        new
+                        {
+                            Code = "hun",
+                            Name = "węgierski"
+                        },
+                        new
+                        {
+                            Code = "vie",
+                            Name = "wietnamski"
+                        },
+                        new
+                        {
+                            Code = "ita",
+                            Name = "włoski"
+                        });
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Discipline", b =>
+                {
+                    b.Property<string>("Code")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Code")
+                        .HasName("Discipline_pk");
+
+                    b.ToTable("Discipline", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Code = "DS010101N",
+                            Name = "archeologia"
+                        },
+                        new
+                        {
+                            Code = "DS010201N",
+                            Name = "architektura i urbanistyka"
+                        },
+                        new
+                        {
+                            Code = "DS010607N",
+                            Name = "astronomia"
+                        },
+                        new
+                        {
+                            Code = "DS010213N",
+                            Name = "automatyka, elektronika, elektrotechnika i technologie kosmiczne"
+                        },
+                        new
+                        {
+                            Code = "DS010305N",
+                            Name = "biologia medyczna"
+                        },
+                        new
+                        {
+                            Code = "DS010608N",
+                            Name = "biotechnologia"
+                        },
+                        new
+                        {
+                            Code = "DS010501N",
+                            Name = "ekonomia i finanse"
+                        },
+                        new
+                        {
+                            Code = "DS010108N",
+                            Name = "etnologia i antropologia kulturowa"
+                        },
+                        new
+                        {
+                            Code = "DS010102N",
+                            Name = "filozofia"
+                        },
+                        new
+                        {
+                            Code = "DS010502N",
+                            Name = "geografia społeczno-ekonomiczna i gospodarka przestrzenna"
+                        },
+                        new
+                        {
+                            Code = "DS010103N",
+                            Name = "historia"
+                        },
+                        new
+                        {
+                            Code = "DS010601N",
+                            Name = "informatyka"
+                        },
+                        new
+                        {
+                            Code = "DS010204N",
+                            Name = "informatyka techniczna i telekomunikacja"
+                        },
+                        new
+                        {
+                            Code = "DS010210N",
+                            Name = "inżynieria bezpieczeństwa"
+                        },
+                        new
+                        {
+                            Code = "DS010202N",
+                            Name = "inżynieria biomedyczna"
+                        },
+                        new
+                        {
+                            Code = "DS010205N",
+                            Name = "inżynieria chemiczna"
+                        },
+                        new
+                        {
+                            Code = "DS010212N",
+                            Name = "inżynieria lądowa, geodezja i transport"
+                        },
+                        new
+                        {
+                            Code = "DS010207N",
+                            Name = "inżynieria materiałowa"
+                        },
+                        new
+                        {
+                            Code = "DS010208N",
+                            Name = "inżynieria mechaniczna"
+                        },
+                        new
+                        {
+                            Code = "DS010209N",
+                            Name = "inżynieria środowiska, górnictwo i energetyka"
+                        },
+                        new
+                        {
+                            Code = "DS010104N",
+                            Name = "językoznawstwo"
+                        },
+                        new
+                        {
+                            Code = "DS010105N",
+                            Name = "literaturoznawstwo"
+                        },
+                        new
+                        {
+                            Code = "DS010602N",
+                            Name = "matematyka"
+                        },
+                        new
+                        {
+                            Code = "DS010702N",
+                            Name = "nauki biblijne"
+                        },
+                        new
+                        {
+                            Code = "DS010603N",
+                            Name = "nauki biologiczne"
+                        },
+                        new
+                        {
+                            Code = "DS010604N",
+                            Name = "nauki chemiczne"
+                        },
+                        new
+                        {
+                            Code = "DS010301N",
+                            Name = "nauki farmaceutyczne"
+                        },
+                        new
+                        {
+                            Code = "DS010605N",
+                            Name = "nauki fizyczne"
+                        },
+                        new
+                        {
+                            Code = "DS010405N",
+                            Name = "nauki leśne"
+                        },
+                        new
+                        {
+                            Code = "DS010304N",
+                            Name = "nauki medyczne"
+                        },
+                        new
+                        {
+                            Code = "DS010503N",
+                            Name = "nauki o bezpieczeństwie"
+                        },
+                        new
+                        {
+                            Code = "DS010504N",
+                            Name = "nauki o komunikacji społecznej i mediach"
+                        },
+                        new
+                        {
+                            Code = "DS010302N",
+                            Name = "nauki o kulturze fizycznej"
+                        },
+                        new
+                        {
+                            Code = "DS010106N",
+                            Name = "nauki o kulturze i religii"
+                        },
+                        new
+                        {
+                            Code = "DS010505N",
+                            Name = "nauki o polityce i administracji"
+                        },
+                        new
+                        {
+                            Code = "DS010901N",
+                            Name = "nauki o rodzinie"
+                        },
+                        new
+                        {
+                            Code = "DS010107N",
+                            Name = "nauki o sztuce"
+                        },
+                        new
+                        {
+                            Code = "DS010506N",
+                            Name = "nauki o zarządzaniu i jakości"
+                        },
+                        new
+                        {
+                            Code = "DS010303N",
+                            Name = "nauki o zdrowiu"
+                        },
+                        new
+                        {
+                            Code = "DS010606N",
+                            Name = "nauki o Ziemi i środowisku"
+                        },
+                        new
+                        {
+                            Code = "DS010507N",
+                            Name = "nauki prawne"
+                        },
+                        new
+                        {
+                            Code = "DS010508N",
+                            Name = "nauki socjologiczne"
+                        },
+                        new
+                        {
+                            Code = "DS010701N",
+                            Name = "nauki teologiczne"
+                        },
+                        new
+                        {
+                            Code = "DS010211N",
+                            Name = "ochrona dziedzictwa i konserwacja zabytków"
+                        },
+                        new
+                        {
+                            Code = "DS010509N",
+                            Name = "pedagogika"
+                        },
+                        new
+                        {
+                            Code = "DS010109N",
+                            Name = "polonistyka"
+                        },
+                        new
+                        {
+                            Code = "DS010510N",
+                            Name = "prawo kanoniczne"
+                        },
+                        new
+                        {
+                            Code = "DS010511N",
+                            Name = "psychologia"
+                        },
+                        new
+                        {
+                            Code = "DS010401N",
+                            Name = "rolnictwo i ogrodnictwo"
+                        },
+                        new
+                        {
+                            Code = "DS010512N",
+                            Name = "stosunki międzynarodowe"
+                        },
+                        new
+                        {
+                            Code = "DS010801N",
+                            Name = "sztuki filmowe i teatralne"
+                        },
+                        new
+                        {
+                            Code = "DS010802N",
+                            Name = "sztuki muzyczne"
+                        },
+                        new
+                        {
+                            Code = "DS010803N",
+                            Name = "sztuki plastyczne i konserwacja dzieł sztuki"
+                        },
+                        new
+                        {
+                            Code = "DS010402N",
+                            Name = "technologia żywności i żywienia"
+                        },
+                        new
+                        {
+                            Code = "DS011001N",
+                            Name = "weterynaria"
+                        },
+                        new
+                        {
+                            Code = "DS010404N",
+                            Name = "zootechnika i rybactwo"
+                        });
+                });
+
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AINameHistory", b =>
                 {
                     b.Property<Guid>("InstitutionId")
@@ -314,6 +2218,36 @@ namespace Infrastructure.Migrations
                     b.ToTable("AcademicInstitution", (string)null);
                 });
 
+            modelBuilder.Entity("CourseAIOrganizationalUnit", b =>
+                {
+                    b.Property<Guid>("AIOrganizationalUnitId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CourseId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("AIOrganizationalUnitId", "CourseId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("CourseAIOrganizationalUnit");
+                });
+
+            modelBuilder.Entity("CourseLanguage", b =>
+                {
+                    b.Property<Guid>("CourseId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LanguageId")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("CourseId", "LanguageId");
+
+                    b.HasIndex("LanguageId");
+
+                    b.ToTable("CourseLanguage");
+                });
+
             modelBuilder.Entity("DivisionStreet", b =>
                 {
                     b.Property<int>("DivisionId")
@@ -397,6 +2331,79 @@ namespace Infrastructure.Migrations
                     b.Navigation("DivisionType");
                 });
 
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Course", b =>
+                {
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.CourseForm", "Form")
+                        .WithMany("Courses")
+                        .HasForeignKey("FormCode")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("Course_CourseForm");
+
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.Isced", "Isced")
+                        .WithMany("Courses")
+                        .HasForeignKey("IscedCode")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("Course_Isced");
+
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.Language", "Language")
+                        .WithMany("CourseLanguage")
+                        .HasForeignKey("LanguageCode")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("Course_Language");
+
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.CourseLevel", "Level")
+                        .WithMany("Courses")
+                        .HasForeignKey("LevelCode")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("Course_CourseLevel");
+
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.CourseProfile", "Profile")
+                        .WithMany("Courses")
+                        .HasForeignKey("ProfileCode")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("Course_CourseProfile");
+
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.CourseTitle", "Title")
+                        .WithMany("Courses")
+                        .HasForeignKey("TitleCode")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("Course_CourseTitle");
+
+                    b.Navigation("Form");
+
+                    b.Navigation("Isced");
+
+                    b.Navigation("Language");
+
+                    b.Navigation("Level");
+
+                    b.Navigation("Profile");
+
+                    b.Navigation("Title");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseDiscipline", b =>
+                {
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.Course", "Course")
+                        .WithMany("Disciplines")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("CourseDiscipline_Course");
+
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Discipline", "Discipline")
+                        .WithMany("Courses")
+                        .HasForeignKey("DisciplineCode")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("CourseDiscipline_Discipline");
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Discipline");
+                });
+
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AINameHistory", b =>
                 {
                     b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", "Institution")
@@ -470,6 +2477,40 @@ namespace Infrastructure.Migrations
                     b.Navigation("Type");
                 });
 
+            modelBuilder.Entity("CourseAIOrganizationalUnit", b =>
+                {
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.AIOrganizationalUnit", null)
+                        .WithMany()
+                        .HasForeignKey("AIOrganizationalUnitId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("CourseAIOrganizationalUnit_AIOrganizationalUnit");
+
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.Course", null)
+                        .WithMany()
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("CourseAIOrganizationalUnit_Course");
+                });
+
+            modelBuilder.Entity("CourseLanguage", b =>
+                {
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.Course", null)
+                        .WithMany()
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("CourseLanguage_Course");
+
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.Language", null)
+                        .WithMany()
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("CourseLanguage_Language");
+                });
+
             modelBuilder.Entity("DivisionStreet", b =>
                 {
                     b.HasOne("Application.DatabaseRelational.Models.Addresses.Division", null)
@@ -511,6 +2552,46 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Application.DatabaseRelational.Models.Addresses.Street", b =>
                 {
                     b.Navigation("Addresses");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Course", b =>
+                {
+                    b.Navigation("Disciplines");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseForm", b =>
+                {
+                    b.Navigation("Courses");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseLevel", b =>
+                {
+                    b.Navigation("Courses");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseProfile", b =>
+                {
+                    b.Navigation("Courses");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseTitle", b =>
+                {
+                    b.Navigation("Courses");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Isced", b =>
+                {
+                    b.Navigation("Courses");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Language", b =>
+                {
+                    b.Navigation("CourseLanguage");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Discipline", b =>
+                {
+                    b.Navigation("Courses");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AISpecificType", b =>

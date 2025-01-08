@@ -1,4 +1,6 @@
 ﻿using Application.DatabaseRelational.Models.Addresses;
+using Application.DatabaseRelational.Models.HighSchools;
+using Application.DatabaseRelational.Models.HighSchools.Courses;
 using Application.DatabaseRelational.Models.HighSchools.Institutions;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,6 +31,18 @@ namespace Application.DatabaseRelational
         public virtual DbSet<AIStatus> AIStatuses { get; set; }
         public virtual DbSet<AIStatusHistory> AIStatusHistories { get; set; }
         public virtual DbSet<AIType> AITypes { get; set; }
+        //HighSchools.Courses
+        public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<CourseForm> CourseForms { get; set; }
+        public virtual DbSet<CourseTitle> CourseTitles { get; set; }
+        public virtual DbSet<CourseLevel> CourseLevels { get; set; }
+        public virtual DbSet<CourseProfile> CourseProfiles { get; set; }
+        public virtual DbSet<Language> Languages { get; set; }
+        public virtual DbSet<Isced> Isceds { get; set; }
+        public virtual DbSet<CourseDiscipline> CourseDisciplines { get; set; }
+        public virtual DbSet<Discipline> Disciplines { get; set; }
+        public virtual DbSet<AIOrganizationalUnit> OrganizationalUnits { get; set; }
+
 
     }
 }

@@ -1,0 +1,29 @@
+﻿using Application.DatabaseRelational.Models.HighSchools;
+using Application.DatabaseRelational.Models.HighSchools.Courses;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Infrastructure.DatabaseRelational.Configurations.HighSchools.Courses
+{
+    public class CourseDisciplineEFConfiguration : IEntityTypeConfiguration<CourseDiscipline>
+    {
+        public void Configure(EntityTypeBuilder<CourseDiscipline> builder)
+        {
+            builder.ToTable(nameof(CourseDiscipline));
+            builder.HasKey(x => new { x.DisciplineCode, x.CourseId })
+                .HasName($"{nameof(CourseDiscipline)}_pk");
+
+            builder.HasOne(x => x.Discipline)
+                .WithMany(x => x.Courses)
+                .HasForeignKey(x => x.DisciplineCode)
+                .HasConstraintName($"{nameof(CourseDiscipline)}_{nameof(Discipline)}")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.Course)
+                .WithMany(x => x.Disciplines)
+                .HasForeignKey(x => x.CourseId)
+                .HasConstraintName($"{nameof(CourseDiscipline)}_{nameof(Course)}")
+                .OnDelete(DeleteBehavior.Restrict);
+        }
+    }
+}
