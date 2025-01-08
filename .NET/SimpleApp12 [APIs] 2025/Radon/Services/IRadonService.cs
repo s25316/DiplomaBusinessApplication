@@ -1,5 +1,6 @@
 ﻿using Radon.DTOs.ApiResponses.Branches;
 using Radon.DTOs.ApiResponses.Courses;
+using Radon.DTOs.ApiResponses.Disciplines;
 using Radon.DTOs.ApiResponses.DoctoralSchools;
 using Radon.DTOs.ApiResponses.Institutions;
 using Radon.DTOs.ApiResponses.SpecializedEducations;
@@ -27,5 +28,7 @@ namespace Radon.Services
         Task<IEnumerable<SpecializedEducationDto>> GetSpecializedEducationsAsync(
             Guid institutionUuid,
             CancellationToken cancellation = default);
+        Task<IEnumerable<Discipline>> GetDisciplinesAsync(
+           CancellationToken cancellation = default);
     }
 }

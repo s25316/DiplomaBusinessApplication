@@ -1,5 +1,6 @@
 ﻿using Radon.DTOs.ApiResponses.Branches;
 using Radon.DTOs.ApiResponses.Courses;
+using Radon.DTOs.ApiResponses.Disciplines;
 using Radon.DTOs.ApiResponses.DoctoralSchools;
 using Radon.DTOs.ApiResponses.Institutions;
 using Radon.DTOs.ApiResponses.SpecializedEducations;
@@ -119,6 +120,13 @@ namespace Radon.Services
             while (totalCount != items.Count);
             return items;
         }
+
+        public async Task<IEnumerable<Discipline>> GetDisciplinesAsync(
+            CancellationToken cancellation = default)
+        {
+            var json = await _repository.GetDisciplinesAsync(cancellation);
+            return DeserializeList<Discipline>(json);
+        }
         //===============================================================================================
         //===============================================================================================
         //===============================================================================================
@@ -131,6 +139,13 @@ namespace Radon.Services
             var token = response?.Pagination.Token;
             var count = response?.Pagination.MaxCount ?? 0;
             return (items, token, count);
+        }
+
+        private IEnumerable<T> DeserializeList<T>(
+            string json) where T : class
+        {
+            var items = JsonSerializer.Deserialize<List<T>>(json);
+            return items ?? [];
         }
     }
 }

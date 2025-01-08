@@ -1,32 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\BackendDiploma\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{232A86C4-A502-4280-9985-A04A18196850}|BackendDiploma\\BackendDiploma.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\backenddiploma\\backenddiploma\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{232A86C4-A502-4280-9985-A04A18196850}|BackendDiploma\\BackendDiploma.csproj|solutionrelative:backenddiploma\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A172509-9529-4BA9-ADCD-0E23AC4C062F}|Application\\Application.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\backenddiploma\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{4A172509-9529-4BA9-ADCD-0E23AC4C062F}|Application\\Application.csproj|solutionrelative:application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5E30C47-E08A-4908-B91C-835EB9D23B08}|Infrastructure\\Infrastructure.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\backenddiploma\\infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{F5E30C47-E08A-4908-B91C-835EB9D23B08}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A172509-9529-4BA9-ADCD-0E23AC4C062F}|Application\\Application.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\backenddiploma\\application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A172509-9529-4BA9-ADCD-0E23AC4C062F}|Application\\Application.csproj|solutionrelative:application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5E30C47-E08A-4908-B91C-835EB9D23B08}|Infrastructure\\Infrastructure.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\backenddiploma\\infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5E30C47-E08A-4908-B91C-835EB9D23B08}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AEC2F7E-04A0-4B45-ACA1-E84098650CA4}|Domain\\Domain.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\backenddiploma\\domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AEC2F7E-04A0-4B45-ACA1-E84098650CA4}|Domain\\Domain.csproj|solutionrelative:domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -34,84 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "WeatherForecast.cs",
-              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\BackendDiploma\\BackendDiploma\\WeatherForecast.cs",
-              "RelativeDocumentMoniker": "BackendDiploma\\WeatherForecast.cs",
-              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\BackendDiploma\\BackendDiploma\\WeatherForecast.cs",
-              "RelativeToolTip": "BackendDiploma\\WeatherForecast.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T03:38:04.839Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Infrastructure.csproj",
-              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\BackendDiploma\\Infrastructure\\Infrastructure.csproj",
-              "RelativeDocumentMoniker": "Infrastructure\\Infrastructure.csproj",
-              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\BackendDiploma\\Infrastructure\\Infrastructure.csproj",
-              "RelativeToolTip": "Infrastructure\\Infrastructure.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-06T03:33:11.607Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Application.csproj",
-              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\BackendDiploma\\Application\\Application.csproj",
-              "RelativeDocumentMoniker": "Application\\Application.csproj",
-              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\BackendDiploma\\Application\\Application.csproj",
-              "RelativeToolTip": "Application\\Application.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-06T03:31:30.079Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\BackendDiploma\\Application\\Class1.cs",
-              "RelativeDocumentMoniker": "Application\\Class1.cs",
-              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\BackendDiploma\\Application\\Class1.cs",
-              "RelativeToolTip": "Application\\Class1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T03:26:55.914Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\BackendDiploma\\Infrastructure\\Class1.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Class1.cs",
-              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\BackendDiploma\\Infrastructure\\Class1.cs",
-              "RelativeToolTip": "Infrastructure\\Class1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T03:26:23.541Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\BackendDiploma\\Domain\\Class1.cs",
-              "RelativeDocumentMoniker": "Domain\\Class1.cs",
-              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\BackendDiploma\\Domain\\Class1.cs",
-              "RelativeToolTip": "Domain\\Class1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T03:25:41.578Z"
             }
           ]
         }

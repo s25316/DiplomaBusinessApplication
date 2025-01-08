@@ -166,6 +166,13 @@ namespace Radon.Repositories
             return json;
         }
 
+        //https://radon.nauka.gov.pl/api/katalog-udostepniania-danych/dane-polon/polon/reports_dictionaries
+        public async Task<string> GetDisciplinesAsync(CancellationToken cancellation = default)
+        {
+            var url = "https://radon.nauka.gov.pl/opendata/polon/dictionaries/shared/disciplines";
+            var json = await MakeRequestAsync(url, cancellation);
+            return json;
+        }
         //==================================================================================================
         //==================================================================================================
         //==================================================================================================

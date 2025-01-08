@@ -1,0 +1,45 @@
+C:\1 Artem`s Folder\C#\Console App\ConsoleApp1 [FlatFileDatabases]\Teryt\bin\Debug\net8.0\Teryt.deps.json
+C:\1 Artem`s Folder\C#\Console App\ConsoleApp1 [FlatFileDatabases]\Teryt\bin\Debug\net8.0\Teryt.dll
+C:\1 Artem`s Folder\C#\Console App\ConsoleApp1 [FlatFileDatabases]\Teryt\bin\Debug\net8.0\Teryt.pdb
+C:\1 Artem`s Folder\C#\Console App\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.GeneratedMSBuildEditorConfig.editorconfig
+C:\1 Artem`s Folder\C#\Console App\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.AssemblyInfoInputs.cache
+C:\1 Artem`s Folder\C#\Console App\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.AssemblyInfo.cs
+C:\1 Artem`s Folder\C#\Console App\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.csproj.CoreCompileInputs.cache
+C:\1 Artem`s Folder\C#\Console App\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.dll
+C:\1 Artem`s Folder\C#\Console App\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\refint\Teryt.dll
+C:\1 Artem`s Folder\C#\Console App\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.pdb
+C:\1 Artem`s Folder\C#\Console App\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\ref\Teryt.dll
+C:\1 Artem`s Folder\C#\ConsoleApp1 [FlatFileDatabases]\Teryt\bin\Debug\net8.0\Teryt.deps.json
+C:\1 Artem`s Folder\C#\ConsoleApp1 [FlatFileDatabases]\Teryt\bin\Debug\net8.0\Teryt.dll
+C:\1 Artem`s Folder\C#\ConsoleApp1 [FlatFileDatabases]\Teryt\bin\Debug\net8.0\Teryt.pdb
+C:\1 Artem`s Folder\C#\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.GeneratedMSBuildEditorConfig.editorconfig
+C:\1 Artem`s Folder\C#\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.AssemblyInfoInputs.cache
+C:\1 Artem`s Folder\C#\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.AssemblyInfo.cs
+C:\1 Artem`s Folder\C#\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.csproj.CoreCompileInputs.cache
+C:\1 Artem`s Folder\C#\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.dll
+C:\1 Artem`s Folder\C#\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\refint\Teryt.dll
+C:\1 Artem`s Folder\C#\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.pdb
+C:\1 Artem`s Folder\C#\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\ref\Teryt.dll
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\ConsoleApp1 [FlatFileDatabases]\Teryt\bin\Debug\net8.0\Teryt.deps.json
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\ConsoleApp1 [FlatFileDatabases]\Teryt\bin\Debug\net8.0\Teryt.dll
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\ConsoleApp1 [FlatFileDatabases]\Teryt\bin\Debug\net8.0\Teryt.pdb
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.GeneratedMSBuildEditorConfig.editorconfig
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.AssemblyInfoInputs.cache
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.AssemblyInfo.cs
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.csproj.CoreCompileInputs.cache
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.dll
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\refint\Teryt.dll
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\Teryt.pdb
+C:\1 Artem`s Folder\C#\ASP.NET Core Web API\ConsoleApp1 [FlatFileDatabases]\Teryt\obj\Debug\net8.0\ref\Teryt.dll
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp1 [Seeding DB]\Teryt\bin\Debug\net8.0\Teryt.deps.json
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp1 [Seeding DB]\Teryt\bin\Debug\net8.0\Teryt.dll
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp1 [Seeding DB]\Teryt\bin\Debug\net8.0\Teryt.pdb
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp1 [Seeding DB]\Teryt\obj\Debug\net8.0\Teryt.GeneratedMSBuildEditorConfig.editorconfig
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp1 [Seeding DB]\Teryt\obj\Debug\net8.0\Teryt.AssemblyInfoInputs.cache
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp1 [Seeding DB]\Teryt\obj\Debug\net8.0\Teryt.AssemblyInfo.cs
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp1 [Seeding DB]\Teryt\obj\Debug\net8.0\Teryt.csproj.CoreCompileInputs.cache
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp1 [Seeding DB]\Teryt\obj\Debug\net8.0\Teryt.sourcelink.json
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp1 [Seeding DB]\Teryt\obj\Debug\net8.0\Teryt.dll
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp1 [Seeding DB]\Teryt\obj\Debug\net8.0\refint\Teryt.dll
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp1 [Seeding DB]\Teryt\obj\Debug\net8.0\Teryt.pdb
+C:\1 Artem`s Folder\git\DiplomaBusinessApplication\.NET\ConsoleApp1 [Seeding DB]\Teryt\obj\Debug\net8.0\ref\Teryt.dll

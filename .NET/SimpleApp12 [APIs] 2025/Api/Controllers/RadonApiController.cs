@@ -85,6 +85,14 @@ namespace Api.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("Disciplines")]
+        public async Task<IActionResult> GetDisciplinesAsync(
+            CancellationToken cancellation)
+        {
+            var result = await _service.GetDisciplinesAsync(cancellation);
+            return Ok(result);
+        }
         //===============================================================================================
         //===============================================================================================
         //===============================================================================================

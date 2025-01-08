@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "yk3qSmXGU8E=",
+  "dgSpecHash": "a51VpDRIUew=",
   "success": true,
   "projectFilePath": "C:\\1 Artem`s Folder\\git\\DiplomaBusinessApplication\\.NET\\BackendDiploma\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\artem\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.0\\microsoft.extensions.configuration.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\artem\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.0\\microsoft.extensions.dependencyinjection.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\artem\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.0\\microsoft.extensions.primitives.9.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

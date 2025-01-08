@@ -32,5 +32,7 @@ namespace Radon.Repositories
             int maxItems = 100,
             string? token = null,
             CancellationToken cancellation = default);
+        Task<string> GetDisciplinesAsync(
+            CancellationToken cancellation = default);
     }
 }
