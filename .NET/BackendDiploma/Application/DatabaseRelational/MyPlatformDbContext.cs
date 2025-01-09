@@ -1,7 +1,12 @@
 ﻿using Application.DatabaseRelational.Models.Addresses;
-using Application.DatabaseRelational.Models.HighSchools;
+using Application.DatabaseRelational.Models.Companies;
+using Application.DatabaseRelational.Models.Companies.Classifications;
+using Application.DatabaseRelational.Models.Companies.Identifiers;
+using Application.DatabaseRelational.Models.Companies.Statuses;
 using Application.DatabaseRelational.Models.HighSchools.Courses;
+using Application.DatabaseRelational.Models.HighSchools.Courses.Disciplines;
 using Application.DatabaseRelational.Models.HighSchools.Institutions;
+using Application.DatabaseRelational.Models.HighSchools.Institutions.SpecificTypes;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.DatabaseRelational
@@ -25,11 +30,8 @@ namespace Application.DatabaseRelational
 
         //HighSchools/Institutions
         public virtual DbSet<AcademicInstitution> AcademicInstitutions { get; set; }
-        public virtual DbSet<AINameHistory> AINameHistories { get; set; }
         public virtual DbSet<AISpecificType> AISpecificTypes { get; set; }
         public virtual DbSet<AISpecificTypeHistory> AISpecificTypeHistories { get; set; }
-        public virtual DbSet<AIStatus> AIStatuses { get; set; }
-        public virtual DbSet<AIStatusHistory> AIStatusHistories { get; set; }
         public virtual DbSet<AIType> AITypes { get; set; }
         //HighSchools.Courses
         public virtual DbSet<Course> Courses { get; set; }
@@ -42,7 +44,15 @@ namespace Application.DatabaseRelational
         public virtual DbSet<CourseDiscipline> CourseDisciplines { get; set; }
         public virtual DbSet<Discipline> Disciplines { get; set; }
         public virtual DbSet<AIOrganizationalUnit> OrganizationalUnits { get; set; }
-
+        //Company
+        public virtual DbSet<Company> Companies { get; set; }
+        public virtual DbSet<CompanyNameHistory> CompanyNames { get; set; }
+        public virtual DbSet<CompanyStatus> CompanyStatuses { get; set; }
+        public virtual DbSet<CompanyStatusHistory> CompanyStatusHistories { get; set; }
+        public virtual DbSet<CompanyIdentifier> CompanyIdentifiers { get; set; }
+        public virtual DbSet<CompanyIdentifierDetail> CompanyIdentifierDetails { get; set; }
+        public virtual DbSet<CompanyClassification> CompanyClassifications { get; set; }
+        public virtual DbSet<CompanyClassificationDetail> CompanyClassificationDetails { get; set; }
 
     }
 }

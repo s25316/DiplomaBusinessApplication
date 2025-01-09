@@ -20,6 +20,17 @@ namespace Infrastructure.DatabaseRelational.Configurations.HighSchools.Instituti
                 .HasForeignKey(x => x.TypeId)
                 .HasConstraintName($"{nameof(AIType)}_{nameof(AcademicInstitution)}")
                 .OnDelete(DeleteBehavior.Restrict);
+
+            //https://radon.nauka.gov.pl/opendata/polon/dictionaries/institution/institutionKinds
+            AIType[] data =
+                {
+                new AIType {Id =16 , IsSchool= false, Name ="Federacja" },
+                new AIType {Id =5 , IsSchool= false, Name ="Instytucja naukowa" },
+                new AIType {Id =1 , IsSchool= true, Name ="Uczelnia kościelna" },
+                new AIType {Id =10 , IsSchool= true, Name ="Uczelnia niepubliczna" },
+                new AIType {Id =13 , IsSchool= true, Name ="Uczelnia publiczna" },
+            };
+            builder.HasData(data);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Api.Controllers
         [HttpGet("Institutions")]
         public IActionResult GetInstitutions()
         {
-            var result = _service.GetInstitutions();
+            var result = _service.GetInstitutions().Where(x => x.AddressChangeHistory.Count() > 1);
             return Ok(result);
         }
 

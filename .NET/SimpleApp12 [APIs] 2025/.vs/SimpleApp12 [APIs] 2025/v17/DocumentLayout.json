@@ -3,33 +3,31 @@
   "WorkspaceRootPath": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A1D4AB12-AD24-4DC0-B0E4-D78F3DAC4091}|Api\\Api.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\api\\controllers\\regoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1D4AB12-AD24-4DC0-B0E4-D78F3DAC4091}|Api\\Api.csproj|solutionrelative:api\\controllers\\regoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\artem\\Downloads\\response_1736379581235.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1D4AB12-AD24-4DC0-B0E4-D78F3DAC4091}|Api\\Api.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\api\\controllers\\radonapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1D4AB12-AD24-4DC0-B0E4-D78F3DAC4091}|Api\\Api.csproj|solutionrelative:api\\controllers\\radonapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\artem\\Downloads\\response_1736135205595.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\artem\\Downloads\\response_1736379561624.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1D4AB12-AD24-4DC0-B0E4-D78F3DAC4091}|Api\\Api.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\api\\controllers\\radonfilescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1D4AB12-AD24-4DC0-B0E4-D78F3DAC4091}|Api\\Api.csproj|solutionrelative:api\\controllers\\radonfilescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\artem\\Downloads\\response_1736308573595.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\artem\\Downloads\\response_1736135230156.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\artem\\Downloads\\response_1736294720399.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\artem\\Downloads\\response_1736307479572.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\artem\\Downloads\\response_1736135255728.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\artem\\Downloads\\response_1736135309798.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\artem\\Downloads\\response_1736135205595.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\artem\\Downloads\\response_1736135230156.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A1D4AB12-AD24-4DC0-B0E4-D78F3DAC4091}|Api\\Api.csproj|c:\\1 artem\u0060s folder\\git\\diplomabusinessapplication\\.net\\simpleapp12 [apis] 2025\\api\\controllers\\regoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1D4AB12-AD24-4DC0-B0E4-D78F3DAC4091}|Api\\Api.csproj|solutionrelative:api\\controllers\\regoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,7 +37,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -48,117 +46,106 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "RadonApiController.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Api\\Controllers\\RadonApiController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\RadonApiController.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Api\\Controllers\\RadonApiController.cs",
+              "RelativeToolTip": "Api\\Controllers\\RadonApiController.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowCUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-09T00:09:47.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "response_1736379581235.json",
+              "DocumentMoniker": "C:\\Users\\artem\\Downloads\\response_1736379581235.json",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736379581235.json",
+              "ToolTip": "C:\\Users\\artem\\Downloads\\response_1736379581235.json",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736379581235.json",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACcAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-08T23:40:23.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "response_1736379561624.json",
+              "DocumentMoniker": "C:\\Users\\artem\\Downloads\\response_1736379561624.json",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736379561624.json",
+              "ToolTip": "C:\\Users\\artem\\Downloads\\response_1736379561624.json",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736379561624.json",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAACEAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-08T23:40:23.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "response_1736135205595.json",
+              "DocumentMoniker": "C:\\Users\\artem\\Downloads\\response_1736135205595.json",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736135205595.json",
+              "ToolTip": "C:\\Users\\artem\\Downloads\\response_1736135205595.json",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736135205595.json",
+              "ViewState": "AQIAAMMbAAAAAAAAAAAIwKUbAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-08T23:37:08.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "RadonFilesController.cs",
               "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Api\\Controllers\\RadonFilesController.cs",
               "RelativeDocumentMoniker": "Api\\Controllers\\RadonFilesController.cs",
               "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Api\\Controllers\\RadonFilesController.cs",
               "RelativeToolTip": "Api\\Controllers\\RadonFilesController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAABhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-08T06:38:31.666Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "response_1736308573595.json",
-              "DocumentMoniker": "C:\\Users\\artem\\Downloads\\response_1736308573595.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736308573595.json",
-              "ToolTip": "C:\\Users\\artem\\Downloads\\response_1736308573595.json*",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736308573595.json*",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-08T03:56:28.045Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "response_1736307479572.json",
-              "DocumentMoniker": "C:\\Users\\artem\\Downloads\\response_1736307479572.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736307479572.json",
-              "ToolTip": "C:\\Users\\artem\\Downloads\\response_1736307479572.json",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736307479572.json",
-              "ViewState": "AQIAAF0AAAAAAAAAAAAAAAsAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-08T03:38:05.266Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "response_1736294720399.json",
-              "DocumentMoniker": "C:\\Users\\artem\\Downloads\\response_1736294720399.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736294720399.json",
-              "ToolTip": "C:\\Users\\artem\\Downloads\\response_1736294720399.json",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736294720399.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFUAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-08T00:50:05.997Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RegonController.cs",
-              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Api\\Controllers\\RegonController.cs",
-              "RelativeDocumentMoniker": "Api\\Controllers\\RegonController.cs",
-              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Api\\Controllers\\RegonController.cs",
-              "RelativeToolTip": "Api\\Controllers\\RegonController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T00:22:55.403Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "response_1736135230156.json",
               "DocumentMoniker": "C:\\Users\\artem\\Downloads\\response_1736135230156.json",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736135230156.json",
               "ToolTip": "C:\\Users\\artem\\Downloads\\response_1736135230156.json",
               "RelativeToolTip": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736135230156.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAABAAAAA",
+              "ViewState": "AQIAAHsAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-08T00:05:54.063Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "response_1736135255728.json",
-              "DocumentMoniker": "C:\\Users\\artem\\Downloads\\response_1736135255728.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736135255728.json",
-              "ToolTip": "C:\\Users\\artem\\Downloads\\response_1736135255728.json",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736135255728.json",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAAFQAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-08T00:05:54.037Z",
+              "WhenOpened": "2025-01-08T23:37:08.5Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "response_1736135309798.json",
-              "DocumentMoniker": "C:\\Users\\artem\\Downloads\\response_1736135309798.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736135309798.json",
-              "ToolTip": "C:\\Users\\artem\\Downloads\\response_1736135309798.json",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736135309798.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAEAAAA",
+              "Title": "response_1736294720399.json",
+              "DocumentMoniker": "C:\\Users\\artem\\Downloads\\response_1736294720399.json",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736294720399.json",
+              "ToolTip": "C:\\Users\\artem\\Downloads\\response_1736294720399.json",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736294720399.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-08T00:05:54.008Z",
+              "WhenOpened": "2025-01-08T23:37:08.301Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "response_1736135205595.json",
-              "DocumentMoniker": "C:\\Users\\artem\\Downloads\\response_1736135205595.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736135205595.json",
-              "ToolTip": "C:\\Users\\artem\\Downloads\\response_1736135205595.json",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Users\\artem\\Downloads\\response_1736135205595.json",
-              "ViewState": "AQIAAJUSAAAAAAAAAAAIwEsSAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-08T00:05:53.784Z"
+              "Title": "RegonController.cs",
+              "DocumentMoniker": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Api\\Controllers\\RegonController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\RegonController.cs",
+              "ToolTip": "C:\\1 Artem\u0060s Folder\\git\\DiplomaBusinessApplication\\.NET\\SimpleApp12 [APIs] 2025\\Api\\Controllers\\RegonController.cs",
+              "RelativeToolTip": "Api\\Controllers\\RegonController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T00:22:55.403Z",
+              "EditorCaption": ""
             }
           ]
         }

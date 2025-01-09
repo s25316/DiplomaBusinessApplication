@@ -1,4 +1,5 @@
-﻿using Application.DatabaseRelational.Models.HighSchools.Institutions;
+﻿using Application.DatabaseRelational.Models.Companies;
+using Application.DatabaseRelational.Models.HighSchools.Institutions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -14,22 +15,14 @@ namespace Infrastructure.DatabaseRelational.Configurations.HighSchools.Instituti
             builder.Property(x => x.Id)
                 .ValueGeneratedNever()
                 .HasDefaultValueSql("(newid())");
-            builder.Property(x => x.Name)
-                .HasMaxLength(800);
-            builder.Property(x => x.WWW)
-                .HasMaxLength(100);
-            builder.Property(x => x.Email)
-                .HasMaxLength(100);
-            builder.Property(x => x.Phone)
-                .HasMaxLength(100);
             builder.Property(x => x.LastUpdate)
                 .HasDefaultValueSql("(GETDATE())");
 
-            builder.HasOne(x => x.ParentInstitution)
-                .WithMany(x => x.ChildInstitutions)
-                .HasForeignKey(x => x.ParentId)
-                .HasConstraintName($"{nameof(AcademicInstitution)}_{nameof(AcademicInstitution)}");
-
+            builder.HasOne(x => x.Company)
+                .WithOne(x => x.AcademicInstitution)
+                .HasForeignKey<AcademicInstitution>(x => x.Id)
+                .HasConstraintName($"{nameof(Company)}_{nameof(AcademicInstitution)}")
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

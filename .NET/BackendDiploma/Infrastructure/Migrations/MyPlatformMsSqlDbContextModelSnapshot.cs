@@ -43,6 +43,10 @@ namespace Infrastructure.Migrations
                     b.Property<int?>("StreetId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ZipCode")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
                     b.HasKey("AddressId")
                         .HasName("Address_pk");
 
@@ -67,6 +71,13 @@ namespace Infrastructure.Migrations
                         .HasName("Country_pk");
 
                     b.ToTable("Country", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            CountryId = 1,
+                            Name = "Polska"
+                        });
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.Addresses.Division", b =>
@@ -151,6 +162,232 @@ namespace Infrastructure.Migrations
                     b.ToTable("Street", (string)null);
                 });
 
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Classifications.CompanyClassification", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id")
+                        .HasName("CompanyClassification_pk");
+
+                    b.HasIndex("CountryId");
+
+                    b.ToTable("CompanyClassification", (string)null);
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Classifications.CompanyClassificationDetail", b =>
+                {
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ClassificationId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsMain")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.HasKey("CompanyId", "ClassificationId")
+                        .HasName("CompanyClassificationDetail_pk");
+
+                    b.HasIndex("ClassificationId");
+
+                    b.ToTable("CompanyClassificationDetail", (string)null);
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Company", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("(newid())");
+
+                    b.HasKey("Id")
+                        .HasName("Company_pk");
+
+                    b.ToTable("Company", (string)null);
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.CompanyNameHistory", b =>
+                {
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(800)
+                        .HasColumnType("nvarchar(800)");
+
+                    b.HasKey("CompanyId", "Date")
+                        .HasName("CompanyNameHistory_pk");
+
+                    b.ToTable("CompanyNameHistory", (string)null);
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Identifiers.CompanyIdentifier", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("ShortName")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id")
+                        .HasName("CompanyIdentifier_pk");
+
+                    b.HasIndex("CountryId");
+
+                    b.ToTable("CompanyIdentifier", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CountryId = 1,
+                            Name = "Numer identyfikacji podatkowej",
+                            ShortName = "NIP"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CountryId = 1,
+                            Name = "Krajowy Rejestr Urzędowy Podmiotów Gospodarki Narodowej",
+                            ShortName = "REGON"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CountryId = 1,
+                            Name = "Krajowy Rejestr Sądowy",
+                            ShortName = "KRS"
+                        });
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Identifiers.CompanyIdentifierDetail", b =>
+                {
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("IdentifierId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("CompanyId", "IdentifierId")
+                        .HasName("CompanyIdentifierDetail_pk");
+
+                    b.HasIndex("IdentifierId");
+
+                    b.ToTable("CompanyIdentifierDetail", (string)null);
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Statuses.CompanyStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id")
+                        .HasName("CompanyStatus_pk");
+
+                    b.ToTable("CompanyStatus", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Działająca"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Przekształcona"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "W likwidacji"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Wykreślona z wykazu"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Zlikwidowana"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "Zawieszona"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "Wznowiona"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "Zakończona"
+                        });
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Statuses.CompanyStatusHistory", b =>
+                {
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CompanyId", "Date", "StatusId")
+                        .HasName("CompanyStatusHistory_pk");
+
+                    b.HasIndex("StatusId");
+
+                    b.ToTable("CompanyStatusHistory", (string)null);
+                });
+
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.AIOrganizationalUnit", b =>
                 {
                     b.Property<Guid>("Id")
@@ -184,6 +421,9 @@ namespace Infrastructure.Migrations
                     b.Property<string>("LanguageCode")
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<DateOnly>("LastUpdate")
+                        .HasColumnType("date");
+
                     b.Property<int?>("LevelCode")
                         .HasColumnType("int");
 
@@ -192,8 +432,8 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(800)
+                        .HasColumnType("nvarchar(800)");
 
                     b.Property<int>("NumberOfSemesters")
                         .HasColumnType("int");
@@ -223,28 +463,6 @@ namespace Infrastructure.Migrations
                     b.HasIndex("TitleCode");
 
                     b.ToTable("Course", (string)null);
-                });
-
-            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseDiscipline", b =>
-                {
-                    b.Property<string>("DisciplineCode")
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<Guid>("CourseId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool?>("DisciplineLeading")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("PercentageShare")
-                        .HasColumnType("int");
-
-                    b.HasKey("DisciplineCode", "CourseId")
-                        .HasName("CourseDiscipline_pk");
-
-                    b.HasIndex("CourseId");
-
-                    b.ToTable("CourseDiscipline", (string)null);
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseForm", b =>
@@ -371,6 +589,327 @@ namespace Infrastructure.Migrations
                         {
                             Code = 4,
                             Name = "magister inżynier"
+                        });
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Disciplines.CourseDiscipline", b =>
+                {
+                    b.Property<string>("DisciplineCode")
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<Guid>("CourseId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool?>("DisciplineLeading")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("PercentageShare")
+                        .HasColumnType("int");
+
+                    b.HasKey("DisciplineCode", "CourseId")
+                        .HasName("CourseDiscipline_pk");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("CourseDiscipline", (string)null);
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Disciplines.Discipline", b =>
+                {
+                    b.Property<string>("Code")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Code")
+                        .HasName("Discipline_pk");
+
+                    b.ToTable("Discipline", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Code = "DS010101N",
+                            Name = "archeologia"
+                        },
+                        new
+                        {
+                            Code = "DS010201N",
+                            Name = "architektura i urbanistyka"
+                        },
+                        new
+                        {
+                            Code = "DS010607N",
+                            Name = "astronomia"
+                        },
+                        new
+                        {
+                            Code = "DS010213N",
+                            Name = "automatyka, elektronika, elektrotechnika i technologie kosmiczne"
+                        },
+                        new
+                        {
+                            Code = "DS010305N",
+                            Name = "biologia medyczna"
+                        },
+                        new
+                        {
+                            Code = "DS010608N",
+                            Name = "biotechnologia"
+                        },
+                        new
+                        {
+                            Code = "DS010501N",
+                            Name = "ekonomia i finanse"
+                        },
+                        new
+                        {
+                            Code = "DS010108N",
+                            Name = "etnologia i antropologia kulturowa"
+                        },
+                        new
+                        {
+                            Code = "DS010102N",
+                            Name = "filozofia"
+                        },
+                        new
+                        {
+                            Code = "DS010502N",
+                            Name = "geografia społeczno-ekonomiczna i gospodarka przestrzenna"
+                        },
+                        new
+                        {
+                            Code = "DS010103N",
+                            Name = "historia"
+                        },
+                        new
+                        {
+                            Code = "DS010601N",
+                            Name = "informatyka"
+                        },
+                        new
+                        {
+                            Code = "DS010204N",
+                            Name = "informatyka techniczna i telekomunikacja"
+                        },
+                        new
+                        {
+                            Code = "DS010210N",
+                            Name = "inżynieria bezpieczeństwa"
+                        },
+                        new
+                        {
+                            Code = "DS010202N",
+                            Name = "inżynieria biomedyczna"
+                        },
+                        new
+                        {
+                            Code = "DS010205N",
+                            Name = "inżynieria chemiczna"
+                        },
+                        new
+                        {
+                            Code = "DS010212N",
+                            Name = "inżynieria lądowa, geodezja i transport"
+                        },
+                        new
+                        {
+                            Code = "DS010207N",
+                            Name = "inżynieria materiałowa"
+                        },
+                        new
+                        {
+                            Code = "DS010208N",
+                            Name = "inżynieria mechaniczna"
+                        },
+                        new
+                        {
+                            Code = "DS010209N",
+                            Name = "inżynieria środowiska, górnictwo i energetyka"
+                        },
+                        new
+                        {
+                            Code = "DS010104N",
+                            Name = "językoznawstwo"
+                        },
+                        new
+                        {
+                            Code = "DS010105N",
+                            Name = "literaturoznawstwo"
+                        },
+                        new
+                        {
+                            Code = "DS010602N",
+                            Name = "matematyka"
+                        },
+                        new
+                        {
+                            Code = "DS010702N",
+                            Name = "nauki biblijne"
+                        },
+                        new
+                        {
+                            Code = "DS010603N",
+                            Name = "nauki biologiczne"
+                        },
+                        new
+                        {
+                            Code = "DS010604N",
+                            Name = "nauki chemiczne"
+                        },
+                        new
+                        {
+                            Code = "DS010301N",
+                            Name = "nauki farmaceutyczne"
+                        },
+                        new
+                        {
+                            Code = "DS010605N",
+                            Name = "nauki fizyczne"
+                        },
+                        new
+                        {
+                            Code = "DS010405N",
+                            Name = "nauki leśne"
+                        },
+                        new
+                        {
+                            Code = "DS010304N",
+                            Name = "nauki medyczne"
+                        },
+                        new
+                        {
+                            Code = "DS010503N",
+                            Name = "nauki o bezpieczeństwie"
+                        },
+                        new
+                        {
+                            Code = "DS010504N",
+                            Name = "nauki o komunikacji społecznej i mediach"
+                        },
+                        new
+                        {
+                            Code = "DS010302N",
+                            Name = "nauki o kulturze fizycznej"
+                        },
+                        new
+                        {
+                            Code = "DS010106N",
+                            Name = "nauki o kulturze i religii"
+                        },
+                        new
+                        {
+                            Code = "DS010505N",
+                            Name = "nauki o polityce i administracji"
+                        },
+                        new
+                        {
+                            Code = "DS010901N",
+                            Name = "nauki o rodzinie"
+                        },
+                        new
+                        {
+                            Code = "DS010107N",
+                            Name = "nauki o sztuce"
+                        },
+                        new
+                        {
+                            Code = "DS010506N",
+                            Name = "nauki o zarządzaniu i jakości"
+                        },
+                        new
+                        {
+                            Code = "DS010303N",
+                            Name = "nauki o zdrowiu"
+                        },
+                        new
+                        {
+                            Code = "DS010606N",
+                            Name = "nauki o Ziemi i środowisku"
+                        },
+                        new
+                        {
+                            Code = "DS010507N",
+                            Name = "nauki prawne"
+                        },
+                        new
+                        {
+                            Code = "DS010508N",
+                            Name = "nauki socjologiczne"
+                        },
+                        new
+                        {
+                            Code = "DS010701N",
+                            Name = "nauki teologiczne"
+                        },
+                        new
+                        {
+                            Code = "DS010211N",
+                            Name = "ochrona dziedzictwa i konserwacja zabytków"
+                        },
+                        new
+                        {
+                            Code = "DS010509N",
+                            Name = "pedagogika"
+                        },
+                        new
+                        {
+                            Code = "DS010109N",
+                            Name = "polonistyka"
+                        },
+                        new
+                        {
+                            Code = "DS010510N",
+                            Name = "prawo kanoniczne"
+                        },
+                        new
+                        {
+                            Code = "DS010511N",
+                            Name = "psychologia"
+                        },
+                        new
+                        {
+                            Code = "DS010401N",
+                            Name = "rolnictwo i ogrodnictwo"
+                        },
+                        new
+                        {
+                            Code = "DS010512N",
+                            Name = "stosunki międzynarodowe"
+                        },
+                        new
+                        {
+                            Code = "DS010801N",
+                            Name = "sztuki filmowe i teatralne"
+                        },
+                        new
+                        {
+                            Code = "DS010802N",
+                            Name = "sztuki muzyczne"
+                        },
+                        new
+                        {
+                            Code = "DS010803N",
+                            Name = "sztuki plastyczne i konserwacja dzieł sztuki"
+                        },
+                        new
+                        {
+                            Code = "DS010402N",
+                            Name = "technologia żywności i żywienia"
+                        },
+                        new
+                        {
+                            Code = "DS011001N",
+                            Name = "weterynaria"
+                        },
+                        new
+                        {
+                            Code = "DS010404N",
+                            Name = "zootechnika i rybactwo"
                         });
                 });
 
@@ -1756,394 +2295,6 @@ namespace Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Discipline", b =>
-                {
-                    b.Property<string>("Code")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Code")
-                        .HasName("Discipline_pk");
-
-                    b.ToTable("Discipline", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Code = "DS010101N",
-                            Name = "archeologia"
-                        },
-                        new
-                        {
-                            Code = "DS010201N",
-                            Name = "architektura i urbanistyka"
-                        },
-                        new
-                        {
-                            Code = "DS010607N",
-                            Name = "astronomia"
-                        },
-                        new
-                        {
-                            Code = "DS010213N",
-                            Name = "automatyka, elektronika, elektrotechnika i technologie kosmiczne"
-                        },
-                        new
-                        {
-                            Code = "DS010305N",
-                            Name = "biologia medyczna"
-                        },
-                        new
-                        {
-                            Code = "DS010608N",
-                            Name = "biotechnologia"
-                        },
-                        new
-                        {
-                            Code = "DS010501N",
-                            Name = "ekonomia i finanse"
-                        },
-                        new
-                        {
-                            Code = "DS010108N",
-                            Name = "etnologia i antropologia kulturowa"
-                        },
-                        new
-                        {
-                            Code = "DS010102N",
-                            Name = "filozofia"
-                        },
-                        new
-                        {
-                            Code = "DS010502N",
-                            Name = "geografia społeczno-ekonomiczna i gospodarka przestrzenna"
-                        },
-                        new
-                        {
-                            Code = "DS010103N",
-                            Name = "historia"
-                        },
-                        new
-                        {
-                            Code = "DS010601N",
-                            Name = "informatyka"
-                        },
-                        new
-                        {
-                            Code = "DS010204N",
-                            Name = "informatyka techniczna i telekomunikacja"
-                        },
-                        new
-                        {
-                            Code = "DS010210N",
-                            Name = "inżynieria bezpieczeństwa"
-                        },
-                        new
-                        {
-                            Code = "DS010202N",
-                            Name = "inżynieria biomedyczna"
-                        },
-                        new
-                        {
-                            Code = "DS010205N",
-                            Name = "inżynieria chemiczna"
-                        },
-                        new
-                        {
-                            Code = "DS010212N",
-                            Name = "inżynieria lądowa, geodezja i transport"
-                        },
-                        new
-                        {
-                            Code = "DS010207N",
-                            Name = "inżynieria materiałowa"
-                        },
-                        new
-                        {
-                            Code = "DS010208N",
-                            Name = "inżynieria mechaniczna"
-                        },
-                        new
-                        {
-                            Code = "DS010209N",
-                            Name = "inżynieria środowiska, górnictwo i energetyka"
-                        },
-                        new
-                        {
-                            Code = "DS010104N",
-                            Name = "językoznawstwo"
-                        },
-                        new
-                        {
-                            Code = "DS010105N",
-                            Name = "literaturoznawstwo"
-                        },
-                        new
-                        {
-                            Code = "DS010602N",
-                            Name = "matematyka"
-                        },
-                        new
-                        {
-                            Code = "DS010702N",
-                            Name = "nauki biblijne"
-                        },
-                        new
-                        {
-                            Code = "DS010603N",
-                            Name = "nauki biologiczne"
-                        },
-                        new
-                        {
-                            Code = "DS010604N",
-                            Name = "nauki chemiczne"
-                        },
-                        new
-                        {
-                            Code = "DS010301N",
-                            Name = "nauki farmaceutyczne"
-                        },
-                        new
-                        {
-                            Code = "DS010605N",
-                            Name = "nauki fizyczne"
-                        },
-                        new
-                        {
-                            Code = "DS010405N",
-                            Name = "nauki leśne"
-                        },
-                        new
-                        {
-                            Code = "DS010304N",
-                            Name = "nauki medyczne"
-                        },
-                        new
-                        {
-                            Code = "DS010503N",
-                            Name = "nauki o bezpieczeństwie"
-                        },
-                        new
-                        {
-                            Code = "DS010504N",
-                            Name = "nauki o komunikacji społecznej i mediach"
-                        },
-                        new
-                        {
-                            Code = "DS010302N",
-                            Name = "nauki o kulturze fizycznej"
-                        },
-                        new
-                        {
-                            Code = "DS010106N",
-                            Name = "nauki o kulturze i religii"
-                        },
-                        new
-                        {
-                            Code = "DS010505N",
-                            Name = "nauki o polityce i administracji"
-                        },
-                        new
-                        {
-                            Code = "DS010901N",
-                            Name = "nauki o rodzinie"
-                        },
-                        new
-                        {
-                            Code = "DS010107N",
-                            Name = "nauki o sztuce"
-                        },
-                        new
-                        {
-                            Code = "DS010506N",
-                            Name = "nauki o zarządzaniu i jakości"
-                        },
-                        new
-                        {
-                            Code = "DS010303N",
-                            Name = "nauki o zdrowiu"
-                        },
-                        new
-                        {
-                            Code = "DS010606N",
-                            Name = "nauki o Ziemi i środowisku"
-                        },
-                        new
-                        {
-                            Code = "DS010507N",
-                            Name = "nauki prawne"
-                        },
-                        new
-                        {
-                            Code = "DS010508N",
-                            Name = "nauki socjologiczne"
-                        },
-                        new
-                        {
-                            Code = "DS010701N",
-                            Name = "nauki teologiczne"
-                        },
-                        new
-                        {
-                            Code = "DS010211N",
-                            Name = "ochrona dziedzictwa i konserwacja zabytków"
-                        },
-                        new
-                        {
-                            Code = "DS010509N",
-                            Name = "pedagogika"
-                        },
-                        new
-                        {
-                            Code = "DS010109N",
-                            Name = "polonistyka"
-                        },
-                        new
-                        {
-                            Code = "DS010510N",
-                            Name = "prawo kanoniczne"
-                        },
-                        new
-                        {
-                            Code = "DS010511N",
-                            Name = "psychologia"
-                        },
-                        new
-                        {
-                            Code = "DS010401N",
-                            Name = "rolnictwo i ogrodnictwo"
-                        },
-                        new
-                        {
-                            Code = "DS010512N",
-                            Name = "stosunki międzynarodowe"
-                        },
-                        new
-                        {
-                            Code = "DS010801N",
-                            Name = "sztuki filmowe i teatralne"
-                        },
-                        new
-                        {
-                            Code = "DS010802N",
-                            Name = "sztuki muzyczne"
-                        },
-                        new
-                        {
-                            Code = "DS010803N",
-                            Name = "sztuki plastyczne i konserwacja dzieł sztuki"
-                        },
-                        new
-                        {
-                            Code = "DS010402N",
-                            Name = "technologia żywności i żywienia"
-                        },
-                        new
-                        {
-                            Code = "DS011001N",
-                            Name = "weterynaria"
-                        },
-                        new
-                        {
-                            Code = "DS010404N",
-                            Name = "zootechnika i rybactwo"
-                        });
-                });
-
-            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AINameHistory", b =>
-                {
-                    b.Property<Guid>("InstitutionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateOnly>("Date")
-                        .HasColumnType("date");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(800)
-                        .HasColumnType("nvarchar(800)");
-
-                    b.HasKey("InstitutionId", "Date")
-                        .HasName("AINameHistory_pk");
-
-                    b.ToTable("AINameHistory", (string)null);
-                });
-
-            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AISpecificType", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id")
-                        .HasName("AISpecificType_pk");
-
-                    b.ToTable("AISpecificType", (string)null);
-                });
-
-            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AISpecificTypeHistory", b =>
-                {
-                    b.Property<Guid>("InstitutionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("TypeId")
-                        .HasColumnType("int");
-
-                    b.Property<DateOnly>("Date")
-                        .HasColumnType("date");
-
-                    b.HasKey("InstitutionId", "TypeId", "Date")
-                        .HasName("AISpecificTypeHistory_pk");
-
-                    b.HasIndex("TypeId");
-
-                    b.ToTable("AISpecificTypeHistory", (string)null);
-                });
-
-            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AIStatus", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id")
-                        .HasName("AIStatus_pk");
-
-                    b.ToTable("AIStatus", (string)null);
-                });
-
-            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AIStatusHistory", b =>
-                {
-                    b.Property<Guid>("InstitutionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("StatusId")
-                        .HasColumnType("int");
-
-                    b.Property<DateOnly>("Date")
-                        .HasColumnType("date");
-
-                    b.HasKey("InstitutionId", "StatusId", "Date")
-                        .HasName("AIStatusHistory_pk");
-
-                    b.HasIndex("StatusId");
-
-                    b.ToTable("AIStatusHistory", (string)null);
-                });
-
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AIType", b =>
                 {
                     b.Property<int>("Id")
@@ -2163,6 +2314,38 @@ namespace Infrastructure.Migrations
                         .HasName("AIType_pk");
 
                     b.ToTable("AIType", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 16,
+                            IsSchool = false,
+                            Name = "Federacja"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            IsSchool = false,
+                            Name = "Instytucja naukowa"
+                        },
+                        new
+                        {
+                            Id = 1,
+                            IsSchool = true,
+                            Name = "Uczelnia kościelna"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            IsSchool = true,
+                            Name = "Uczelnia niepubliczna"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            IsSchool = true,
+                            Name = "Uczelnia publiczna"
+                        });
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", b =>
@@ -2171,51 +2354,55 @@ namespace Infrastructure.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("(newid())");
 
-                    b.Property<DateOnly>("CreationDate")
-                        .HasColumnType("date");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<DateOnly>("LastUpdate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("date")
                         .HasDefaultValueSql("(GETDATE())");
 
-                    b.Property<DateOnly?>("LiquidationStartDate")
-                        .HasColumnType("date");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(800)
-                        .HasColumnType("nvarchar(800)");
-
-                    b.Property<Guid?>("ParentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Phone")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<int>("TypeId")
                         .HasColumnType("int");
-
-                    b.Property<string>("WWW")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<DateOnly?>("liquidationDate")
-                        .HasColumnType("date");
 
                     b.HasKey("Id")
                         .HasName("AcademicInstitution_pk");
 
-                    b.HasIndex("ParentId");
-
                     b.HasIndex("TypeId");
 
                     b.ToTable("AcademicInstitution", (string)null);
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.SpecificTypes.AISpecificType", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id")
+                        .HasName("AISpecificType_pk");
+
+                    b.ToTable("AISpecificType", (string)null);
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.SpecificTypes.AISpecificTypeHistory", b =>
+                {
+                    b.Property<Guid>("InstitutionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("TypeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
+
+                    b.HasKey("InstitutionId", "TypeId", "Date")
+                        .HasName("AISpecificTypeHistory_pk");
+
+                    b.HasIndex("TypeId");
+
+                    b.ToTable("AISpecificTypeHistory", (string)null);
                 });
 
             modelBuilder.Entity("CourseAIOrganizationalUnit", b =>
@@ -2331,6 +2518,105 @@ namespace Infrastructure.Migrations
                     b.Navigation("DivisionType");
                 });
 
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Classifications.CompanyClassification", b =>
+                {
+                    b.HasOne("Application.DatabaseRelational.Models.Addresses.Country", "Country")
+                        .WithMany("CompanyClassificationTypes")
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("Country_CompanyClassification");
+
+                    b.Navigation("Country");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Classifications.CompanyClassificationDetail", b =>
+                {
+                    b.HasOne("Application.DatabaseRelational.Models.Companies.Classifications.CompanyClassification", "Classification")
+                        .WithMany("Classifications")
+                        .HasForeignKey("ClassificationId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("CompanyClassificationDetail_CompanyClassification");
+
+                    b.HasOne("Application.DatabaseRelational.Models.Companies.Company", "Company")
+                        .WithMany("Classifications")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("CompanyClassificationDetail_Company");
+
+                    b.Navigation("Classification");
+
+                    b.Navigation("Company");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.CompanyNameHistory", b =>
+                {
+                    b.HasOne("Application.DatabaseRelational.Models.Companies.Company", "Company")
+                        .WithMany("NamesHistory")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("CompanyNameHistory_Company");
+
+                    b.Navigation("Company");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Identifiers.CompanyIdentifier", b =>
+                {
+                    b.HasOne("Application.DatabaseRelational.Models.Addresses.Country", "Country")
+                        .WithMany("CompanyIdentifierTypes")
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("Country_CompanyIdentifier");
+
+                    b.Navigation("Country");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Identifiers.CompanyIdentifierDetail", b =>
+                {
+                    b.HasOne("Application.DatabaseRelational.Models.Companies.Company", "Company")
+                        .WithMany("Identifiers")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("CompanyIdentifierDetail_Company");
+
+                    b.HasOne("Application.DatabaseRelational.Models.Companies.Identifiers.CompanyIdentifier", "Identifier")
+                        .WithMany("Identifiers")
+                        .HasForeignKey("IdentifierId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("CompanyIdentifierDetail_CompanyIdentifier");
+
+                    b.Navigation("Company");
+
+                    b.Navigation("Identifier");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Statuses.CompanyStatusHistory", b =>
+                {
+                    b.HasOne("Application.DatabaseRelational.Models.Companies.Company", "Company")
+                        .WithMany("StatusHistory")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("CompanyStatusHistory_Company");
+
+                    b.HasOne("Application.DatabaseRelational.Models.Companies.Statuses.CompanyStatus", "Status")
+                        .WithMany("Histories")
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("CompanyStatusHistory_CompanyStatus");
+
+                    b.Navigation("Company");
+
+                    b.Navigation("Status");
+                });
+
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Course", b =>
                 {
                     b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.CourseForm", "Form")
@@ -2383,7 +2669,7 @@ namespace Infrastructure.Migrations
                     b.Navigation("Title");
                 });
 
-            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseDiscipline", b =>
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Disciplines.CourseDiscipline", b =>
                 {
                     b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.Course", "Course")
                         .WithMany("Disciplines")
@@ -2392,7 +2678,7 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasConstraintName("CourseDiscipline_Course");
 
-                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Discipline", "Discipline")
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.Disciplines.Discipline", "Discipline")
                         .WithMany("Courses")
                         .HasForeignKey("DisciplineCode")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -2404,66 +2690,14 @@ namespace Infrastructure.Migrations
                     b.Navigation("Discipline");
                 });
 
-            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AINameHistory", b =>
-                {
-                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", "Institution")
-                        .WithMany("NameHistories")
-                        .HasForeignKey("InstitutionId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired()
-                        .HasConstraintName("AINameHistory_AcademicInstitution");
-
-                    b.Navigation("Institution");
-                });
-
-            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AISpecificTypeHistory", b =>
-                {
-                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", "Institution")
-                        .WithMany("SpecificTypeHistories")
-                        .HasForeignKey("InstitutionId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired()
-                        .HasConstraintName("AISpecificTypeHistory_AcademicInstitution");
-
-                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.AISpecificType", "Type")
-                        .WithMany("Histories")
-                        .HasForeignKey("TypeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired()
-                        .HasConstraintName("AISpecificTypeHistory_AISpecificType");
-
-                    b.Navigation("Institution");
-
-                    b.Navigation("Type");
-                });
-
-            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AIStatusHistory", b =>
-                {
-                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", "Institution")
-                        .WithMany("StatusHistories")
-                        .HasForeignKey("InstitutionId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired()
-                        .HasConstraintName("AIStatusHistory_AcademicInstitution");
-
-                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.AIStatus", "Status")
-                        .WithMany("Histories")
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired()
-                        .HasConstraintName("AIStatusHistory_AIStatus");
-
-                    b.Navigation("Institution");
-
-                    b.Navigation("Status");
-                });
-
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", b =>
                 {
-                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", "ParentInstitution")
-                        .WithMany("ChildInstitutions")
-                        .HasForeignKey("ParentId")
-                        .HasConstraintName("AcademicInstitution_AcademicInstitution");
+                    b.HasOne("Application.DatabaseRelational.Models.Companies.Company", "Company")
+                        .WithOne("AcademicInstitution")
+                        .HasForeignKey("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", "Id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("Company_AcademicInstitution");
 
                     b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.AIType", "Type")
                         .WithMany("Institutions")
@@ -2472,7 +2706,28 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasConstraintName("AIType_AcademicInstitution");
 
-                    b.Navigation("ParentInstitution");
+                    b.Navigation("Company");
+
+                    b.Navigation("Type");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.SpecificTypes.AISpecificTypeHistory", b =>
+                {
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", "Institution")
+                        .WithMany("SpecificTypeHistories")
+                        .HasForeignKey("InstitutionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("AISpecificTypeHistory_AcademicInstitution");
+
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.SpecificTypes.AISpecificType", "Type")
+                        .WithMany("Histories")
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("AISpecificTypeHistory_AISpecificType");
+
+                    b.Navigation("Institution");
 
                     b.Navigation("Type");
                 });
@@ -2530,6 +2785,10 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.Addresses.Country", b =>
                 {
+                    b.Navigation("CompanyClassificationTypes");
+
+                    b.Navigation("CompanyIdentifierTypes");
+
                     b.Navigation("Divisions");
 
                     b.Navigation("Streets");
@@ -2552,6 +2811,34 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Application.DatabaseRelational.Models.Addresses.Street", b =>
                 {
                     b.Navigation("Addresses");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Classifications.CompanyClassification", b =>
+                {
+                    b.Navigation("Classifications");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Company", b =>
+                {
+                    b.Navigation("AcademicInstitution");
+
+                    b.Navigation("Classifications");
+
+                    b.Navigation("Identifiers");
+
+                    b.Navigation("NamesHistory");
+
+                    b.Navigation("StatusHistory");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Identifiers.CompanyIdentifier", b =>
+                {
+                    b.Navigation("Identifiers");
+                });
+
+            modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Statuses.CompanyStatus", b =>
+                {
+                    b.Navigation("Histories");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Course", b =>
@@ -2579,6 +2866,11 @@ namespace Infrastructure.Migrations
                     b.Navigation("Courses");
                 });
 
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Disciplines.Discipline", b =>
+                {
+                    b.Navigation("Courses");
+                });
+
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Isced", b =>
                 {
                     b.Navigation("Courses");
@@ -2589,21 +2881,6 @@ namespace Infrastructure.Migrations
                     b.Navigation("CourseLanguage");
                 });
 
-            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Discipline", b =>
-                {
-                    b.Navigation("Courses");
-                });
-
-            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AISpecificType", b =>
-                {
-                    b.Navigation("Histories");
-                });
-
-            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AIStatus", b =>
-                {
-                    b.Navigation("Histories");
-                });
-
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AIType", b =>
                 {
                     b.Navigation("Institutions");
@@ -2611,13 +2888,12 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", b =>
                 {
-                    b.Navigation("ChildInstitutions");
-
-                    b.Navigation("NameHistories");
-
                     b.Navigation("SpecificTypeHistories");
+                });
 
-                    b.Navigation("StatusHistories");
+            modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.SpecificTypes.AISpecificType", b =>
+                {
+                    b.Navigation("Histories");
                 });
 #pragma warning restore 612, 618
         }

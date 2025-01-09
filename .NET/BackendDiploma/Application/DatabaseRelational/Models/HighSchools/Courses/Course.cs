@@ -1,12 +1,18 @@
-﻿namespace Application.DatabaseRelational.Models.HighSchools.Courses
+﻿using Application.DatabaseRelational.Models.HighSchools.Courses.Disciplines;
+
+namespace Application.DatabaseRelational.Models.HighSchools.Courses
 {
     public class Course
     {
+        //Properties
         public Guid Id { get; set; }
         public string Name { get; set; } = null!;
         public int NumberOfSemesters { get; set; }
         public DateOnly StartDate { get; set; }
         public DateOnly? LiquidationDate { get; set; } = null;
+        public DateOnly LastUpdate { get; set; }
+
+        //Dependencies
         public virtual int? FormCode { get; set; } = null!;
         public virtual CourseForm? Form { get; set; } = null!;
         public virtual int? TitleCode { get; set; } = null!;
@@ -22,5 +28,6 @@
         public virtual ICollection<Language> Languages { get; set; } = new List<Language>();
         public virtual ICollection<CourseDiscipline> Disciplines { get; set; } = new List<CourseDiscipline>();
         public virtual ICollection<AIOrganizationalUnit> OrganizationalUnits { get; set; } = new List<AIOrganizationalUnit>();
+
     }
 }

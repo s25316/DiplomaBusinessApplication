@@ -11,7 +11,7 @@ namespace Infrastructure.DatabaseRelational.Configurations.HighSchools.Courses
             builder.ToTable(nameof(Course));
             builder.HasKey(x => x.Id).HasName($"{nameof(Course)}_pk");
 
-            builder.Property(x => x.Name).HasMaxLength(100);
+            builder.Property(x => x.Name).HasMaxLength(800);
         }
     }
 }

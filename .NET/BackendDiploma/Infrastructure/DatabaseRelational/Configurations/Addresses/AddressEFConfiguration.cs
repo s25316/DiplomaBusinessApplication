@@ -14,10 +14,15 @@ namespace Infrastructure.DatabaseRelational.Configurations.Addresses
             builder.Property(x => x.AddressId)
                 .ValueGeneratedNever()
                 .HasDefaultValueSql("(newid())");
+
             builder.Property(x => x.BuildingNumber)
                 .HasMaxLength(50);
+
             builder.Property(x => x.ApartmentNumber)
                 .HasMaxLength(50);
+
+            builder.Property(x => x.ZipCode)
+                .HasMaxLength(10);
 
             builder.HasOne(x => x.Street)
                 .WithMany(x => x.Addresses)
