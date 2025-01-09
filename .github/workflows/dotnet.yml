@@ -16,13 +16,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Setup ../.NET/BackendDiploma
+    - name: Setup .NET/BackendDiploma
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore .NET/BackendDiploma/BackendDiploma.sln
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build .NET/BackendDiploma/BackendDiploma.sln --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test .NET/BackendDiploma/BackendDiploma.sln --no-build --verbosity normal
