@@ -10,17 +10,17 @@ namespace Infrastructure.DatabaseRelational.Configurations.Companies.Statuses
         public void Configure(EntityTypeBuilder<CompanyStatusHistory> builder)
         {
             builder.ToTable(nameof(CompanyStatusHistory));
-            builder.HasKey(x => new { x.CompanyId, x.Date, x.StatusId })
+            builder.HasKey(x => new { x.CompanyId, x.Date, x.CompanyStatusId })
                 .HasName($"{nameof(CompanyStatusHistory)}_pk");
 
-            builder.HasOne(x => x.Status)
-                .WithMany(x => x.Histories)
-                .HasForeignKey(x => x.StatusId)
+            builder.HasOne(x => x.CompanyStatus)
+                .WithMany(x => x.CompanyStatusHistories)
+                .HasForeignKey(x => x.CompanyStatusId)
                 .HasConstraintName($"{nameof(CompanyStatusHistory)}_{nameof(CompanyStatus)}")
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(x => x.Company)
-                .WithMany(x => x.StatusHistory)
+                .WithMany(x => x.CompanyStatusHistories)
                 .HasForeignKey(x => x.CompanyId)
                 .HasConstraintName($"{nameof(CompanyStatusHistory)}_{nameof(Company)}")
                 .OnDelete(DeleteBehavior.Restrict);

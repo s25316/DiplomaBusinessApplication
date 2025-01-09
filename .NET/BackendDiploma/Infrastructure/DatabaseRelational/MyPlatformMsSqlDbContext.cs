@@ -53,7 +53,7 @@ namespace Infrastructure.DatabaseRelational
             modelBuilder.ApplyConfiguration<DivisionType>(new DivisionTypeEFConfiguration());
             modelBuilder.ApplyConfiguration<Country>(new CountryEFConfiguration());
 
-            //HighSchools.Institutions
+            //HighSchools.AcademicInstitutions
             modelBuilder.ApplyConfiguration<AcademicInstitution>(new AcademicInstitutionEFConfiguration());
             modelBuilder.ApplyConfiguration<AISpecificType>(new AISpecificTypeEFConfiguration());
             modelBuilder.ApplyConfiguration<AISpecificTypeHistory>(new AISpecificTypeHistoryEFConfiguration());

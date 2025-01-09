@@ -9,9 +9,9 @@ namespace Infrastructure.DatabaseRelational.Configurations.HighSchools.Instituti
         public void Configure(EntityTypeBuilder<AISpecificType> builder)
         {
             builder.ToTable(nameof(AISpecificType));
-            builder.HasKey(x => x.Id).HasName($"{nameof(AISpecificType)}_pk");
+            builder.HasKey(x => x.AcademicInstitutionSpecificTypeId).HasName($"{nameof(AISpecificType)}_pk");
 
-            builder.Property(x => x.Id).ValueGeneratedNever();
+            builder.Property(x => x.AcademicInstitutionSpecificTypeId).ValueGeneratedNever();
             builder.Property(x => x.Name).HasMaxLength(100);
         }
     }

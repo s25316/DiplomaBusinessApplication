@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(MyPlatformMsSqlDbContext))]
-    [Migration("20250109074158_Third")]
-    partial class Third
+    [Migration("20250109085614_Hand")]
+    partial class Hand
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,7 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Application.DatabaseRelational.Models.Addresses.Address", b =>
                 {
                     b.Property<Guid>("AddressId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("(newid())");
 
@@ -108,8 +109,8 @@ namespace Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ParentsPath")
-                        .HasMaxLength(800)
-                        .HasColumnType("nvarchar(800)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("DivisionId")
                         .HasName("Division_pk");
@@ -167,7 +168,7 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Classifications.CompanyClassification", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CompanyClassificationId")
                         .HasColumnType("int");
 
                     b.Property<string>("Code")
@@ -183,7 +184,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Id")
+                    b.HasKey("CompanyClassificationId")
                         .HasName("CompanyClassification_pk");
 
                     b.HasIndex("CountryId");
@@ -196,7 +197,7 @@ namespace Infrastructure.Migrations
                     b.Property<Guid>("CompanyId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ClassificationId")
+                    b.Property<int>("CompanyClassificationId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsMain")
@@ -204,22 +205,22 @@ namespace Infrastructure.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.HasKey("CompanyId", "ClassificationId")
+                    b.HasKey("CompanyId", "CompanyClassificationId")
                         .HasName("CompanyClassificationDetail_pk");
 
-                    b.HasIndex("ClassificationId");
+                    b.HasIndex("CompanyClassificationId");
 
                     b.ToTable("CompanyClassificationDetail", (string)null);
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Company", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("CompanyId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("(newid())");
 
-                    b.HasKey("Id")
+                    b.HasKey("CompanyId")
                         .HasName("Company_pk");
 
                     b.ToTable("Company", (string)null);
@@ -235,8 +236,8 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(800)
-                        .HasColumnType("nvarchar(800)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.HasKey("CompanyId", "Date")
                         .HasName("CompanyNameHistory_pk");
@@ -246,7 +247,7 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Identifiers.CompanyIdentifier", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CompanyIdentifierId")
                         .HasColumnType("int");
 
                     b.Property<int>("CountryId")
@@ -262,7 +263,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.HasKey("Id")
+                    b.HasKey("CompanyIdentifierId")
                         .HasName("CompanyIdentifier_pk");
 
                     b.HasIndex("CountryId");
@@ -272,21 +273,21 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            CompanyIdentifierId = 1,
                             CountryId = 1,
                             Name = "Numer identyfikacji podatkowej",
                             ShortName = "NIP"
                         },
                         new
                         {
-                            Id = 2,
+                            CompanyIdentifierId = 2,
                             CountryId = 1,
                             Name = "Krajowy Rejestr Urzędowy Podmiotów Gospodarki Narodowej",
                             ShortName = "REGON"
                         },
                         new
                         {
-                            Id = 3,
+                            CompanyIdentifierId = 3,
                             CountryId = 1,
                             Name = "Krajowy Rejestr Sądowy",
                             ShortName = "KRS"
@@ -298,7 +299,7 @@ namespace Infrastructure.Migrations
                     b.Property<Guid>("CompanyId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("IdentifierId")
+                    b.Property<int>("CompanyIdentifierId")
                         .HasColumnType("int");
 
                     b.Property<string>("Value")
@@ -306,17 +307,17 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("CompanyId", "IdentifierId")
+                    b.HasKey("CompanyId", "CompanyIdentifierId")
                         .HasName("CompanyIdentifierDetail_pk");
 
-                    b.HasIndex("IdentifierId");
+                    b.HasIndex("CompanyIdentifierId");
 
                     b.ToTable("CompanyIdentifierDetail", (string)null);
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Statuses.CompanyStatus", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CompanyStatusId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -324,7 +325,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Id")
+                    b.HasKey("CompanyStatusId")
                         .HasName("CompanyStatus_pk");
 
                     b.ToTable("CompanyStatus", (string)null);
@@ -332,42 +333,42 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            CompanyStatusId = 1,
                             Name = "Działająca"
                         },
                         new
                         {
-                            Id = 4,
+                            CompanyStatusId = 4,
                             Name = "Przekształcona"
                         },
                         new
                         {
-                            Id = 2,
+                            CompanyStatusId = 2,
                             Name = "W likwidacji"
                         },
                         new
                         {
-                            Id = 8,
+                            CompanyStatusId = 8,
                             Name = "Wykreślona z wykazu"
                         },
                         new
                         {
-                            Id = 3,
+                            CompanyStatusId = 3,
                             Name = "Zlikwidowana"
                         },
                         new
                         {
-                            Id = 11,
+                            CompanyStatusId = 11,
                             Name = "Zawieszona"
                         },
                         new
                         {
-                            Id = 12,
+                            CompanyStatusId = 12,
                             Name = "Wznowiona"
                         },
                         new
                         {
-                            Id = 13,
+                            CompanyStatusId = 13,
                             Name = "Zakończona"
                         });
                 });
@@ -380,20 +381,20 @@ namespace Infrastructure.Migrations
                     b.Property<DateOnly>("Date")
                         .HasColumnType("date");
 
-                    b.Property<int>("StatusId")
+                    b.Property<int>("CompanyStatusId")
                         .HasColumnType("int");
 
-                    b.HasKey("CompanyId", "Date", "StatusId")
+                    b.HasKey("CompanyId", "Date", "CompanyStatusId")
                         .HasName("CompanyStatusHistory_pk");
 
-                    b.HasIndex("StatusId");
+                    b.HasIndex("CompanyStatusId");
 
                     b.ToTable("CompanyStatusHistory", (string)null);
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.AIOrganizationalUnit", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("AcademicInstitutionOrganizationalUnitId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -402,7 +403,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(800)
                         .HasColumnType("nvarchar(800)");
 
-                    b.HasKey("Id")
+                    b.HasKey("AcademicInstitutionOrganizationalUnitId")
                         .HasName("AIOrganizationalUnit_pk");
 
                     b.ToTable("AIOrganizationalUnit", (string)null);
@@ -410,11 +411,23 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Course", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("CourseId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("FormCode")
+                    b.Property<Guid>("AcademicInstitutionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("CourseFormCode")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CourseLevelCode")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CourseProfileCode")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CourseTitleCode")
                         .HasColumnType("int");
 
                     b.Property<string>("IscedCode")
@@ -425,10 +438,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<DateOnly>("LastUpdate")
-                        .HasColumnType("date");
-
-                    b.Property<int?>("LevelCode")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("date")
+                        .HasDefaultValueSql("(GETDATE())");
 
                     b.Property<DateOnly?>("LiquidationDate")
                         .HasColumnType("date");
@@ -441,36 +453,32 @@ namespace Infrastructure.Migrations
                     b.Property<int>("NumberOfSemesters")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProfileCode")
-                        .HasColumnType("int");
-
                     b.Property<DateOnly>("StartDate")
                         .HasColumnType("date");
 
-                    b.Property<int?>("TitleCode")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id")
+                    b.HasKey("CourseId")
                         .HasName("Course_pk");
 
-                    b.HasIndex("FormCode");
+                    b.HasIndex("AcademicInstitutionId");
+
+                    b.HasIndex("CourseFormCode");
+
+                    b.HasIndex("CourseLevelCode");
+
+                    b.HasIndex("CourseProfileCode");
+
+                    b.HasIndex("CourseTitleCode");
 
                     b.HasIndex("IscedCode");
 
                     b.HasIndex("LanguageCode");
-
-                    b.HasIndex("LevelCode");
-
-                    b.HasIndex("ProfileCode");
-
-                    b.HasIndex("TitleCode");
 
                     b.ToTable("Course", (string)null);
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseForm", b =>
                 {
-                    b.Property<int>("Code")
+                    b.Property<int>("CourseFormCode")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -478,7 +486,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Code")
+                    b.HasKey("CourseFormCode")
                         .HasName("CourseForm_pk");
 
                     b.ToTable("CourseForm", (string)null);
@@ -486,19 +494,19 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Code = 1,
+                            CourseFormCode = 1,
                             Name = "stacjonarne"
                         },
                         new
                         {
-                            Code = 2,
+                            CourseFormCode = 2,
                             Name = "niestacjonarne"
                         });
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseLevel", b =>
                 {
-                    b.Property<int>("Code")
+                    b.Property<int>("CourseLevelCode")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -506,7 +514,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Code")
+                    b.HasKey("CourseLevelCode")
                         .HasName("CourseLevel_pk");
 
                     b.ToTable("CourseLevel", (string)null);
@@ -514,24 +522,24 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Code = 1,
+                            CourseLevelCode = 1,
                             Name = "jednolite magisterskie"
                         },
                         new
                         {
-                            Code = 2,
+                            CourseLevelCode = 2,
                             Name = "pierwszego stopnia"
                         },
                         new
                         {
-                            Code = 3,
+                            CourseLevelCode = 3,
                             Name = "drugiego stopnia"
                         });
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseProfile", b =>
                 {
-                    b.Property<int>("Code")
+                    b.Property<int>("CourseProfileCode")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -539,7 +547,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Code")
+                    b.HasKey("CourseProfileCode")
                         .HasName("CourseProfile_pk");
 
                     b.ToTable("CourseProfile", (string)null);
@@ -547,19 +555,19 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Code = 1,
+                            CourseProfileCode = 1,
                             Name = "praktyczny"
                         },
                         new
                         {
-                            Code = 2,
+                            CourseProfileCode = 2,
                             Name = "ogólnoakademicki"
                         });
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseTitle", b =>
                 {
-                    b.Property<int>("Code")
+                    b.Property<int>("CourseTitleCode")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -567,7 +575,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Code")
+                    b.HasKey("CourseTitleCode")
                         .HasName("CourseTitle_pk");
 
                     b.ToTable("CourseTitle", (string)null);
@@ -575,22 +583,22 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Code = 1,
+                            CourseTitleCode = 1,
                             Name = "magister"
                         },
                         new
                         {
-                            Code = 2,
+                            CourseTitleCode = 2,
                             Name = "licencjat"
                         },
                         new
                         {
-                            Code = 3,
+                            CourseTitleCode = 3,
                             Name = "inżynier"
                         },
                         new
                         {
-                            Code = 4,
+                            CourseTitleCode = 4,
                             Name = "magister inżynier"
                         });
                 });
@@ -619,7 +627,7 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Disciplines.Discipline", b =>
                 {
-                    b.Property<string>("Code")
+                    b.Property<string>("DisciplineCode")
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
@@ -628,7 +636,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Code")
+                    b.HasKey("DisciplineCode")
                         .HasName("Discipline_pk");
 
                     b.ToTable("Discipline", (string)null);
@@ -636,289 +644,289 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Code = "DS010101N",
+                            DisciplineCode = "DS010101N",
                             Name = "archeologia"
                         },
                         new
                         {
-                            Code = "DS010201N",
+                            DisciplineCode = "DS010201N",
                             Name = "architektura i urbanistyka"
                         },
                         new
                         {
-                            Code = "DS010607N",
+                            DisciplineCode = "DS010607N",
                             Name = "astronomia"
                         },
                         new
                         {
-                            Code = "DS010213N",
+                            DisciplineCode = "DS010213N",
                             Name = "automatyka, elektronika, elektrotechnika i technologie kosmiczne"
                         },
                         new
                         {
-                            Code = "DS010305N",
+                            DisciplineCode = "DS010305N",
                             Name = "biologia medyczna"
                         },
                         new
                         {
-                            Code = "DS010608N",
+                            DisciplineCode = "DS010608N",
                             Name = "biotechnologia"
                         },
                         new
                         {
-                            Code = "DS010501N",
+                            DisciplineCode = "DS010501N",
                             Name = "ekonomia i finanse"
                         },
                         new
                         {
-                            Code = "DS010108N",
+                            DisciplineCode = "DS010108N",
                             Name = "etnologia i antropologia kulturowa"
                         },
                         new
                         {
-                            Code = "DS010102N",
+                            DisciplineCode = "DS010102N",
                             Name = "filozofia"
                         },
                         new
                         {
-                            Code = "DS010502N",
+                            DisciplineCode = "DS010502N",
                             Name = "geografia społeczno-ekonomiczna i gospodarka przestrzenna"
                         },
                         new
                         {
-                            Code = "DS010103N",
+                            DisciplineCode = "DS010103N",
                             Name = "historia"
                         },
                         new
                         {
-                            Code = "DS010601N",
+                            DisciplineCode = "DS010601N",
                             Name = "informatyka"
                         },
                         new
                         {
-                            Code = "DS010204N",
+                            DisciplineCode = "DS010204N",
                             Name = "informatyka techniczna i telekomunikacja"
                         },
                         new
                         {
-                            Code = "DS010210N",
+                            DisciplineCode = "DS010210N",
                             Name = "inżynieria bezpieczeństwa"
                         },
                         new
                         {
-                            Code = "DS010202N",
+                            DisciplineCode = "DS010202N",
                             Name = "inżynieria biomedyczna"
                         },
                         new
                         {
-                            Code = "DS010205N",
+                            DisciplineCode = "DS010205N",
                             Name = "inżynieria chemiczna"
                         },
                         new
                         {
-                            Code = "DS010212N",
+                            DisciplineCode = "DS010212N",
                             Name = "inżynieria lądowa, geodezja i transport"
                         },
                         new
                         {
-                            Code = "DS010207N",
+                            DisciplineCode = "DS010207N",
                             Name = "inżynieria materiałowa"
                         },
                         new
                         {
-                            Code = "DS010208N",
+                            DisciplineCode = "DS010208N",
                             Name = "inżynieria mechaniczna"
                         },
                         new
                         {
-                            Code = "DS010209N",
+                            DisciplineCode = "DS010209N",
                             Name = "inżynieria środowiska, górnictwo i energetyka"
                         },
                         new
                         {
-                            Code = "DS010104N",
+                            DisciplineCode = "DS010104N",
                             Name = "językoznawstwo"
                         },
                         new
                         {
-                            Code = "DS010105N",
+                            DisciplineCode = "DS010105N",
                             Name = "literaturoznawstwo"
                         },
                         new
                         {
-                            Code = "DS010602N",
+                            DisciplineCode = "DS010602N",
                             Name = "matematyka"
                         },
                         new
                         {
-                            Code = "DS010702N",
+                            DisciplineCode = "DS010702N",
                             Name = "nauki biblijne"
                         },
                         new
                         {
-                            Code = "DS010603N",
+                            DisciplineCode = "DS010603N",
                             Name = "nauki biologiczne"
                         },
                         new
                         {
-                            Code = "DS010604N",
+                            DisciplineCode = "DS010604N",
                             Name = "nauki chemiczne"
                         },
                         new
                         {
-                            Code = "DS010301N",
+                            DisciplineCode = "DS010301N",
                             Name = "nauki farmaceutyczne"
                         },
                         new
                         {
-                            Code = "DS010605N",
+                            DisciplineCode = "DS010605N",
                             Name = "nauki fizyczne"
                         },
                         new
                         {
-                            Code = "DS010405N",
+                            DisciplineCode = "DS010405N",
                             Name = "nauki leśne"
                         },
                         new
                         {
-                            Code = "DS010304N",
+                            DisciplineCode = "DS010304N",
                             Name = "nauki medyczne"
                         },
                         new
                         {
-                            Code = "DS010503N",
+                            DisciplineCode = "DS010503N",
                             Name = "nauki o bezpieczeństwie"
                         },
                         new
                         {
-                            Code = "DS010504N",
+                            DisciplineCode = "DS010504N",
                             Name = "nauki o komunikacji społecznej i mediach"
                         },
                         new
                         {
-                            Code = "DS010302N",
+                            DisciplineCode = "DS010302N",
                             Name = "nauki o kulturze fizycznej"
                         },
                         new
                         {
-                            Code = "DS010106N",
+                            DisciplineCode = "DS010106N",
                             Name = "nauki o kulturze i religii"
                         },
                         new
                         {
-                            Code = "DS010505N",
+                            DisciplineCode = "DS010505N",
                             Name = "nauki o polityce i administracji"
                         },
                         new
                         {
-                            Code = "DS010901N",
+                            DisciplineCode = "DS010901N",
                             Name = "nauki o rodzinie"
                         },
                         new
                         {
-                            Code = "DS010107N",
+                            DisciplineCode = "DS010107N",
                             Name = "nauki o sztuce"
                         },
                         new
                         {
-                            Code = "DS010506N",
+                            DisciplineCode = "DS010506N",
                             Name = "nauki o zarządzaniu i jakości"
                         },
                         new
                         {
-                            Code = "DS010303N",
+                            DisciplineCode = "DS010303N",
                             Name = "nauki o zdrowiu"
                         },
                         new
                         {
-                            Code = "DS010606N",
+                            DisciplineCode = "DS010606N",
                             Name = "nauki o Ziemi i środowisku"
                         },
                         new
                         {
-                            Code = "DS010507N",
+                            DisciplineCode = "DS010507N",
                             Name = "nauki prawne"
                         },
                         new
                         {
-                            Code = "DS010508N",
+                            DisciplineCode = "DS010508N",
                             Name = "nauki socjologiczne"
                         },
                         new
                         {
-                            Code = "DS010701N",
+                            DisciplineCode = "DS010701N",
                             Name = "nauki teologiczne"
                         },
                         new
                         {
-                            Code = "DS010211N",
+                            DisciplineCode = "DS010211N",
                             Name = "ochrona dziedzictwa i konserwacja zabytków"
                         },
                         new
                         {
-                            Code = "DS010509N",
+                            DisciplineCode = "DS010509N",
                             Name = "pedagogika"
                         },
                         new
                         {
-                            Code = "DS010109N",
+                            DisciplineCode = "DS010109N",
                             Name = "polonistyka"
                         },
                         new
                         {
-                            Code = "DS010510N",
+                            DisciplineCode = "DS010510N",
                             Name = "prawo kanoniczne"
                         },
                         new
                         {
-                            Code = "DS010511N",
+                            DisciplineCode = "DS010511N",
                             Name = "psychologia"
                         },
                         new
                         {
-                            Code = "DS010401N",
+                            DisciplineCode = "DS010401N",
                             Name = "rolnictwo i ogrodnictwo"
                         },
                         new
                         {
-                            Code = "DS010512N",
+                            DisciplineCode = "DS010512N",
                             Name = "stosunki międzynarodowe"
                         },
                         new
                         {
-                            Code = "DS010801N",
+                            DisciplineCode = "DS010801N",
                             Name = "sztuki filmowe i teatralne"
                         },
                         new
                         {
-                            Code = "DS010802N",
+                            DisciplineCode = "DS010802N",
                             Name = "sztuki muzyczne"
                         },
                         new
                         {
-                            Code = "DS010803N",
+                            DisciplineCode = "DS010803N",
                             Name = "sztuki plastyczne i konserwacja dzieł sztuki"
                         },
                         new
                         {
-                            Code = "DS010402N",
+                            DisciplineCode = "DS010402N",
                             Name = "technologia żywności i żywienia"
                         },
                         new
                         {
-                            Code = "DS011001N",
+                            DisciplineCode = "DS011001N",
                             Name = "weterynaria"
                         },
                         new
                         {
-                            Code = "DS010404N",
+                            DisciplineCode = "DS010404N",
                             Name = "zootechnika i rybactwo"
                         });
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Isced", b =>
                 {
-                    b.Property<string>("Code")
+                    b.Property<string>("IscedCode")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
@@ -926,7 +934,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.HasKey("Code")
+                    b.HasKey("IscedCode")
                         .HasName("Isced_pk");
 
                     b.ToTable("Isced", (string)null);
@@ -934,1104 +942,1104 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Code = "00",
+                            IscedCode = "00",
                             Name = "Grupa Programy ogólne"
                         },
                         new
                         {
-                            Code = "000",
+                            IscedCode = "000",
                             Name = "Podgrupa programów i kwalifikacji ogólnych nieokreślonych dalej"
                         },
                         new
                         {
-                            Code = "0000",
+                            IscedCode = "0000",
                             Name = "Programy i kwalifikacje ogólne nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "001",
+                            IscedCode = "001",
                             Name = "Podgrupa programów i kwalifikacji podstawowych"
                         },
                         new
                         {
-                            Code = "0011",
+                            IscedCode = "0011",
                             Name = "Podstawowe programy i kwalifikacje"
                         },
                         new
                         {
-                            Code = "002",
+                            IscedCode = "002",
                             Name = "Podgrupa umiejętności czytania, pisania i liczenia"
                         },
                         new
                         {
-                            Code = "0021",
+                            IscedCode = "0021",
                             Name = "Umiejętność czytania, pisania i liczenia"
                         },
                         new
                         {
-                            Code = "003",
+                            IscedCode = "003",
                             Name = "Podgrupa rozwoju umiejętności osobowościowych"
                         },
                         new
                         {
-                            Code = "0031",
+                            IscedCode = "0031",
                             Name = "Rozwój umiejętności osobowościowych"
                         },
                         new
                         {
-                            Code = "009",
+                            IscedCode = "009",
                             Name = "Podgrupa programów i kwalifikacji ogólnych gdzie indziej niesklasyfikowanych"
                         },
                         new
                         {
-                            Code = "0099",
+                            IscedCode = "0099",
                             Name = "Programy i kwalifikacje ogólne, gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "01",
+                            IscedCode = "01",
                             Name = "Grupa Kształcenie"
                         },
                         new
                         {
-                            Code = "011",
+                            IscedCode = "011",
                             Name = "Podgrupa pedagogiczna"
                         },
                         new
                         {
-                            Code = "0110",
+                            IscedCode = "0110",
                             Name = "Kształcenie nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0111",
+                            IscedCode = "0111",
                             Name = "Kształcenie"
                         },
                         new
                         {
-                            Code = "0112",
+                            IscedCode = "0112",
                             Name = "Kształcenie nauczycieli nauczania przedszkolnego"
                         },
                         new
                         {
-                            Code = "0113",
+                            IscedCode = "0113",
                             Name = "Kształcenie nauczycieli bez specjalizacji tematycznej"
                         },
                         new
                         {
-                            Code = "0114",
+                            IscedCode = "0114",
                             Name = "Kształcenie nauczycieli ze specjalizacją tematyczną"
                         },
                         new
                         {
-                            Code = "0119",
+                            IscedCode = "0119",
                             Name = "Kształcenie gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "018",
+                            IscedCode = "018",
                             Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji związanych z edukacją"
                         },
                         new
                         {
-                            Code = "0188",
+                            IscedCode = "0188",
                             Name = "Interdyscyplinarne programy i kwalifikacje związane z edukacją"
                         },
                         new
                         {
-                            Code = "02",
+                            IscedCode = "02",
                             Name = "Grupa Nauki humanistyczne i sztuka"
                         },
                         new
                         {
-                            Code = "020",
+                            IscedCode = "020",
                             Name = "Podgrupa programów i kwalifikacji związanych ze sztuką i przedmiotami humanistycznymi nieokreślonymi dalej"
                         },
                         new
                         {
-                            Code = "0200",
+                            IscedCode = "0200",
                             Name = "Programy i kwalifikacje związane ze sztuką i przedmiotami humanistycznymi nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "021",
+                            IscedCode = "021",
                             Name = "Podgrupa artystyczna"
                         },
                         new
                         {
-                            Code = "0210",
+                            IscedCode = "0210",
                             Name = "Programy i kwalifikacje związane ze sztuką nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0211",
+                            IscedCode = "0211",
                             Name = "Techniki audiowizualne i produkcja mediów"
                         },
                         new
                         {
-                            Code = "0212",
+                            IscedCode = "0212",
                             Name = "Moda, wystrój wnętrz i projektowanie przemysłowe"
                         },
                         new
                         {
-                            Code = "0213",
+                            IscedCode = "0213",
                             Name = "Sztuki plastyczne"
                         },
                         new
                         {
-                            Code = "0214",
+                            IscedCode = "0214",
                             Name = "Rękodzieło"
                         },
                         new
                         {
-                            Code = "0215",
+                            IscedCode = "0215",
                             Name = "Muzyka i sztuki sceniczne"
                         },
                         new
                         {
-                            Code = "0219",
+                            IscedCode = "0219",
                             Name = "Programy i kwalifikacje związane ze sztuką gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "022",
+                            IscedCode = "022",
                             Name = "Podgrupa humanistyczna (z wyłączeniem języków)"
                         },
                         new
                         {
-                            Code = "0220",
+                            IscedCode = "0220",
                             Name = "Przedmioty humanistyczne (z wyłączeniem języków) nie określone dalej"
                         },
                         new
                         {
-                            Code = "0221",
+                            IscedCode = "0221",
                             Name = "Religia i teologia"
                         },
                         new
                         {
-                            Code = "0222",
+                            IscedCode = "0222",
                             Name = "Historia i archeologia"
                         },
                         new
                         {
-                            Code = "0223",
+                            IscedCode = "0223",
                             Name = "Filozofia i etyka"
                         },
                         new
                         {
-                            Code = "0229",
+                            IscedCode = "0229",
                             Name = "Przedmioty humanistyczne (z wyłączeniem języków) gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "023",
+                            IscedCode = "023",
                             Name = "Podgrupa językowa"
                         },
                         new
                         {
-                            Code = "0230",
+                            IscedCode = "0230",
                             Name = "Języki nie określone dalej"
                         },
                         new
                         {
-                            Code = "0231",
+                            IscedCode = "0231",
                             Name = "Nauka języków"
                         },
                         new
                         {
-                            Code = "0232",
+                            IscedCode = "0232",
                             Name = "Literatura i językoznawstwo (lingwistyka)"
                         },
                         new
                         {
-                            Code = "0239",
+                            IscedCode = "0239",
                             Name = "Programy i kwalifikacje związane z językami gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "028",
+                            IscedCode = "028",
                             Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji związanych ze sztuką i przedmiotami humanistycznymi"
                         },
                         new
                         {
-                            Code = "0288",
+                            IscedCode = "0288",
                             Name = "Interdyscyplinarne programy i kwalifikacje obejmujące sztuki i przedmioty humanistyczne"
                         },
                         new
                         {
-                            Code = "029",
+                            IscedCode = "029",
                             Name = "Podgrupa programów i kwalifikacji związanych ze sztuką i przedmiotami humanistycznymi gdzie indziej niesklasyfikowanymi"
                         },
                         new
                         {
-                            Code = "0299",
+                            IscedCode = "0299",
                             Name = "Programy i kwalifikacje związane ze sztuką i przedmiotami humanistycznymi gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "03",
+                            IscedCode = "03",
                             Name = "Grupa Nauki społeczne, dziennikarstwo i informacja"
                         },
                         new
                         {
-                            Code = "030",
+                            IscedCode = "030",
                             Name = "Podgrupa nauk społecznych, dziennikarstwa i informacji nieokreślonych dalej"
                         },
                         new
                         {
-                            Code = "0300",
+                            IscedCode = "0300",
                             Name = "Nauki społeczne, dziennikarstwo i informacja nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "031",
+                            IscedCode = "031",
                             Name = "Podgrupa społeczna"
                         },
                         new
                         {
-                            Code = "0310",
+                            IscedCode = "0310",
                             Name = "Nauki społeczne nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0311",
+                            IscedCode = "0311",
                             Name = "Ekonomia"
                         },
                         new
                         {
-                            Code = "0312",
+                            IscedCode = "0312",
                             Name = "Politologia i wiedza o społeczeństwie"
                         },
                         new
                         {
-                            Code = "0313",
+                            IscedCode = "0313",
                             Name = "Psychologia"
                         },
                         new
                         {
-                            Code = "0314",
+                            IscedCode = "0314",
                             Name = "Socjologia i kulturoznawstwo"
                         },
                         new
                         {
-                            Code = "0319",
+                            IscedCode = "0319",
                             Name = "Programy i kwalifikacje związane z naukami społecznymi, gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "032",
+                            IscedCode = "032",
                             Name = "Podgrupa dziennikarstwa i informacji"
                         },
                         new
                         {
-                            Code = "0320",
+                            IscedCode = "0320",
                             Name = "Dziennikarstwo i informacja naukowa nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0321",
+                            IscedCode = "0321",
                             Name = "Dziennikarstwo"
                         },
                         new
                         {
-                            Code = "0322",
+                            IscedCode = "0322",
                             Name = "Bibliotekoznawstwo, informacja naukowa i archiwistyka"
                         },
                         new
                         {
-                            Code = "0329",
+                            IscedCode = "0329",
                             Name = "Dziennikarstwo i informacja naukowa gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "038",
+                            IscedCode = "038",
                             Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji związanych z naukami społecznymi, dziennikarstwem i informacją"
                         },
                         new
                         {
-                            Code = "0388",
+                            IscedCode = "0388",
                             Name = "Interdyscyplinarne programy i kwalifikacje związane z naukami społecznymi, dziennikarstwem i informacją"
                         },
                         new
                         {
-                            Code = "039",
+                            IscedCode = "039",
                             Name = "Podgrupa nauk społecznych, dziennikarstwa i informacji gdzie indziej niesklasyfikowanych"
                         },
                         new
                         {
-                            Code = "0399",
+                            IscedCode = "0399",
                             Name = "Nauki społeczne, dziennikarstwo i informacja gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "04",
+                            IscedCode = "04",
                             Name = "Grupa Biznes, administracja i prawo"
                         },
                         new
                         {
-                            Code = "040",
+                            IscedCode = "040",
                             Name = "Podgrupa biznesu, administracji i prawa nieokreślonych dalej"
                         },
                         new
                         {
-                            Code = "0400",
+                            IscedCode = "0400",
                             Name = "Biznes, administracja i prawo nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "041",
+                            IscedCode = "041",
                             Name = "Podgrupa biznesu i administracji"
                         },
                         new
                         {
-                            Code = "0410",
+                            IscedCode = "0410",
                             Name = "Biznes i administracja nie określone dalej"
                         },
                         new
                         {
-                            Code = "0411",
+                            IscedCode = "0411",
                             Name = "Rachunkowość i podatki"
                         },
                         new
                         {
-                            Code = "0412",
+                            IscedCode = "0412",
                             Name = "Finanse, bankowość i ubezpieczenia"
                         },
                         new
                         {
-                            Code = "0413",
+                            IscedCode = "0413",
                             Name = "Zarządzanie i administracja"
                         },
                         new
                         {
-                            Code = "0414",
+                            IscedCode = "0414",
                             Name = "Marketing i reklama"
                         },
                         new
                         {
-                            Code = "0415",
+                            IscedCode = "0415",
                             Name = "Prace sekretarskie i biurowe"
                         },
                         new
                         {
-                            Code = "0416",
+                            IscedCode = "0416",
                             Name = "Sprzedaż hurtowa i detaliczna"
                         },
                         new
                         {
-                            Code = "0417",
+                            IscedCode = "0417",
                             Name = "Umiejętności związane z miejscem pracy"
                         },
                         new
                         {
-                            Code = "0419",
+                            IscedCode = "0419",
                             Name = "Programy i kwalifikacje związane z prowadzeniem działalności gospodarczej i administracją gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "042",
+                            IscedCode = "042",
                             Name = "Podgrupa prawna"
                         },
                         new
                         {
-                            Code = "0421",
+                            IscedCode = "0421",
                             Name = "Prawo"
                         },
                         new
                         {
-                            Code = "048",
+                            IscedCode = "048",
                             Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji związanych z prowadzeniem działalności gospodarczej, administracją i prawem"
                         },
                         new
                         {
-                            Code = "0488",
+                            IscedCode = "0488",
                             Name = "Interdyscyplinarne programy i kwalifikacje związane z prowadzeniem działalności gospodarczej, administracją i prawem"
                         },
                         new
                         {
-                            Code = "049",
+                            IscedCode = "049",
                             Name = "Podgrupa programów i kwalifikacji związanych z prowadzeniem działalności gospodarczej, administracją i prawem gdzie indziej niesklasyfikowanych"
                         },
                         new
                         {
-                            Code = "0499",
+                            IscedCode = "0499",
                             Name = "Programy i kwalifikacje obejmujące prowadzenie działalności gospodarczej, administrację i prawo gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "05",
+                            IscedCode = "05",
                             Name = "Grupa Nauki przyrodnicze, matematyka i statystyka"
                         },
                         new
                         {
-                            Code = "050",
+                            IscedCode = "050",
                             Name = "Podgrupa nauk przyrodniczych, matematyki i statystyki nieokreślonych dalej"
                         },
                         new
                         {
-                            Code = "0500",
+                            IscedCode = "0500",
                             Name = "Nauki przyrodnicze, matematyka i statystyka nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "051",
+                            IscedCode = "051",
                             Name = "Podgrupa biologiczna"
                         },
                         new
                         {
-                            Code = "0510",
+                            IscedCode = "0510",
                             Name = "Nauki biologiczne i powiązane nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0511",
+                            IscedCode = "0511",
                             Name = "Biologia"
                         },
                         new
                         {
-                            Code = "0512",
+                            IscedCode = "0512",
                             Name = "Biochemia"
                         },
                         new
                         {
-                            Code = "0519",
+                            IscedCode = "0519",
                             Name = "Programy i kwalifikacje związane z biologią i naukami pokrewnymi gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "052",
+                            IscedCode = "052",
                             Name = "Podgrupa nauk o środowisku"
                         },
                         new
                         {
-                            Code = "0520",
+                            IscedCode = "0520",
                             Name = "Nauki o środowisku nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0521",
+                            IscedCode = "0521",
                             Name = "Ekologia i ochrona środowiska"
                         },
                         new
                         {
-                            Code = "0522",
+                            IscedCode = "0522",
                             Name = "Środowisko naturalne i przyroda"
                         },
                         new
                         {
-                            Code = "0529",
+                            IscedCode = "0529",
                             Name = "Programy i kwalifikacje związane ze środowiskiem gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "053",
+                            IscedCode = "053",
                             Name = "Podgrupa fizyczna"
                         },
                         new
                         {
-                            Code = "0530",
+                            IscedCode = "0530",
                             Name = "Nauki fizyczne nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0531",
+                            IscedCode = "0531",
                             Name = "Chemia"
                         },
                         new
                         {
-                            Code = "0532",
+                            IscedCode = "0532",
                             Name = "Nauki o Ziemi"
                         },
                         new
                         {
-                            Code = "0533",
+                            IscedCode = "0533",
                             Name = "Fizyka"
                         },
                         new
                         {
-                            Code = "0539",
+                            IscedCode = "0539",
                             Name = "Programy i kwalifikacje związane z naukami fizycznymi gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "054",
+                            IscedCode = "054",
                             Name = "Podgrupa matematyczna i statystyczna"
                         },
                         new
                         {
-                            Code = "0540",
+                            IscedCode = "0540",
                             Name = "Matematyka i statystyka nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0541",
+                            IscedCode = "0541",
                             Name = "Matematyka"
                         },
                         new
                         {
-                            Code = "0542",
+                            IscedCode = "0542",
                             Name = "Statystyka"
                         },
                         new
                         {
-                            Code = "058",
+                            IscedCode = "058",
                             Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji obejmujących nauki przyrodnicze, matematykę i statystykę"
                         },
                         new
                         {
-                            Code = "0588",
+                            IscedCode = "0588",
                             Name = "Interdyscyplinarne programy i kwalifikacje obejmujące nauki przyrodnicze, matematykę i statystykę"
                         },
                         new
                         {
-                            Code = "059",
+                            IscedCode = "059",
                             Name = "Podgrupa nauk przyrodniczych, matematyki i statystyki gdzie indziej niesklasyfikowanych"
                         },
                         new
                         {
-                            Code = "0599",
+                            IscedCode = "0599",
                             Name = "Nauki przyrodnicze, matematyka i statystyka gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "06",
+                            IscedCode = "06",
                             Name = "Grupa Technologie teleinformacyjne"
                         },
                         new
                         {
-                            Code = "061",
+                            IscedCode = "061",
                             Name = "Podgrupa technologii teleinformacyjnych"
                         },
                         new
                         {
-                            Code = "0610",
+                            IscedCode = "0610",
                             Name = "Technologie teleinformacyjne nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0611",
+                            IscedCode = "0611",
                             Name = "Obsługa i użytkowanie komputerów"
                         },
                         new
                         {
-                            Code = "0612",
+                            IscedCode = "0612",
                             Name = "Projektowanie i administrowanie baz danych i sieci"
                         },
                         new
                         {
-                            Code = "0613",
+                            IscedCode = "0613",
                             Name = "Tworzenie i analiza oprogramowania i aplikacji"
                         },
                         new
                         {
-                            Code = "0619",
+                            IscedCode = "0619",
                             Name = "Technologie teleinformacyjne gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "068",
+                            IscedCode = "068",
                             Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji obejmujących technologie informacyjno-komunikacyjne"
                         },
                         new
                         {
-                            Code = "0688",
+                            IscedCode = "0688",
                             Name = "Interdyscyplinarne programy i kwalifikacje obejmujące technologie informacyjno-komunikacyjne"
                         },
                         new
                         {
-                            Code = "07",
+                            IscedCode = "07",
                             Name = "Grupa Technika, przemysł, budownictwo"
                         },
                         new
                         {
-                            Code = "070",
+                            IscedCode = "070",
                             Name = "Podgrupa techniki, przemysłu i budownictwa nieokreślonych dalej"
                         },
                         new
                         {
-                            Code = "0700",
+                            IscedCode = "0700",
                             Name = "Technika, przemysł i budownictwo nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "071",
+                            IscedCode = "071",
                             Name = "Podgrupa inżynieryjno-techniczna"
                         },
                         new
                         {
-                            Code = "0710",
+                            IscedCode = "0710",
                             Name = "Inżynieria i zawody inżynieryjne nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0711",
+                            IscedCode = "0711",
                             Name = "Inżynieria chemiczna i procesowa"
                         },
                         new
                         {
-                            Code = "0712",
+                            IscedCode = "0712",
                             Name = "Technologie związane z ochroną środowiska"
                         },
                         new
                         {
-                            Code = "0713",
+                            IscedCode = "0713",
                             Name = "Elektryczność i energia"
                         },
                         new
                         {
-                            Code = "0714",
+                            IscedCode = "0714",
                             Name = "Elektronika i automatyka"
                         },
                         new
                         {
-                            Code = "0715",
+                            IscedCode = "0715",
                             Name = "Mechanika i metalurgia"
                         },
                         new
                         {
-                            Code = "0716",
+                            IscedCode = "0716",
                             Name = "Pojazdy samochodowe, statki i samoloty"
                         },
                         new
                         {
-                            Code = "0719",
+                            IscedCode = "0719",
                             Name = "Inżynieria i zawody inżynierskie gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "072",
+                            IscedCode = "072",
                             Name = "Podgrupa produkcji i przetwórstwa"
                         },
                         new
                         {
-                            Code = "0720",
+                            IscedCode = "0720",
                             Name = "Produkcja i przetwórstwo nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0721",
+                            IscedCode = "0721",
                             Name = "Przetwórstwo żywności"
                         },
                         new
                         {
-                            Code = "0722",
+                            IscedCode = "0722",
                             Name = "Surowce (szkło, papier, tworzywo sztuczne i drewno)"
                         },
                         new
                         {
-                            Code = "0723",
+                            IscedCode = "0723",
                             Name = "Tekstylia (odzież, obuwie i wyroby skórzane)"
                         },
                         new
                         {
-                            Code = "0724",
+                            IscedCode = "0724",
                             Name = "Górnictwo i wydobycie"
                         },
                         new
                         {
-                            Code = "0729",
+                            IscedCode = "0729",
                             Name = "Programy i kwalifikacje związane z przetwórstwem przemysłowym gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "073",
+                            IscedCode = "073",
                             Name = "Podgrupa architektury i budownictwa"
                         },
                         new
                         {
-                            Code = "0730",
+                            IscedCode = "0730",
                             Name = "Architektura i budownictwo nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0731",
+                            IscedCode = "0731",
                             Name = "Architektura i planowanie przestrzenne"
                         },
                         new
                         {
-                            Code = "0732",
+                            IscedCode = "0732",
                             Name = "Budownictwo i inżynieria lądowa i wodna"
                         },
                         new
                         {
-                            Code = "078",
+                            IscedCode = "078",
                             Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji obejmujących technikę, przemysł i budownictwo"
                         },
                         new
                         {
-                            Code = "0788",
+                            IscedCode = "0788",
                             Name = "Interdyscyplinarne programy i kwalifikacje obejmujące technikę, przemysł i budownictwo"
                         },
                         new
                         {
-                            Code = "079",
+                            IscedCode = "079",
                             Name = "Podgrupa techniki, przemysłu i budownictwa gdzie indziej niesklasyfikowanych"
                         },
                         new
                         {
-                            Code = "0799",
+                            IscedCode = "0799",
                             Name = "Technika, przemysł i budownictwo gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "08",
+                            IscedCode = "08",
                             Name = "Grupa Rolnictwo"
                         },
                         new
                         {
-                            Code = "080",
+                            IscedCode = "080",
                             Name = "Rolnictwo, leśnictwo, rybołówstwo i weterynaria nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0800",
+                            IscedCode = "0800",
                             Name = "Rolnictwo, leśnictwo, rybołówstwo i weterynaria nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "081",
+                            IscedCode = "081",
                             Name = "Podgrupa rolnicza"
                         },
                         new
                         {
-                            Code = "0810",
+                            IscedCode = "0810",
                             Name = "Rolnictwo nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0811",
+                            IscedCode = "0811",
                             Name = "Produkcja roślinna i zwierzęca"
                         },
                         new
                         {
-                            Code = "0812",
+                            IscedCode = "0812",
                             Name = "Ogrodnictwo"
                         },
                         new
                         {
-                            Code = "0819",
+                            IscedCode = "0819",
                             Name = "Programy i kwalifikacje związane z rolnictwem gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "082",
+                            IscedCode = "082",
                             Name = "Podgrupa leśna"
                         },
                         new
                         {
-                            Code = "0821",
+                            IscedCode = "0821",
                             Name = "Leśnictwo"
                         },
                         new
                         {
-                            Code = "083",
+                            IscedCode = "083",
                             Name = "Podgrupa rybactwa"
                         },
                         new
                         {
-                            Code = "0831",
+                            IscedCode = "0831",
                             Name = "Rybactwo"
                         },
                         new
                         {
-                            Code = "084",
+                            IscedCode = "084",
                             Name = "Podgrupa weterynaryjna"
                         },
                         new
                         {
-                            Code = "0841",
+                            IscedCode = "0841",
                             Name = "Weterynaria"
                         },
                         new
                         {
-                            Code = "088",
+                            IscedCode = "088",
                             Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji obejmujących rolnictwo, leśnictwo, rybactwo i weterynarię"
                         },
                         new
                         {
-                            Code = "0888",
+                            IscedCode = "0888",
                             Name = "Interdyscyplinarne programy i kwalifikacje obejmujące rolnictwo, leśnictwo, rybactwo i weterynarię"
                         },
                         new
                         {
-                            Code = "089",
+                            IscedCode = "089",
                             Name = "Podgrupa rolnictwa, leśnictwa, rybactwa i weterynaria gdzie indziej niesklasyfikowanych"
                         },
                         new
                         {
-                            Code = "0899",
+                            IscedCode = "0899",
                             Name = "Rolnictwo, leśnictwo, rybactwo i weterynaria gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "09",
+                            IscedCode = "09",
                             Name = "Grupa Zdrowie i opieka społeczna"
                         },
                         new
                         {
-                            Code = "090",
+                            IscedCode = "090",
                             Name = "Podgrupa zdrowia i opieki społecznej nieokreślonych dalej"
                         },
                         new
                         {
-                            Code = "0900",
+                            IscedCode = "0900",
                             Name = "Zdrowie i opieka społeczna nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "091",
+                            IscedCode = "091",
                             Name = "Podgrupa medyczna"
                         },
                         new
                         {
-                            Code = "0910",
+                            IscedCode = "0910",
                             Name = "Zdrowie nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "0911",
+                            IscedCode = "0911",
                             Name = "Stomatologia"
                         },
                         new
                         {
-                            Code = "0912",
+                            IscedCode = "0912",
                             Name = "Medycyna"
                         },
                         new
                         {
-                            Code = "0913",
+                            IscedCode = "0913",
                             Name = "Pielęgniarstwo i położnictwo"
                         },
                         new
                         {
-                            Code = "0914",
+                            IscedCode = "0914",
                             Name = "Technologie związane z diagnostyką i leczeniem"
                         },
                         new
                         {
-                            Code = "0915",
+                            IscedCode = "0915",
                             Name = "Terapia i rehabilitacja"
                         },
                         new
                         {
-                            Code = "0916",
+                            IscedCode = "0916",
                             Name = "Farmacja"
                         },
                         new
                         {
-                            Code = "0917",
+                            IscedCode = "0917",
                             Name = "Medycyna i terapia tradycyjna oraz komplementarna"
                         },
                         new
                         {
-                            Code = "0919",
+                            IscedCode = "0919",
                             Name = "Zdrowie gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "092",
+                            IscedCode = "092",
                             Name = "Podgrupa opieki społecznej"
                         },
                         new
                         {
-                            Code = "0920",
+                            IscedCode = "0920",
                             Name = "Opieka społeczna nieokreślona dalej"
                         },
                         new
                         {
-                            Code = "0921",
+                            IscedCode = "0921",
                             Name = "Opieka nad osobami starszymi i dorosłymi niepełnosprawnymi"
                         },
                         new
                         {
-                            Code = "0922",
+                            IscedCode = "0922",
                             Name = "Usługi związane z opieką nad dziećmi i młodzieżą"
                         },
                         new
                         {
-                            Code = "0923",
+                            IscedCode = "0923",
                             Name = "Praca socjalna i doradztwo"
                         },
                         new
                         {
-                            Code = "0929",
+                            IscedCode = "0929",
                             Name = "Opieka społeczna gdzie indziej niesklasyfikowana"
                         },
                         new
                         {
-                            Code = "098",
+                            IscedCode = "098",
                             Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji obejmujących zdrowie i opiekę społeczną"
                         },
                         new
                         {
-                            Code = "0988",
+                            IscedCode = "0988",
                             Name = "Interdyscyplinarne programy i kwalifikacje obejmujące zdrowie i opiekę społeczną"
                         },
                         new
                         {
-                            Code = "099",
+                            IscedCode = "099",
                             Name = "Podgrupa zdrowie i opieka społeczna gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "0999",
+                            IscedCode = "0999",
                             Name = "Zdrowie i opieka społeczna gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "10",
+                            IscedCode = "10",
                             Name = "Grupa Usługi"
                         },
                         new
                         {
-                            Code = "100",
+                            IscedCode = "100",
                             Name = "Podgrupa usług nieokreślonych dalej"
                         },
                         new
                         {
-                            Code = "1000",
+                            IscedCode = "1000",
                             Name = "Usługi nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "101",
+                            IscedCode = "101",
                             Name = "Podgrupa usług dla ludności"
                         },
                         new
                         {
-                            Code = "1010",
+                            IscedCode = "1010",
                             Name = "Usługi dla ludności nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "1011",
+                            IscedCode = "1011",
                             Name = "Usługi domowe"
                         },
                         new
                         {
-                            Code = "1012",
+                            IscedCode = "1012",
                             Name = "Pielęgnacja włosów i urody"
                         },
                         new
                         {
-                            Code = "1013",
+                            IscedCode = "1013",
                             Name = "Hotele, restauracje i katering"
                         },
                         new
                         {
-                            Code = "1014",
+                            IscedCode = "1014",
                             Name = "Sport"
                         },
                         new
                         {
-                            Code = "1015",
+                            IscedCode = "1015",
                             Name = "Turystyka i wypoczynek"
                         },
                         new
                         {
-                            Code = "1019",
+                            IscedCode = "1019",
                             Name = "Programy i kwalifikacje związane z usługi dla ludności gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "102",
+                            IscedCode = "102",
                             Name = "Podgrupa higieny i bezpieczeństwa pracy"
                         },
                         new
                         {
-                            Code = "1020",
+                            IscedCode = "1020",
                             Name = "Usługi higieny i bezpieczeństwa pracy nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "1021",
+                            IscedCode = "1021",
                             Name = "Higiena publiczna"
                         },
                         new
                         {
-                            Code = "1022",
+                            IscedCode = "1022",
                             Name = "Bezpieczeństwo i higiena pracy"
                         },
                         new
                         {
-                            Code = "1029",
+                            IscedCode = "1029",
                             Name = "Programy i kwalifikacje związane z usługami w zakresie higieny i bezpieczeństwa pracy"
                         },
                         new
                         {
-                            Code = "103",
+                            IscedCode = "103",
                             Name = "Podgrupa ochrony i bezpieczeństwa"
                         },
                         new
                         {
-                            Code = "1030",
+                            IscedCode = "1030",
                             Name = "Ochrona i bezpieczeństwo nieokreślone dalej"
                         },
                         new
                         {
-                            Code = "1031",
+                            IscedCode = "1031",
                             Name = "Wojsko i obronność"
                         },
                         new
                         {
-                            Code = "1032",
+                            IscedCode = "1032",
                             Name = "Ochrona osób i mienia"
                         },
                         new
                         {
-                            Code = "1039",
+                            IscedCode = "1039",
                             Name = "Programy i kwalifikacje związane z ochroną i bezpieczeństwem gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "104",
+                            IscedCode = "104",
                             Name = "Podgrupa usług transportowych"
                         },
                         new
                         {
-                            Code = "1041",
+                            IscedCode = "1041",
                             Name = "Transport"
                         },
                         new
                         {
-                            Code = "108",
+                            IscedCode = "108",
                             Name = "Podgrupa interdyscyplinarnych programów i kwalifikacji obejmujących usługi"
                         },
                         new
                         {
-                            Code = "1088",
+                            IscedCode = "1088",
                             Name = "Interdyscyplinarne programy i kwalifikacje obejmujące usługi"
                         },
                         new
                         {
-                            Code = "109",
+                            IscedCode = "109",
                             Name = "Podgrupa usług gdzie indziej niesklasyfikowanych"
                         },
                         new
                         {
-                            Code = "1099",
+                            IscedCode = "1099",
                             Name = "Usługi gdzie indziej niesklasyfikowane"
                         },
                         new
                         {
-                            Code = "99",
+                            IscedCode = "99",
                             Name = "Grupa Obszar nieznany"
                         },
                         new
                         {
-                            Code = "999",
+                            IscedCode = "999",
                             Name = "Podgrupa obszar nieznany"
                         },
                         new
                         {
-                            Code = "9999",
+                            IscedCode = "9999",
                             Name = "Obszar nieznany"
                         });
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Language", b =>
                 {
-                    b.Property<string>("Code")
+                    b.Property<string>("LanguageCode")
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
@@ -2040,7 +2048,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Code")
+                    b.HasKey("LanguageCode")
                         .HasName("Language_pk");
 
                     b.ToTable("Language", (string)null);
@@ -2048,259 +2056,259 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Code = "alb-sqi",
+                            LanguageCode = "alb-sqi",
                             Name = "albański"
                         },
                         new
                         {
-                            Code = "eng",
+                            LanguageCode = "eng",
                             Name = "angielski"
                         },
                         new
                         {
-                            Code = "ara",
+                            LanguageCode = "ara",
                             Name = "arabski"
                         },
                         new
                         {
-                            Code = "bel",
+                            LanguageCode = "bel",
                             Name = "białoruski"
                         },
                         new
                         {
-                            Code = "bul",
+                            LanguageCode = "bul",
                             Name = "bułgarski"
                         },
                         new
                         {
-                            Code = "cel",
+                            LanguageCode = "cel",
                             Name = "celtyckie"
                         },
                         new
                         {
-                            Code = "chi-zho",
+                            LanguageCode = "chi-zho",
                             Name = "chiński"
                         },
                         new
                         {
-                            Code = "scr-hrv",
+                            LanguageCode = "scr-hrv",
                             Name = "chorwacki"
                         },
                         new
                         {
-                            Code = "cze-ces",
+                            LanguageCode = "cze-ces",
                             Name = "czeski"
                         },
                         new
                         {
-                            Code = "dan",
+                            LanguageCode = "dan",
                             Name = "duński"
                         },
                         new
                         {
-                            Code = "fin",
+                            LanguageCode = "fin",
                             Name = "fiński"
                         },
                         new
                         {
-                            Code = "fre-fra",
+                            LanguageCode = "fre-fra",
                             Name = "francuski"
                         },
                         new
                         {
-                            Code = "gem",
+                            LanguageCode = "gem",
                             Name = "germańskie"
                         },
                         new
                         {
-                            Code = "gre-ell",
+                            LanguageCode = "gre-ell",
                             Name = "grecki"
                         },
                         new
                         {
-                            Code = "heb",
+                            LanguageCode = "heb",
                             Name = "hebrajski"
                         },
                         new
                         {
-                            Code = "hin",
+                            LanguageCode = "hin",
                             Name = "hindi"
                         },
                         new
                         {
-                            Code = "spa",
+                            LanguageCode = "spa",
                             Name = "hiszpański"
                         },
                         new
                         {
-                            Code = "dut-nld",
+                            LanguageCode = "dut-nld",
                             Name = "holenderski"
                         },
                         new
                         {
-                            Code = "ind",
+                            LanguageCode = "ind",
                             Name = "indonezyjski"
                         },
                         new
                         {
-                            Code = "opi-ij",
+                            LanguageCode = "opi-ij",
                             Name = "inny język"
                         },
                         new
                         {
-                            Code = "ice-isl",
+                            LanguageCode = "ice-isl",
                             Name = "islandzki"
                         },
                         new
                         {
-                            Code = "jpn",
+                            LanguageCode = "jpn",
                             Name = "japoński"
                         },
                         new
                         {
-                            Code = "yid",
+                            LanguageCode = "yid",
                             Name = "jidysz"
                         },
                         new
                         {
-                            Code = "cat",
+                            LanguageCode = "cat",
                             Name = "kataloński"
                         },
                         new
                         {
-                            Code = "kor",
+                            LanguageCode = "kor",
                             Name = "koreański"
                         },
                         new
                         {
-                            Code = "lit",
+                            LanguageCode = "lit",
                             Name = "litewski"
                         },
                         new
                         {
-                            Code = "lat",
+                            LanguageCode = "lat",
                             Name = "łacina"
                         },
                         new
                         {
-                            Code = "lav",
+                            LanguageCode = "lav",
                             Name = "łotewski"
                         },
                         new
                         {
-                            Code = "mac-mkd",
+                            LanguageCode = "mac-mkd",
                             Name = "macedoński"
                         },
                         new
                         {
-                            Code = "may-msa",
+                            LanguageCode = "may-msa",
                             Name = "malajski"
                         },
                         new
                         {
-                            Code = "nno",
+                            LanguageCode = "nno",
                             Name = "neonorweski (nynorsk)"
                         },
                         new
                         {
-                            Code = "ger-deu",
+                            LanguageCode = "ger-deu",
                             Name = "niemiecki"
                         },
                         new
                         {
-                            Code = "nor",
+                            LanguageCode = "nor",
                             Name = "norweski"
                         },
                         new
                         {
-                            Code = "nob",
+                            LanguageCode = "nob",
                             Name = "norweski tradycyjny (bokmal)"
                         },
                         new
                         {
-                            Code = "per-fas",
+                            LanguageCode = "per-fas",
                             Name = "perski (farsi)"
                         },
                         new
                         {
-                            Code = "pol",
+                            LanguageCode = "pol",
                             Name = "polski"
                         },
                         new
                         {
-                            Code = "pso",
+                            LanguageCode = "pso",
                             Name = "polski język migowy"
                         },
                         new
                         {
-                            Code = "por",
+                            LanguageCode = "por",
                             Name = "portugalski"
                         },
                         new
                         {
-                            Code = "rus",
+                            LanguageCode = "rus",
                             Name = "rosyjski"
                         },
                         new
                         {
-                            Code = "rum-ron",
+                            LanguageCode = "rum-ron",
                             Name = "rumuński"
                         },
                         new
                         {
-                            Code = "scc-srp",
+                            LanguageCode = "scc-srp",
                             Name = "serbski"
                         },
                         new
                         {
-                            Code = "slo-slk",
+                            LanguageCode = "slo-slk",
                             Name = "słowacki"
                         },
                         new
                         {
-                            Code = "slv",
+                            LanguageCode = "slv",
                             Name = "słoweński"
                         },
                         new
                         {
-                            Code = "swe",
+                            LanguageCode = "swe",
                             Name = "szwedzki"
                         },
                         new
                         {
-                            Code = "tur",
+                            LanguageCode = "tur",
                             Name = "turecki"
                         },
                         new
                         {
-                            Code = "ukr",
+                            LanguageCode = "ukr",
                             Name = "ukraiński"
                         },
                         new
                         {
-                            Code = "urd",
+                            LanguageCode = "urd",
                             Name = "urdu"
                         },
                         new
                         {
-                            Code = "hun",
+                            LanguageCode = "hun",
                             Name = "węgierski"
                         },
                         new
                         {
-                            Code = "vie",
+                            LanguageCode = "vie",
                             Name = "wietnamski"
                         },
                         new
                         {
-                            Code = "ita",
+                            LanguageCode = "ita",
                             Name = "włoski"
                         });
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AIType", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AcademicInstitutionTypeId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsSchool")
@@ -2313,7 +2321,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Id")
+                    b.HasKey("AcademicInstitutionTypeId")
                         .HasName("AIType_pk");
 
                     b.ToTable("AIType", (string)null);
@@ -2321,31 +2329,31 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 16,
+                            AcademicInstitutionTypeId = 16,
                             IsSchool = false,
                             Name = "Federacja"
                         },
                         new
                         {
-                            Id = 5,
+                            AcademicInstitutionTypeId = 5,
                             IsSchool = false,
                             Name = "Instytucja naukowa"
                         },
                         new
                         {
-                            Id = 1,
+                            AcademicInstitutionTypeId = 1,
                             IsSchool = true,
                             Name = "Uczelnia kościelna"
                         },
                         new
                         {
-                            Id = 10,
+                            AcademicInstitutionTypeId = 10,
                             IsSchool = true,
                             Name = "Uczelnia niepubliczna"
                         },
                         new
                         {
-                            Id = 13,
+                            AcademicInstitutionTypeId = 13,
                             IsSchool = true,
                             Name = "Uczelnia publiczna"
                         });
@@ -2353,29 +2361,28 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("(newid())");
+                    b.Property<Guid>("AcademicInstitutionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("AcademicInstitutionTypeId")
+                        .HasColumnType("int");
 
                     b.Property<DateOnly>("LastUpdate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("date")
                         .HasDefaultValueSql("(GETDATE())");
 
-                    b.Property<int>("TypeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id")
+                    b.HasKey("AcademicInstitutionId")
                         .HasName("AcademicInstitution_pk");
 
-                    b.HasIndex("TypeId");
+                    b.HasIndex("AcademicInstitutionTypeId");
 
                     b.ToTable("AcademicInstitution", (string)null);
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.SpecificTypes.AISpecificType", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AcademicInstitutionSpecificTypeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -2383,7 +2390,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Id")
+                    b.HasKey("AcademicInstitutionSpecificTypeId")
                         .HasName("AISpecificType_pk");
 
                     b.ToTable("AISpecificType", (string)null);
@@ -2391,32 +2398,32 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.SpecificTypes.AISpecificTypeHistory", b =>
                 {
-                    b.Property<Guid>("InstitutionId")
+                    b.Property<Guid>("AcademicInstitutionId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("TypeId")
+                    b.Property<int>("AcademicInstitutionSpecificTypeId")
                         .HasColumnType("int");
 
                     b.Property<DateOnly>("Date")
                         .HasColumnType("date");
 
-                    b.HasKey("InstitutionId", "TypeId", "Date")
+                    b.HasKey("AcademicInstitutionId", "AcademicInstitutionSpecificTypeId", "Date")
                         .HasName("AISpecificTypeHistory_pk");
 
-                    b.HasIndex("TypeId");
+                    b.HasIndex("AcademicInstitutionSpecificTypeId");
 
                     b.ToTable("AISpecificTypeHistory", (string)null);
                 });
 
             modelBuilder.Entity("CourseAIOrganizationalUnit", b =>
                 {
-                    b.Property<Guid>("AIOrganizationalUnitId")
+                    b.Property<Guid>("AcademicInstitutionOrganizationalUnitId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("CourseId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("AIOrganizationalUnitId", "CourseId");
+                    b.HasKey("AcademicInstitutionOrganizationalUnitId", "CourseId");
 
                     b.HasIndex("CourseId");
 
@@ -2425,30 +2432,30 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("CourseLanguage", b =>
                 {
-                    b.Property<Guid>("CourseId")
+                    b.Property<Guid>("CourseAcademicInstitutionId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("LanguageId")
+                    b.Property<string>("LanguageAcademicInstitutionId")
                         .HasColumnType("nvarchar(20)");
 
-                    b.HasKey("CourseId", "LanguageId");
+                    b.HasKey("CourseAcademicInstitutionId", "LanguageAcademicInstitutionId");
 
-                    b.HasIndex("LanguageId");
+                    b.HasIndex("LanguageAcademicInstitutionId");
 
                     b.ToTable("CourseLanguage");
                 });
 
             modelBuilder.Entity("DivisionStreet", b =>
                 {
-                    b.Property<int>("DivisionId")
+                    b.Property<int>("DivisionAcademicInstitutionId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StreetId")
+                    b.Property<int>("StreetAcademicInstitutionId")
                         .HasColumnType("int");
 
-                    b.HasKey("DivisionId", "StreetId");
+                    b.HasKey("DivisionAcademicInstitutionId", "StreetAcademicInstitutionId");
 
-                    b.HasIndex("StreetId");
+                    b.HasIndex("StreetAcademicInstitutionId");
 
                     b.ToTable("DivisionStreet");
                 });
@@ -2535,29 +2542,29 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Classifications.CompanyClassificationDetail", b =>
                 {
-                    b.HasOne("Application.DatabaseRelational.Models.Companies.Classifications.CompanyClassification", "Classification")
-                        .WithMany("Classifications")
-                        .HasForeignKey("ClassificationId")
+                    b.HasOne("Application.DatabaseRelational.Models.Companies.Classifications.CompanyClassification", "CompanyClassification")
+                        .WithMany("CompanyClassifications")
+                        .HasForeignKey("CompanyClassificationId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("CompanyClassificationDetail_CompanyClassification");
 
                     b.HasOne("Application.DatabaseRelational.Models.Companies.Company", "Company")
-                        .WithMany("Classifications")
+                        .WithMany("CompanyClassifications")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("CompanyClassificationDetail_Company");
 
-                    b.Navigation("Classification");
-
                     b.Navigation("Company");
+
+                    b.Navigation("CompanyClassification");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.CompanyNameHistory", b =>
                 {
                     b.HasOne("Application.DatabaseRelational.Models.Companies.Company", "Company")
-                        .WithMany("NamesHistory")
+                        .WithMany("CompanyNameHistories")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
@@ -2581,52 +2588,77 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Identifiers.CompanyIdentifierDetail", b =>
                 {
                     b.HasOne("Application.DatabaseRelational.Models.Companies.Company", "Company")
-                        .WithMany("Identifiers")
+                        .WithMany("CompanyIdentifiers")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("CompanyIdentifierDetail_Company");
 
-                    b.HasOne("Application.DatabaseRelational.Models.Companies.Identifiers.CompanyIdentifier", "Identifier")
-                        .WithMany("Identifiers")
-                        .HasForeignKey("IdentifierId")
+                    b.HasOne("Application.DatabaseRelational.Models.Companies.Identifiers.CompanyIdentifier", "CompanyIdentifier")
+                        .WithMany("CompanyIdentifiers")
+                        .HasForeignKey("CompanyIdentifierId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("CompanyIdentifierDetail_CompanyIdentifier");
 
                     b.Navigation("Company");
 
-                    b.Navigation("Identifier");
+                    b.Navigation("CompanyIdentifier");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Statuses.CompanyStatusHistory", b =>
                 {
                     b.HasOne("Application.DatabaseRelational.Models.Companies.Company", "Company")
-                        .WithMany("StatusHistory")
+                        .WithMany("CompanyStatusHistories")
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("CompanyStatusHistory_Company");
 
-                    b.HasOne("Application.DatabaseRelational.Models.Companies.Statuses.CompanyStatus", "Status")
-                        .WithMany("Histories")
-                        .HasForeignKey("StatusId")
+                    b.HasOne("Application.DatabaseRelational.Models.Companies.Statuses.CompanyStatus", "CompanyStatus")
+                        .WithMany("CompanyStatusHistories")
+                        .HasForeignKey("CompanyStatusId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("CompanyStatusHistory_CompanyStatus");
 
                     b.Navigation("Company");
 
-                    b.Navigation("Status");
+                    b.Navigation("CompanyStatus");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Course", b =>
                 {
-                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.CourseForm", "Form")
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", "AcademicInstitution")
                         .WithMany("Courses")
-                        .HasForeignKey("FormCode")
+                        .HasForeignKey("AcademicInstitutionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("AcademicInstitution_Course");
+
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.CourseForm", "CourseForm")
+                        .WithMany("Courses")
+                        .HasForeignKey("CourseFormCode")
                         .OnDelete(DeleteBehavior.Restrict)
                         .HasConstraintName("Course_CourseForm");
+
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.CourseLevel", "CourseLevel")
+                        .WithMany("Courses")
+                        .HasForeignKey("CourseLevelCode")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("Course_CourseLevel");
+
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.CourseProfile", "CourseProfile")
+                        .WithMany("Courses")
+                        .HasForeignKey("CourseProfileCode")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("Course_CourseProfile");
+
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.CourseTitle", "CourseTitle")
+                        .WithMany("Courses")
+                        .HasForeignKey("CourseTitleCode")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("Course_CourseTitle");
 
                     b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.Isced", "Isced")
                         .WithMany("Courses")
@@ -2641,41 +2673,25 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .HasConstraintName("Course_Language");
 
-                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.CourseLevel", "Level")
-                        .WithMany("Courses")
-                        .HasForeignKey("LevelCode")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .HasConstraintName("Course_CourseLevel");
+                    b.Navigation("AcademicInstitution");
 
-                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.CourseProfile", "Profile")
-                        .WithMany("Courses")
-                        .HasForeignKey("ProfileCode")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .HasConstraintName("Course_CourseProfile");
+                    b.Navigation("CourseForm");
 
-                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.CourseTitle", "Title")
-                        .WithMany("Courses")
-                        .HasForeignKey("TitleCode")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .HasConstraintName("Course_CourseTitle");
+                    b.Navigation("CourseLevel");
 
-                    b.Navigation("Form");
+                    b.Navigation("CourseProfile");
+
+                    b.Navigation("CourseTitle");
 
                     b.Navigation("Isced");
 
                     b.Navigation("Language");
-
-                    b.Navigation("Level");
-
-                    b.Navigation("Profile");
-
-                    b.Navigation("Title");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Disciplines.CourseDiscipline", b =>
                 {
                     b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.Course", "Course")
-                        .WithMany("Disciplines")
+                        .WithMany("CourseDisciplines")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
@@ -2697,49 +2713,49 @@ namespace Infrastructure.Migrations
                 {
                     b.HasOne("Application.DatabaseRelational.Models.Companies.Company", "Company")
                         .WithOne("AcademicInstitution")
-                        .HasForeignKey("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", "Id")
+                        .HasForeignKey("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", "AcademicInstitutionId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("Company_AcademicInstitution");
 
-                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.AIType", "Type")
-                        .WithMany("Institutions")
-                        .HasForeignKey("TypeId")
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.AIType", "AcademicInstitutionType")
+                        .WithMany("AcademicInstitutions")
+                        .HasForeignKey("AcademicInstitutionTypeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("AIType_AcademicInstitution");
 
-                    b.Navigation("Company");
+                    b.Navigation("AcademicInstitutionType");
 
-                    b.Navigation("Type");
+                    b.Navigation("Company");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.SpecificTypes.AISpecificTypeHistory", b =>
                 {
-                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", "Institution")
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", "AcademicInstitution")
                         .WithMany("SpecificTypeHistories")
-                        .HasForeignKey("InstitutionId")
+                        .HasForeignKey("AcademicInstitutionId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("AISpecificTypeHistory_AcademicInstitution");
 
-                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.SpecificTypes.AISpecificType", "Type")
-                        .WithMany("Histories")
-                        .HasForeignKey("TypeId")
+                    b.HasOne("Application.DatabaseRelational.Models.HighSchools.Institutions.SpecificTypes.AISpecificType", "AcademicInstitutionSpecificType")
+                        .WithMany("SpecificTypeHistories")
+                        .HasForeignKey("AcademicInstitutionSpecificTypeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("AISpecificTypeHistory_AISpecificType");
 
-                    b.Navigation("Institution");
+                    b.Navigation("AcademicInstitution");
 
-                    b.Navigation("Type");
+                    b.Navigation("AcademicInstitutionSpecificType");
                 });
 
             modelBuilder.Entity("CourseAIOrganizationalUnit", b =>
                 {
                     b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.AIOrganizationalUnit", null)
                         .WithMany()
-                        .HasForeignKey("AIOrganizationalUnitId")
+                        .HasForeignKey("AcademicInstitutionOrganizationalUnitId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("CourseAIOrganizationalUnit_AIOrganizationalUnit");
@@ -2756,14 +2772,14 @@ namespace Infrastructure.Migrations
                 {
                     b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.Course", null)
                         .WithMany()
-                        .HasForeignKey("CourseId")
+                        .HasForeignKey("CourseAcademicInstitutionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("CourseLanguage_Course");
 
                     b.HasOne("Application.DatabaseRelational.Models.HighSchools.Courses.Language", null)
                         .WithMany()
-                        .HasForeignKey("LanguageId")
+                        .HasForeignKey("LanguageAcademicInstitutionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("CourseLanguage_Language");
@@ -2773,17 +2789,17 @@ namespace Infrastructure.Migrations
                 {
                     b.HasOne("Application.DatabaseRelational.Models.Addresses.Division", null)
                         .WithMany()
-                        .HasForeignKey("DivisionId")
+                        .HasForeignKey("DivisionAcademicInstitutionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FK_DivisionStreet_DivisionId");
+                        .HasConstraintName("FK_DivisionStreet_DivisionAcademicInstitutionId");
 
                     b.HasOne("Application.DatabaseRelational.Models.Addresses.Street", null)
                         .WithMany()
-                        .HasForeignKey("StreetId")
+                        .HasForeignKey("StreetAcademicInstitutionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FK_DivisionStreet_StreetId");
+                        .HasConstraintName("FK_DivisionStreet_StreetAcademicInstitutionId");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.Addresses.Country", b =>
@@ -2818,35 +2834,35 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Classifications.CompanyClassification", b =>
                 {
-                    b.Navigation("Classifications");
+                    b.Navigation("CompanyClassifications");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Company", b =>
                 {
                     b.Navigation("AcademicInstitution");
 
-                    b.Navigation("Classifications");
+                    b.Navigation("CompanyClassifications");
 
-                    b.Navigation("Identifiers");
+                    b.Navigation("CompanyIdentifiers");
 
-                    b.Navigation("NamesHistory");
+                    b.Navigation("CompanyNameHistories");
 
-                    b.Navigation("StatusHistory");
+                    b.Navigation("CompanyStatusHistories");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Identifiers.CompanyIdentifier", b =>
                 {
-                    b.Navigation("Identifiers");
+                    b.Navigation("CompanyIdentifiers");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.Companies.Statuses.CompanyStatus", b =>
                 {
-                    b.Navigation("Histories");
+                    b.Navigation("CompanyStatusHistories");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.Course", b =>
                 {
-                    b.Navigation("Disciplines");
+                    b.Navigation("CourseDisciplines");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Courses.CourseForm", b =>
@@ -2886,17 +2902,19 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AIType", b =>
                 {
-                    b.Navigation("Institutions");
+                    b.Navigation("AcademicInstitutions");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.AcademicInstitution", b =>
                 {
+                    b.Navigation("Courses");
+
                     b.Navigation("SpecificTypeHistories");
                 });
 
             modelBuilder.Entity("Application.DatabaseRelational.Models.HighSchools.Institutions.SpecificTypes.AISpecificType", b =>
                 {
-                    b.Navigation("Histories");
+                    b.Navigation("SpecificTypeHistories");
                 });
 #pragma warning restore 612, 618
         }

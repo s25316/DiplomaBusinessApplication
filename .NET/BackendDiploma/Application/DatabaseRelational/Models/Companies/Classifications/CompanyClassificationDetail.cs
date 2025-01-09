@@ -8,7 +8,7 @@
         //Dependencies
         public Guid CompanyId { get; set; }
         public Company Company { get; set; } = null!;
-        public int ClassificationId { get; set; }
-        public CompanyClassification Classification { get; set; } = null!;
+        public int CompanyClassificationId { get; set; }
+        public CompanyClassification CompanyClassification { get; set; } = null!;
     }
 }

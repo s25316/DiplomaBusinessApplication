@@ -11,18 +11,10 @@ namespace Infrastructure.DatabaseRelational.Configurations.Addresses
             builder.ToTable(nameof(Address));
             builder.HasKey(x => x.AddressId).HasName($"{nameof(Address)}_pk");
 
-            builder.Property(x => x.AddressId)
-                .ValueGeneratedNever()
-                .HasDefaultValueSql("(newid())");
-
-            builder.Property(x => x.BuildingNumber)
-                .HasMaxLength(50);
-
-            builder.Property(x => x.ApartmentNumber)
-                .HasMaxLength(50);
-
-            builder.Property(x => x.ZipCode)
-                .HasMaxLength(10);
+            builder.Property(x => x.AddressId).HasDefaultValueSql("(newid())");
+            builder.Property(x => x.BuildingNumber).HasMaxLength(50);
+            builder.Property(x => x.ApartmentNumber).HasMaxLength(50);
+            builder.Property(x => x.ZipCode).HasMaxLength(10);
 
             builder.HasOne(x => x.Street)
                 .WithMany(x => x.Addresses)

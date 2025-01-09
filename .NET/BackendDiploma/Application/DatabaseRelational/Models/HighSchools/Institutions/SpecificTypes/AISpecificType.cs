@@ -3,10 +3,10 @@
     public class AISpecificType
     {
         //Properties
-        public int Id { get; set; }
+        public int AcademicInstitutionSpecificTypeId { get; set; }
         public string Name { get; set; } = null!;
 
         //Dependencies
-        public virtual ICollection<AISpecificTypeHistory> Histories { get; set; } = new List<AISpecificTypeHistory>();
+        public virtual ICollection<AISpecificTypeHistory> SpecificTypeHistories { get; set; } = new List<AISpecificTypeHistory>();
     }
 }

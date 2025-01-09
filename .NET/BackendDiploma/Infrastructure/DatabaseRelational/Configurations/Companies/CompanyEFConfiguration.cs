@@ -9,9 +9,9 @@ namespace Infrastructure.DatabaseRelational.Configurations.Companies
         public void Configure(EntityTypeBuilder<Company> builder)
         {
             builder.ToTable(nameof(Company));
-            builder.HasKey(x => x.Id).HasName($"{nameof(Company)}_pk");
+            builder.HasKey(x => x.CompanyId).HasName($"{nameof(Company)}_pk");
 
-            builder.Property(x => x.Id).HasDefaultValueSql("(newid())");
+            builder.Property(x => x.CompanyId).HasDefaultValueSql("(newid())");
         }
     }
 }

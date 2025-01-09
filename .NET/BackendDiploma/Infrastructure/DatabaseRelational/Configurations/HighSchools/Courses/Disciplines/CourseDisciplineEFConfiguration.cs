@@ -20,7 +20,7 @@ namespace Infrastructure.DatabaseRelational.Configurations.HighSchools.Courses.D
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(x => x.Course)
-                .WithMany(x => x.Disciplines)
+                .WithMany(x => x.CourseDisciplines)
                 .HasForeignKey(x => x.CourseId)
                 .HasConstraintName($"{nameof(CourseDiscipline)}_{nameof(Course)}")
                 .OnDelete(DeleteBehavior.Restrict);

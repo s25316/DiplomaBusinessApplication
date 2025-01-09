@@ -8,7 +8,7 @@
         //Dependencies
         public Guid CompanyId { get; set; }
         public virtual Company Company { get; set; } = null!;
-        public int IdentifierId { get; set; }
-        public virtual CompanyIdentifier Identifier { get; set; } = null!;
+        public int CompanyIdentifierId { get; set; }
+        public virtual CompanyIdentifier CompanyIdentifier { get; set; } = null!;
     }
 }

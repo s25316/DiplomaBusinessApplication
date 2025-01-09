@@ -12,10 +12,10 @@ namespace Infrastructure.DatabaseRelational.Configurations.Companies
             builder.HasKey(x => new { x.CompanyId, x.Date })
                 .HasName($"{nameof(CompanyNameHistory)}_pk");
 
-            builder.Property(x => x.Name).HasMaxLength(800);
+            builder.Property(x => x.Name).HasMaxLength(250);
 
             builder.HasOne(x => x.Company)
-                .WithMany(x => x.NamesHistory)
+                .WithMany(x => x.CompanyNameHistories)
                 .HasForeignKey(x => x.CompanyId)
                 .HasConstraintName($"{nameof(CompanyNameHistory)}_{nameof(Company)}")
                 .OnDelete(DeleteBehavior.Restrict);

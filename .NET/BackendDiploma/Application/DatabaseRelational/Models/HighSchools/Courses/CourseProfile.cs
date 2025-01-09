@@ -3,7 +3,7 @@
     public class CourseProfile
     {
         //Properties
-        public int Code { get; set; }
+        public int CourseProfileCode { get; set; }
         public string Name { get; set; } = null!;
 
         //Dependencies

@@ -13,10 +13,8 @@ namespace Infrastructure.DatabaseRelational.Configurations.Addresses
             builder.ToTable(nameof(Country));
             builder.HasKey(x => x.CountryId).HasName($"{nameof(Country)}_pk");
 
-            builder.Property(x => x.CountryId)
-                .ValueGeneratedNever();
-            builder.Property(x => x.Name)
-                .HasMaxLength(100);
+            builder.Property(x => x.CountryId).ValueGeneratedNever();
+            builder.Property(x => x.Name).HasMaxLength(100);
 
             builder.HasMany(x => x.Divisions)
                 .WithOne(x => x.Country)
@@ -42,8 +40,7 @@ namespace Infrastructure.DatabaseRelational.Configurations.Addresses
                .HasConstraintName($"{nameof(Country)}_{nameof(CompanyClassification)}")
                .OnDelete(DeleteBehavior.Restrict);
 
-            Country[] data =
-                {
+            Country[] data = {
                 new Country{ CountryId = 1, Name = "Polska"},
             };
             builder.HasData(data);

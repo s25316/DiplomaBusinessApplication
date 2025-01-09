@@ -3,7 +3,7 @@
     public class Language
     {
         //Properties
-        public string Code { get; set; } = null!;
+        public string LanguageCode { get; set; } = null!;
         public string Name { get; set; } = null!;
 
         //Dependencies

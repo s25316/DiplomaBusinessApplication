@@ -10,17 +10,14 @@ namespace Infrastructure.DatabaseRelational.Configurations.HighSchools.Instituti
         public void Configure(EntityTypeBuilder<AcademicInstitution> builder)
         {
             builder.ToTable(nameof(AcademicInstitution));
-            builder.HasKey(x => x.Id).HasName($"{nameof(AcademicInstitution)}_pk");
+            builder.HasKey(x => x.AcademicInstitutionId).HasName($"{nameof(AcademicInstitution)}_pk");
 
-            builder.Property(x => x.Id)
-                .ValueGeneratedNever()
-                .HasDefaultValueSql("(newid())");
             builder.Property(x => x.LastUpdate)
                 .HasDefaultValueSql("(GETDATE())");
 
             builder.HasOne(x => x.Company)
                 .WithOne(x => x.AcademicInstitution)
-                .HasForeignKey<AcademicInstitution>(x => x.Id)
+                .HasForeignKey<AcademicInstitution>(x => x.AcademicInstitutionId)
                 .HasConstraintName($"{nameof(Company)}_{nameof(AcademicInstitution)}")
                 .OnDelete(DeleteBehavior.Restrict);
         }

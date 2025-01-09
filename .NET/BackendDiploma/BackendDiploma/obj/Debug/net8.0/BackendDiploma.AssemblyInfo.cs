@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BackendDiploma")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3aa7c1c95cfc81f82960dba2be5e4a7de2e70637")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b10e18f3b2d024300403d56cb3eca16734301900")]
 [assembly: System.Reflection.AssemblyProductAttribute("BackendDiploma")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BackendDiploma")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

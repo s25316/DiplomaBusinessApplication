@@ -9,21 +9,21 @@ namespace Infrastructure.DatabaseRelational.Configurations.HighSchools.Courses
         public void Configure(EntityTypeBuilder<CourseForm> builder)
         {
             builder.ToTable(nameof(CourseForm));
-            builder.HasKey(x => x.Code).HasName($"{nameof(CourseForm)}_pk");
+            builder.HasKey(x => x.CourseFormCode).HasName($"{nameof(CourseForm)}_pk");
 
-            builder.Property(x => x.Code).ValueGeneratedNever();
+            builder.Property(x => x.CourseFormCode).ValueGeneratedNever();
             builder.Property(x => x.Name).HasMaxLength(100);
 
             builder.HasMany(x => x.Courses)
-                .WithOne(x => x.Form)
-                .HasForeignKey(x => x.FormCode)
+                .WithOne(x => x.CourseForm)
+                .HasForeignKey(x => x.CourseFormCode)
                 .HasConstraintName($"{nameof(Course)}_{nameof(CourseForm)}")
                 .OnDelete(DeleteBehavior.Restrict);
 
             CourseForm[] items =
                 {
-                new CourseForm{ Code = 1, Name = "stacjonarne" },
-                new CourseForm{ Code = 2, Name = "niestacjonarne" },
+                new CourseForm{ CourseFormCode = 1, Name = "stacjonarne" },
+                new CourseForm{ CourseFormCode = 2, Name = "niestacjonarne" },
             };
             builder.HasData(items);
         }

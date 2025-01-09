@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Hand : Migration
+    public partial class First : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,63 +17,60 @@ namespace Infrastructure.Migrations
                 name: "AIOrganizationalUnit",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AcademicInstitutionOrganizationalUnitId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(800)", maxLength: 800, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("AIOrganizationalUnit_pk", x => x.Id);
+                    table.PrimaryKey("AIOrganizationalUnit_pk", x => x.AcademicInstitutionOrganizationalUnitId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "AISpecificType",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    AcademicInstitutionSpecificTypeId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("AISpecificType_pk", x => x.Id);
+                    table.PrimaryKey("AISpecificType_pk", x => x.AcademicInstitutionSpecificTypeId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "AIType",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    AcademicInstitutionTypeId = table.Column<int>(type: "int", nullable: false),
                     IsSchool = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("AIType_pk", x => x.Id);
+                    table.PrimaryKey("AIType_pk", x => x.AcademicInstitutionTypeId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Company",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "(newid())"),
-                    WWW = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    CompanyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "(newid())")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("Company_pk", x => x.Id);
+                    table.PrimaryKey("Company_pk", x => x.CompanyId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "CompanyStatus",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    CompanyStatusId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("CompanyStatus_pk", x => x.Id);
+                    table.PrimaryKey("CompanyStatus_pk", x => x.CompanyStatusId);
                 });
 
             migrationBuilder.CreateTable(
@@ -92,60 +89,60 @@ namespace Infrastructure.Migrations
                 name: "CourseForm",
                 columns: table => new
                 {
-                    Code = table.Column<int>(type: "int", nullable: false),
+                    CourseFormCode = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("CourseForm_pk", x => x.Code);
+                    table.PrimaryKey("CourseForm_pk", x => x.CourseFormCode);
                 });
 
             migrationBuilder.CreateTable(
                 name: "CourseLevel",
                 columns: table => new
                 {
-                    Code = table.Column<int>(type: "int", nullable: false),
+                    CourseLevelCode = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("CourseLevel_pk", x => x.Code);
+                    table.PrimaryKey("CourseLevel_pk", x => x.CourseLevelCode);
                 });
 
             migrationBuilder.CreateTable(
                 name: "CourseProfile",
                 columns: table => new
                 {
-                    Code = table.Column<int>(type: "int", nullable: false),
+                    CourseProfileCode = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("CourseProfile_pk", x => x.Code);
+                    table.PrimaryKey("CourseProfile_pk", x => x.CourseProfileCode);
                 });
 
             migrationBuilder.CreateTable(
                 name: "CourseTitle",
                 columns: table => new
                 {
-                    Code = table.Column<int>(type: "int", nullable: false),
+                    CourseTitleCode = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("CourseTitle_pk", x => x.Code);
+                    table.PrimaryKey("CourseTitle_pk", x => x.CourseTitleCode);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Discipline",
                 columns: table => new
                 {
-                    Code = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    DisciplineCode = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("Discipline_pk", x => x.Code);
+                    table.PrimaryKey("Discipline_pk", x => x.DisciplineCode);
                 });
 
             migrationBuilder.CreateTable(
@@ -164,48 +161,48 @@ namespace Infrastructure.Migrations
                 name: "Isced",
                 columns: table => new
                 {
-                    Code = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IscedCode = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("Isced_pk", x => x.Code);
+                    table.PrimaryKey("Isced_pk", x => x.IscedCode);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Language",
                 columns: table => new
                 {
-                    Code = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    LanguageCode = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("Language_pk", x => x.Code);
+                    table.PrimaryKey("Language_pk", x => x.LanguageCode);
                 });
 
             migrationBuilder.CreateTable(
                 name: "AcademicInstitution",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "(newid())"),
+                    AcademicInstitutionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     LastUpdate = table.Column<DateOnly>(type: "date", nullable: false, defaultValueSql: "(GETDATE())"),
-                    TypeId = table.Column<int>(type: "int", nullable: false)
+                    AcademicInstitutionTypeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("AcademicInstitution_pk", x => x.Id);
+                    table.PrimaryKey("AcademicInstitution_pk", x => x.AcademicInstitutionId);
                     table.ForeignKey(
                         name: "AIType_AcademicInstitution",
-                        column: x => x.TypeId,
+                        column: x => x.AcademicInstitutionTypeId,
                         principalTable: "AIType",
-                        principalColumn: "Id",
+                        principalColumn: "AcademicInstitutionTypeId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "Company_AcademicInstitution",
-                        column: x => x.Id,
+                        column: x => x.AcademicInstitutionId,
                         principalTable: "Company",
-                        principalColumn: "Id",
+                        principalColumn: "CompanyId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -215,7 +212,7 @@ namespace Infrastructure.Migrations
                 {
                     CompanyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Date = table.Column<DateOnly>(type: "date", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(800)", maxLength: 800, nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -224,7 +221,7 @@ namespace Infrastructure.Migrations
                         name: "CompanyNameHistory_Company",
                         column: x => x.CompanyId,
                         principalTable: "Company",
-                        principalColumn: "Id",
+                        principalColumn: "CompanyId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -232,24 +229,64 @@ namespace Infrastructure.Migrations
                 name: "CompanyStatusHistory",
                 columns: table => new
                 {
-                    CompanyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Date = table.Column<DateOnly>(type: "date", nullable: false),
-                    StatusId = table.Column<int>(type: "int", nullable: false)
+                    CompanyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CompanyStatusId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("CompanyStatusHistory_pk", x => new { x.CompanyId, x.Date });
+                    table.PrimaryKey("CompanyStatusHistory_pk", x => new { x.CompanyId, x.Date, x.CompanyStatusId });
                     table.ForeignKey(
                         name: "CompanyStatusHistory_Company",
                         column: x => x.CompanyId,
                         principalTable: "Company",
-                        principalColumn: "Id",
+                        principalColumn: "CompanyId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "CompanyStatusHistory_CompanyStatus",
-                        column: x => x.StatusId,
+                        column: x => x.CompanyStatusId,
                         principalTable: "CompanyStatus",
-                        principalColumn: "Id",
+                        principalColumn: "CompanyStatusId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CompanyClassification",
+                columns: table => new
+                {
+                    CompanyClassificationId = table.Column<int>(type: "int", nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    CountryId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("CompanyClassification_pk", x => x.CompanyClassificationId);
+                    table.ForeignKey(
+                        name: "Country_CompanyClassification",
+                        column: x => x.CountryId,
+                        principalTable: "Country",
+                        principalColumn: "CountryId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CompanyIdentifier",
+                columns: table => new
+                {
+                    CompanyIdentifierId = table.Column<int>(type: "int", nullable: false),
+                    ShortName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    CountryId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("CompanyIdentifier_pk", x => x.CompanyIdentifierId);
+                    table.ForeignKey(
+                        name: "Country_CompanyIdentifier",
+                        column: x => x.CountryId,
+                        principalTable: "Country",
+                        principalColumn: "CountryId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -258,12 +295,12 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     DivisionId = table.Column<int>(type: "int", nullable: false),
-                    ParentDivisionId = table.Column<int>(type: "int", nullable: true),
-                    CountryId = table.Column<int>(type: "int", nullable: false),
-                    DivisionTypeId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Level = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
-                    ParentsPath = table.Column<string>(type: "nvarchar(800)", maxLength: 800, nullable: true)
+                    ParentsPath = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CountryId = table.Column<int>(type: "int", nullable: false),
+                    DivisionTypeId = table.Column<int>(type: "int", nullable: false),
+                    ParentDivisionId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -292,9 +329,9 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     StreetId = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     CountryId = table.Column<int>(type: "int", nullable: false),
-                    DivisionTypeId = table.Column<int>(type: "int", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    DivisionTypeId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -317,57 +354,57 @@ namespace Infrastructure.Migrations
                 name: "Course",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CourseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(800)", maxLength: 800, nullable: false),
                     NumberOfSemesters = table.Column<int>(type: "int", nullable: false),
                     StartDate = table.Column<DateOnly>(type: "date", nullable: false),
                     LiquidationDate = table.Column<DateOnly>(type: "date", nullable: true),
                     LastUpdate = table.Column<DateOnly>(type: "date", nullable: false),
-                    FormCode = table.Column<int>(type: "int", nullable: true),
-                    TitleCode = table.Column<int>(type: "int", nullable: true),
-                    LevelCode = table.Column<int>(type: "int", nullable: true),
-                    ProfileCode = table.Column<int>(type: "int", nullable: true),
+                    CourseFormCode = table.Column<int>(type: "int", nullable: true),
+                    CourseTitleCode = table.Column<int>(type: "int", nullable: true),
+                    CourseLevelCode = table.Column<int>(type: "int", nullable: true),
+                    CourseProfileCode = table.Column<int>(type: "int", nullable: true),
                     LanguageCode = table.Column<string>(type: "nvarchar(20)", nullable: true),
                     IscedCode = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("Course_pk", x => x.Id);
+                    table.PrimaryKey("Course_pk", x => x.CourseId);
                     table.ForeignKey(
                         name: "Course_CourseForm",
-                        column: x => x.FormCode,
+                        column: x => x.CourseFormCode,
                         principalTable: "CourseForm",
-                        principalColumn: "Code",
+                        principalColumn: "CourseFormCode",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "Course_CourseLevel",
-                        column: x => x.LevelCode,
+                        column: x => x.CourseLevelCode,
                         principalTable: "CourseLevel",
-                        principalColumn: "Code",
+                        principalColumn: "CourseLevelCode",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "Course_CourseProfile",
-                        column: x => x.ProfileCode,
+                        column: x => x.CourseProfileCode,
                         principalTable: "CourseProfile",
-                        principalColumn: "Code",
+                        principalColumn: "CourseProfileCode",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "Course_CourseTitle",
-                        column: x => x.TitleCode,
+                        column: x => x.CourseTitleCode,
                         principalTable: "CourseTitle",
-                        principalColumn: "Code",
+                        principalColumn: "CourseTitleCode",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "Course_Isced",
                         column: x => x.IscedCode,
                         principalTable: "Isced",
-                        principalColumn: "Code",
+                        principalColumn: "IscedCode",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "Course_Language",
                         column: x => x.LanguageCode,
                         principalTable: "Language",
-                        principalColumn: "Code",
+                        principalColumn: "LanguageCode",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -375,24 +412,74 @@ namespace Infrastructure.Migrations
                 name: "AISpecificTypeHistory",
                 columns: table => new
                 {
-                    InstitutionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TypeId = table.Column<int>(type: "int", nullable: false),
-                    Date = table.Column<DateOnly>(type: "date", nullable: false)
+                    Date = table.Column<DateOnly>(type: "date", nullable: false),
+                    AcademicInstitutionSpecificTypeId = table.Column<int>(type: "int", nullable: false),
+                    AcademicInstitutionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("AISpecificTypeHistory_pk", x => new { x.InstitutionId, x.TypeId, x.Date });
+                    table.PrimaryKey("AISpecificTypeHistory_pk", x => new { x.AcademicInstitutionId, x.AcademicInstitutionSpecificTypeId, x.Date });
                     table.ForeignKey(
                         name: "AISpecificTypeHistory_AISpecificType",
-                        column: x => x.TypeId,
+                        column: x => x.AcademicInstitutionSpecificTypeId,
                         principalTable: "AISpecificType",
-                        principalColumn: "Id",
+                        principalColumn: "AcademicInstitutionSpecificTypeId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "AISpecificTypeHistory_AcademicInstitution",
-                        column: x => x.InstitutionId,
+                        column: x => x.AcademicInstitutionId,
                         principalTable: "AcademicInstitution",
-                        principalColumn: "Id",
+                        principalColumn: "AcademicInstitutionId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CompanyClassificationDetail",
+                columns: table => new
+                {
+                    CompanyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CompanyClassificationId = table.Column<int>(type: "int", nullable: false),
+                    IsMain = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("CompanyClassificationDetail_pk", x => new { x.CompanyId, x.CompanyClassificationId });
+                    table.ForeignKey(
+                        name: "CompanyClassificationDetail_Company",
+                        column: x => x.CompanyId,
+                        principalTable: "Company",
+                        principalColumn: "CompanyId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "CompanyClassificationDetail_CompanyClassification",
+                        column: x => x.CompanyClassificationId,
+                        principalTable: "CompanyClassification",
+                        principalColumn: "CompanyClassificationId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CompanyIdentifierDetail",
+                columns: table => new
+                {
+                    CompanyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CompanyIdentifierId = table.Column<int>(type: "int", nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("CompanyIdentifierDetail_pk", x => new { x.CompanyId, x.CompanyIdentifierId });
+                    table.ForeignKey(
+                        name: "CompanyIdentifierDetail_Company",
+                        column: x => x.CompanyId,
+                        principalTable: "Company",
+                        principalColumn: "CompanyId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "CompanyIdentifierDetail_CompanyIdentifier",
+                        column: x => x.CompanyIdentifierId,
+                        principalTable: "CompanyIdentifier",
+                        principalColumn: "CompanyIdentifierId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -401,10 +488,11 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     AddressId = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "(newid())"),
-                    StreetId = table.Column<int>(type: "int", nullable: true),
-                    DivisionId = table.Column<int>(type: "int", nullable: false),
                     BuildingNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    ApartmentNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
+                    ApartmentNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    ZipCode = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),
+                    StreetId = table.Column<int>(type: "int", nullable: true),
+                    DivisionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -427,21 +515,21 @@ namespace Infrastructure.Migrations
                 name: "DivisionStreet",
                 columns: table => new
                 {
-                    DivisionId = table.Column<int>(type: "int", nullable: false),
-                    StreetId = table.Column<int>(type: "int", nullable: false)
+                    DivisionAcademicInstitutionId = table.Column<int>(type: "int", nullable: false),
+                    StreetAcademicInstitutionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DivisionStreet", x => new { x.DivisionId, x.StreetId });
+                    table.PrimaryKey("PK_DivisionStreet", x => new { x.DivisionAcademicInstitutionId, x.StreetAcademicInstitutionId });
                     table.ForeignKey(
-                        name: "FK_DivisionStreet_DivisionId",
-                        column: x => x.DivisionId,
+                        name: "FK_DivisionStreet_DivisionAcademicInstitutionId",
+                        column: x => x.DivisionAcademicInstitutionId,
                         principalTable: "Division",
                         principalColumn: "DivisionId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DivisionStreet_StreetId",
-                        column: x => x.StreetId,
+                        name: "FK_DivisionStreet_StreetAcademicInstitutionId",
+                        column: x => x.StreetAcademicInstitutionId,
                         principalTable: "Street",
                         principalColumn: "StreetId",
                         onDelete: ReferentialAction.Cascade);
@@ -451,23 +539,23 @@ namespace Infrastructure.Migrations
                 name: "CourseAIOrganizationalUnit",
                 columns: table => new
                 {
-                    AIOrganizationalUnitId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CourseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    AcademicInstitutionOrganizationalUnitId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CourseCompanyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CourseAIOrganizationalUnit", x => new { x.AIOrganizationalUnitId, x.CourseId });
+                    table.PrimaryKey("PK_CourseAIOrganizationalUnit", x => new { x.AcademicInstitutionOrganizationalUnitId, x.CourseCompanyId });
                     table.ForeignKey(
                         name: "CourseAIOrganizationalUnit_AIOrganizationalUnit",
-                        column: x => x.AIOrganizationalUnitId,
+                        column: x => x.AcademicInstitutionOrganizationalUnitId,
                         principalTable: "AIOrganizationalUnit",
-                        principalColumn: "Id",
+                        principalColumn: "AcademicInstitutionOrganizationalUnitId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "CourseAIOrganizationalUnit_Course",
-                        column: x => x.CourseId,
+                        column: x => x.CourseCompanyId,
                         principalTable: "Course",
-                        principalColumn: "Id",
+                        principalColumn: "CourseId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -475,8 +563,8 @@ namespace Infrastructure.Migrations
                 name: "CourseDiscipline",
                 columns: table => new
                 {
-                    DisciplineCode = table.Column<string>(type: "nvarchar(20)", nullable: false),
                     CourseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DisciplineCode = table.Column<string>(type: "nvarchar(20)", nullable: false),
                     PercentageShare = table.Column<int>(type: "int", nullable: true),
                     DisciplineLeading = table.Column<bool>(type: "bit", nullable: true)
                 },
@@ -487,13 +575,13 @@ namespace Infrastructure.Migrations
                         name: "CourseDiscipline_Course",
                         column: x => x.CourseId,
                         principalTable: "Course",
-                        principalColumn: "Id",
+                        principalColumn: "CourseId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "CourseDiscipline_Discipline",
                         column: x => x.DisciplineCode,
                         principalTable: "Discipline",
-                        principalColumn: "Code",
+                        principalColumn: "DisciplineCode",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -501,39 +589,39 @@ namespace Infrastructure.Migrations
                 name: "CourseLanguage",
                 columns: table => new
                 {
-                    CourseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    LanguageId = table.Column<string>(type: "nvarchar(20)", nullable: false)
+                    CourseAcademicInstitutionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    LanguageAcademicInstitutionId = table.Column<string>(type: "nvarchar(20)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CourseLanguage", x => new { x.CourseId, x.LanguageId });
+                    table.PrimaryKey("PK_CourseLanguage", x => new { x.CourseAcademicInstitutionId, x.LanguageAcademicInstitutionId });
                     table.ForeignKey(
                         name: "CourseLanguage_Course",
-                        column: x => x.CourseId,
+                        column: x => x.CourseAcademicInstitutionId,
                         principalTable: "Course",
-                        principalColumn: "Id",
+                        principalColumn: "CourseId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "CourseLanguage_Language",
-                        column: x => x.LanguageId,
+                        column: x => x.LanguageAcademicInstitutionId,
                         principalTable: "Language",
-                        principalColumn: "Code",
+                        principalColumn: "LanguageCode",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
                 table: "AIType",
-                columns: new[] { "Id", "IsSchool", "Name" },
+                columns: new[] { "AcademicInstitutionTypeId", "IsSchool", "Name" },
                 values: new object[] { 1, true, "Uczelnia kościelna" });
 
             migrationBuilder.InsertData(
                 table: "AIType",
-                columns: new[] { "Id", "Name" },
+                columns: new[] { "AcademicInstitutionTypeId", "Name" },
                 values: new object[] { 5, "Instytucja naukowa" });
 
             migrationBuilder.InsertData(
                 table: "AIType",
-                columns: new[] { "Id", "IsSchool", "Name" },
+                columns: new[] { "AcademicInstitutionTypeId", "IsSchool", "Name" },
                 values: new object[,]
                 {
                     { 10, true, "Uczelnia niepubliczna" },
@@ -542,12 +630,32 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "AIType",
-                columns: new[] { "Id", "Name" },
+                columns: new[] { "AcademicInstitutionTypeId", "Name" },
                 values: new object[] { 16, "Federacja" });
 
             migrationBuilder.InsertData(
+                table: "CompanyStatus",
+                columns: new[] { "CompanyStatusId", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Działająca" },
+                    { 2, "W likwidacji" },
+                    { 3, "Zlikwidowana" },
+                    { 4, "Przekształcona" },
+                    { 8, "Wykreślona z wykazu" },
+                    { 11, "Zawieszona" },
+                    { 12, "Wznowiona" },
+                    { 13, "Zakończona" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Country",
+                columns: new[] { "CountryId", "Name" },
+                values: new object[] { 1, "Polska" });
+
+            migrationBuilder.InsertData(
                 table: "CourseForm",
-                columns: new[] { "Code", "Name" },
+                columns: new[] { "CourseFormCode", "Name" },
                 values: new object[,]
                 {
                     { 1, "stacjonarne" },
@@ -556,7 +664,7 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "CourseLevel",
-                columns: new[] { "Code", "Name" },
+                columns: new[] { "CourseLevelCode", "Name" },
                 values: new object[,]
                 {
                     { 1, "jednolite magisterskie" },
@@ -566,7 +674,7 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "CourseProfile",
-                columns: new[] { "Code", "Name" },
+                columns: new[] { "CourseProfileCode", "Name" },
                 values: new object[,]
                 {
                     { 1, "praktyczny" },
@@ -575,7 +683,7 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "CourseTitle",
-                columns: new[] { "Code", "Name" },
+                columns: new[] { "CourseTitleCode", "Name" },
                 values: new object[,]
                 {
                     { 1, "magister" },
@@ -586,7 +694,7 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "Discipline",
-                columns: new[] { "Code", "Name" },
+                columns: new[] { "DisciplineCode", "Name" },
                 values: new object[,]
                 {
                     { "DS010101N", "archeologia" },
@@ -649,7 +757,7 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "Isced",
-                columns: new[] { "Code", "Name" },
+                columns: new[] { "IscedCode", "Name" },
                 values: new object[,]
                 {
                     { "00", "Grupa Programy ogólne" },
@@ -875,7 +983,7 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "Language",
-                columns: new[] { "Code", "Name" },
+                columns: new[] { "LanguageCode", "Name" },
                 values: new object[,]
                 {
                     { "alb-sqi", "albański" },
@@ -930,10 +1038,20 @@ namespace Infrastructure.Migrations
                     { "yid", "jidysz" }
                 });
 
+            migrationBuilder.InsertData(
+                table: "CompanyIdentifier",
+                columns: new[] { "CompanyIdentifierId", "CountryId", "Name", "ShortName" },
+                values: new object[,]
+                {
+                    { 1, 1, "Numer identyfikacji podatkowej", "NIP" },
+                    { 2, 1, "Krajowy Rejestr Urzędowy Podmiotów Gospodarki Narodowej", "REGON" },
+                    { 3, 1, "Krajowy Rejestr Sądowy", "KRS" }
+                });
+
             migrationBuilder.CreateIndex(
-                name: "IX_AcademicInstitution_TypeId",
+                name: "IX_AcademicInstitution_AcademicInstitutionTypeId",
                 table: "AcademicInstitution",
-                column: "TypeId");
+                column: "AcademicInstitutionTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Address_DivisionId",
@@ -946,19 +1064,54 @@ namespace Infrastructure.Migrations
                 column: "StreetId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AISpecificTypeHistory_TypeId",
+                name: "IX_AISpecificTypeHistory_AcademicInstitutionSpecificTypeId",
                 table: "AISpecificTypeHistory",
-                column: "TypeId");
+                column: "AcademicInstitutionSpecificTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CompanyStatusHistory_StatusId",
+                name: "IX_CompanyClassification_CountryId",
+                table: "CompanyClassification",
+                column: "CountryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CompanyClassificationDetail_CompanyClassificationId",
+                table: "CompanyClassificationDetail",
+                column: "CompanyClassificationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CompanyIdentifier_CountryId",
+                table: "CompanyIdentifier",
+                column: "CountryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CompanyIdentifierDetail_CompanyIdentifierId",
+                table: "CompanyIdentifierDetail",
+                column: "CompanyIdentifierId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CompanyStatusHistory_CompanyStatusId",
                 table: "CompanyStatusHistory",
-                column: "StatusId");
+                column: "CompanyStatusId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Course_FormCode",
+                name: "IX_Course_CourseFormCode",
                 table: "Course",
-                column: "FormCode");
+                column: "CourseFormCode");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Course_CourseLevelCode",
+                table: "Course",
+                column: "CourseLevelCode");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Course_CourseProfileCode",
+                table: "Course",
+                column: "CourseProfileCode");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Course_CourseTitleCode",
+                table: "Course",
+                column: "CourseTitleCode");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Course_IscedCode",
@@ -971,24 +1124,9 @@ namespace Infrastructure.Migrations
                 column: "LanguageCode");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Course_LevelCode",
-                table: "Course",
-                column: "LevelCode");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Course_ProfileCode",
-                table: "Course",
-                column: "ProfileCode");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Course_TitleCode",
-                table: "Course",
-                column: "TitleCode");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CourseAIOrganizationalUnit_CourseId",
+                name: "IX_CourseAIOrganizationalUnit_CourseCompanyId",
                 table: "CourseAIOrganizationalUnit",
-                column: "CourseId");
+                column: "CourseCompanyId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CourseDiscipline_CourseId",
@@ -996,9 +1134,9 @@ namespace Infrastructure.Migrations
                 column: "CourseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CourseLanguage_LanguageId",
+                name: "IX_CourseLanguage_LanguageAcademicInstitutionId",
                 table: "CourseLanguage",
-                column: "LanguageId");
+                column: "LanguageAcademicInstitutionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Division_CountryId",
@@ -1016,9 +1154,9 @@ namespace Infrastructure.Migrations
                 column: "ParentDivisionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DivisionStreet_StreetId",
+                name: "IX_DivisionStreet_StreetAcademicInstitutionId",
                 table: "DivisionStreet",
-                column: "StreetId");
+                column: "StreetAcademicInstitutionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Street_CountryId",
@@ -1039,6 +1177,12 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "AISpecificTypeHistory");
+
+            migrationBuilder.DropTable(
+                name: "CompanyClassificationDetail");
+
+            migrationBuilder.DropTable(
+                name: "CompanyIdentifierDetail");
 
             migrationBuilder.DropTable(
                 name: "CompanyNameHistory");
@@ -1063,6 +1207,12 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "AcademicInstitution");
+
+            migrationBuilder.DropTable(
+                name: "CompanyClassification");
+
+            migrationBuilder.DropTable(
+                name: "CompanyIdentifier");
 
             migrationBuilder.DropTable(
                 name: "CompanyStatus");

@@ -3,7 +3,7 @@
     public class Discipline
     {
         //Properties
-        public string Code { get; set; } = null!;
+        public string DisciplineCode { get; set; } = null!;
         public string Name { get; set; } = null!;
 
         //Dependencies

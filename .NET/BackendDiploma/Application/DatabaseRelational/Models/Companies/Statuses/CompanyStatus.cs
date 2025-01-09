@@ -3,10 +3,10 @@
     public class CompanyStatus
     {
         //Properties
-        public int Id { get; set; }
+        public int CompanyStatusId { get; set; }
         public string Name { get; set; } = null!;
 
         //Dependencies
-        public virtual ICollection<CompanyStatusHistory> Histories { get; set; } = new List<CompanyStatusHistory>();
+        public virtual ICollection<CompanyStatusHistory> CompanyStatusHistories { get; set; } = new List<CompanyStatusHistory>();
     }
 }

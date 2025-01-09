@@ -10,20 +10,20 @@ namespace Infrastructure.DatabaseRelational.Configurations.Companies.Classificat
         public void Configure(EntityTypeBuilder<CompanyClassificationDetail> builder)
         {
             builder.ToTable(nameof(CompanyClassificationDetail));
-            builder.HasKey(x => new { x.CompanyId, x.ClassificationId })
+            builder.HasKey(x => new { x.CompanyId, x.CompanyClassificationId })
                 .HasName($"{nameof(CompanyClassificationDetail)}_pk");
 
             builder.Property(x => x.IsMain).HasDefaultValue((false));
 
             builder.HasOne(x => x.Company)
-                .WithMany(x => x.Classifications)
+                .WithMany(x => x.CompanyClassifications)
                 .HasForeignKey(x => x.CompanyId)
                 .HasConstraintName($"{nameof(CompanyClassificationDetail)}_{nameof(Company)}")
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(x => x.Classification)
-                .WithMany(x => x.Classifications)
-                .HasForeignKey(x => x.ClassificationId)
+            builder.HasOne(x => x.CompanyClassification)
+                .WithMany(x => x.CompanyClassifications)
+                .HasForeignKey(x => x.CompanyClassificationId)
                 .HasConstraintName($"{nameof(CompanyClassificationDetail)}_{nameof(CompanyClassification)}")
                 .OnDelete(DeleteBehavior.Restrict);
         }

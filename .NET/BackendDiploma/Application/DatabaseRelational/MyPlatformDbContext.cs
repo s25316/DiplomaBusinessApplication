@@ -28,7 +28,7 @@ namespace Application.DatabaseRelational
         public virtual DbSet<Division> Divisions { get; set; }
         public virtual DbSet<DivisionType> DivisionTypes { get; set; }
 
-        //HighSchools/Institutions
+        //HighSchools/AcademicInstitutions
         public virtual DbSet<AcademicInstitution> AcademicInstitutions { get; set; }
         public virtual DbSet<AISpecificType> AISpecificTypes { get; set; }
         public virtual DbSet<AISpecificTypeHistory> AISpecificTypeHistories { get; set; }

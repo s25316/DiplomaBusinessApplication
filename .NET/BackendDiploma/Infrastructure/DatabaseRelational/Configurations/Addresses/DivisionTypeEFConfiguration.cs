@@ -11,16 +11,15 @@ namespace Infrastructure.DatabaseRelational.Configurations.Addresses
             builder.ToTable(nameof(DivisionType));
             builder.HasKey(x => x.DivisionTypeId).HasName($"{nameof(DivisionType)}_pk");
 
-            builder.Property(x => x.DivisionTypeId)
-                .ValueGeneratedNever();
-            builder.Property(x => x.Name)
-                .HasMaxLength(100);
+            builder.Property(x => x.DivisionTypeId).ValueGeneratedNever();
+            builder.Property(x => x.Name).HasMaxLength(100);
 
             builder.HasMany(x => x.Divisions)
                 .WithOne(x => x.DivisionType)
                 .HasForeignKey(x => x.DivisionTypeId)
                 .HasConstraintName($"{nameof(DivisionType)}_{nameof(Division)}")
                 .OnDelete(DeleteBehavior.Restrict);
+
             builder.HasMany(x => x.Streets)
                 .WithOne(x => x.DivisionType)
                 .HasForeignKey(x => x.DivisionTypeId)

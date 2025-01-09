@@ -9,10 +9,10 @@ namespace Infrastructure.DatabaseRelational.Configurations.Companies.Classificat
         public void Configure(EntityTypeBuilder<CompanyClassification> builder)
         {
             builder.ToTable(nameof(CompanyClassification));
-            builder.HasKey(x => x.Id)
+            builder.HasKey(x => x.CompanyClassificationId)
                 .HasName($"{nameof(CompanyClassification)}_pk");
 
-            builder.Property(x => x.Id).ValueGeneratedNever();
+            builder.Property(x => x.CompanyClassificationId).ValueGeneratedNever();
             builder.Property(x => x.Code).HasMaxLength(20);
             builder.Property(x => x.Name).HasMaxLength(100);
         }

@@ -14,7 +14,7 @@ namespace Infrastructure.DatabaseRelational.Configurations.Addresses
             builder.Property(x => x.DivisionId).ValueGeneratedNever();
             builder.Property(x => x.Name).HasMaxLength(100);
             builder.Property(x => x.Level).HasDefaultValue(0);
-            builder.Property(x => x.ParentsPath).HasMaxLength(800);
+            builder.Property(x => x.ParentsPath).HasMaxLength(100);
 
             builder.HasMany(x => x.Streets)
                 .WithMany(x => x.Divisions)
@@ -22,13 +22,13 @@ namespace Infrastructure.DatabaseRelational.Configurations.Addresses
                     $"{nameof(Division)}{nameof(Street)}",
                     l => l.HasOne<Street>()
                         .WithMany()
-                        .HasForeignKey($"{nameof(Street)}Id")
-                        .HasConstraintName($"FK_{nameof(Division)}{nameof(Street)}_{nameof(Street)}Id")
+                        .HasForeignKey($"{nameof(Street)}AcademicInstitutionId")
+                        .HasConstraintName($"FK_{nameof(Division)}{nameof(Street)}_{nameof(Street)}AcademicInstitutionId")
                         .OnDelete(DeleteBehavior.Cascade),
                     r => r.HasOne<Division>()
                         .WithMany()
-                        .HasForeignKey($"{nameof(Division)}Id")
-                        .HasConstraintName($"FK_{nameof(Division)}{nameof(Street)}_{nameof(Division)}Id")
+                        .HasForeignKey($"{nameof(Division)}AcademicInstitutionId")
+                        .HasConstraintName($"FK_{nameof(Division)}{nameof(Street)}_{nameof(Division)}AcademicInstitutionId")
                         .OnDelete(DeleteBehavior.Cascade)
             );
 

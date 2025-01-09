@@ -3,7 +3,7 @@
     public class CourseLevel
     {
         //Properties
-        public int Code { get; set; }
+        public int CourseLevelCode { get; set; }
         public string Name { get; set; } = null!;
 
         //Dependencies

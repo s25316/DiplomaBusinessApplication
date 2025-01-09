@@ -1,4 +1,5 @@
 ﻿using Application.DatabaseRelational.Models.Companies;
+using Application.DatabaseRelational.Models.HighSchools.Courses;
 using Application.DatabaseRelational.Models.HighSchools.Institutions.SpecificTypes;
 
 namespace Application.DatabaseRelational.Models.HighSchools.Institutions
@@ -9,10 +10,11 @@ namespace Application.DatabaseRelational.Models.HighSchools.Institutions
         public DateOnly LastUpdate { get; set; }
 
         //Dependencies
-        public Guid Id { get; set; }//PK
+        public Guid AcademicInstitutionId { get; set; }//PK/FK
         public virtual Company Company { get; set; } = null!;
-        public int TypeId { get; set; }
-        public AIType Type { get; set; } = null!;
+        public int AcademicInstitutionTypeId { get; set; }
+        public AIType AcademicInstitutionType { get; set; } = null!;
         public virtual ICollection<AISpecificTypeHistory> SpecificTypeHistories { get; set; } = new List<AISpecificTypeHistory>();
+        public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
     }
 }

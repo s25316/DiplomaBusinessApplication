@@ -9,21 +9,21 @@ namespace Infrastructure.DatabaseRelational.Configurations.HighSchools.Courses
         public void Configure(EntityTypeBuilder<CourseProfile> builder)
         {
             builder.ToTable(nameof(CourseProfile));
-            builder.HasKey(x => x.Code).HasName($"{nameof(CourseProfile)}_pk");
+            builder.HasKey(x => x.CourseProfileCode).HasName($"{nameof(CourseProfile)}_pk");
 
-            builder.Property(x => x.Code).ValueGeneratedNever();
+            builder.Property(x => x.CourseProfileCode).ValueGeneratedNever();
             builder.Property(x => x.Name).HasMaxLength(100);
 
             builder.HasMany(x => x.Courses)
-                .WithOne(x => x.Profile)
-                .HasForeignKey(x => x.ProfileCode)
+                .WithOne(x => x.CourseProfile)
+                .HasForeignKey(x => x.CourseProfileCode)
                 .HasConstraintName($"{nameof(Course)}_{nameof(CourseProfile)}")
                 .OnDelete(DeleteBehavior.Restrict);
 
             CourseProfile[] items =
                 {
-                new CourseProfile{ Code = 1, Name = "praktyczny" },
-                new CourseProfile{ Code = 2, Name = "ogólnoakademicki" },
+                new CourseProfile{ CourseProfileCode = 1, Name = "praktyczny" },
+                new CourseProfile{ CourseProfileCode = 2, Name = "ogólnoakademicki" },
             };
             builder.HasData(items);
         }

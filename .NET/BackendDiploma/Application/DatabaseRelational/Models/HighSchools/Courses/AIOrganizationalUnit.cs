@@ -3,7 +3,7 @@
     public class AIOrganizationalUnit
     {
         //Properties
-        public Guid Id { get; set; }
+        public Guid AcademicInstitutionOrganizationalUnitId { get; set; }
         public string Name { get; set; } = null!;
 
         //Dependencies
